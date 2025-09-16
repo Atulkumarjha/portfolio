@@ -1,7 +1,11 @@
+import { HeroSection } from "@/components/hero-section";
+import { NavBarItem } from "@/components/navbar";
+
 export default function Home() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div>
+       <NavBarItem />
+       <HeroSection />
+    </div>
   )
 }
