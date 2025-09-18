@@ -12,6 +12,7 @@ export function HeroSection() {
       <StarsBackground className="z-0" />
       {/*Introductory div*/}
       <div className="bg-black mt-22.5 h-110 w-200">         
+      <div className="bg-black mt-22.5 h-250 w-200">         
         <BackgroundBeamsWithCollisionDemo />
       </div>
       {/*Bento-Grid div*/}
