@@ -69,7 +69,7 @@ export function BackgroundBeamsWithCollisionDemo({
 
         <div className="flex flex-row mb-7 mt-2">
           <div className="mt-1 bg-gradient-to-b from-white via-gray-400 to-gray-700 bg-clip-text text-transparent">
-            Hello, I'm Atul Kr. Jha
+            Hi Everyone, I'm Atul Kr. Jha
           </div>
           <div>
             {" "}

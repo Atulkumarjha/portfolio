@@ -2,18 +2,19 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import { HeartHandshake } from "lucide-react";
+import { MarqueeDemo } from "../components/marquee";
 import {
-  IconClipboardCopy,
   IconFileBroken,
   IconSignature,
   IconTableColumn,
 } from "@tabler/icons-react";
+import { CollaborationCard } from "./collaboration-card";
 
 
 
 export function BentoGridSecondDemo() {
   return (
-    <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] bg-black">
+<BentoGrid className="max-w-4xl mx-auto md:auto-rows-[25rem] bg-black font-bold">
   {items.map((item, i) => (
     <BentoGridItem
       key={i}
@@ -38,29 +39,29 @@ const items = [
   {
     title: "Collaboration",
     description: "I excel at collaborating with clients by fostering transparent and open communication.",
-    header:<Skeleton />,
+    header: (<CollaborationCard />),
     className: "md:col-span-2",
     icon: <HeartHandshake className="h-8 w-8 text-neutral-500" />,
   },
   {
     title: "The Digital Revolution",
     description: "Dive into the transformative power of technology.",
-    header:(<img
-        src="/images/innovation.jpg"
-        alt="Innovation"
-        className="w-full h-full object-cover rounded-xl"
-      />),
+    header: <div></div>,
     className: "md:col-span-1",
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "The Art of Design",
-    description: "Discover the beauty of thoughtful and functional design.",
-    header:(<img
-        src="/images/innovation.jpg"
-        alt="Innovation"
-        className="w-full h-full object-cover rounded-xl"
-      />),
+    title: "INDIA-Remote",
+    description: "I’m highly flexible and can easily accommodate different time zones for communication.",
+    header: (
+      <div className="w-full h-full rounded-xl overflow-hidden flex justify-center items-center">
+        <img
+          src="/assets/globe.png"
+          alt="Globe Screenshot"
+          className="w-100 h-105 object-cover"
+        />
+      </div>
+    ),
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
@@ -68,11 +69,9 @@ const items = [
     title: "The Power of Communication",
     description:
       "Understand the impact of effective communication in our lives.",
-    header:(<img
-        src="/images/innovation.jpg"
-        alt="Innovation"
-        className="w-full h-full object-cover rounded-xl"
-      />),
+    header: (
+      <MarqueeDemo />
+    ),
     className: "md:col-span-2",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },
