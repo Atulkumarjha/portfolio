@@ -2,7 +2,8 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import { HeartHandshake } from "lucide-react";
-import { MarqueeDemo } from "../components/marquee";
+import { IconCloudDemo } from "../components/IconCloud";
+import Tooltip from "@/components/Tooltip";
 import {
   IconFileBroken,
   IconSignature,
@@ -46,12 +47,12 @@ const items = [
   {
     title: "The Digital Revolution",
     description: "Dive into the transformative power of technology.",
-    header: <div></div>,
+    header: (<IconCloudDemo />),
     className: "md:col-span-1",
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "INDIA-Remote",
+    title: "Remote",
     description: "I’m highly flexible and can easily accommodate different time zones for communication.",
     header: (
       <div className="w-full h-full rounded-xl overflow-hidden flex justify-center items-center">
@@ -66,11 +67,13 @@ const items = [
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "The Power of Communication",
+    title: "Social Handle",
     description:
-      "Understand the impact of effective communication in our lives.",
+      "Let's Work on your next Project",
     header: (
-      <MarqueeDemo />
+      <div className="flex justify-center mt-40">
+      <Tooltip />
+      </div>
     ),
     className: "md:col-span-2",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
