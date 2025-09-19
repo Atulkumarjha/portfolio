@@ -21,13 +21,12 @@ export function NavBarItem() {
       {/* Left: Logo */}
       <Link href="/" className="flex items-center">
         <Image
-  src="/assets/atulkumarjha.jpg"
-  alt="Logo"
-  width={30}
-  height={30}
-  className="cursor-pointer rounded-full object-cover"
-/>
-
+          src="/logo.png"
+          alt="Logo"
+          width={40}
+          height={40}
+          className="cursor-pointer"
+        />
       </Link>
 
       {/* Center: NavBar */}

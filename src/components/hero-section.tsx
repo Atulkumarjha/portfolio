@@ -3,7 +3,7 @@ import React from "react";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWithCollisionDemo";
-import { BentoGridSecondDemo } from "@/components/BentoGridSecondDemo"
+import { BentoGridSecondDemo } from "../components/BentoGridSecondDemo"
 
 export function HeroSection() {
   return (
@@ -11,12 +11,11 @@ export function HeroSection() {
       <ShootingStars className="z-0" />
       <StarsBackground className="z-0" />
       {/*Introductory div*/}
-      <div className="bg-black mt-22.5 h-110 w-200">         
-      <div className="bg-black mt-22.5 h-250 w-200">         
+      <div className="bg-black mt-22.5 h-125 ">         
         <BackgroundBeamsWithCollisionDemo />
       </div>
       {/*Bento-Grid div*/}
-      <div className=" bg-black h-175 w-full">
+      <div className="">
         <BentoGridSecondDemo />
       </div>
       {/*Curate Projects  div*/}

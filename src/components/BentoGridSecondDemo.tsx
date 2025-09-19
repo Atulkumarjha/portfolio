@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { AnimatedBeamDemo } from "../components/AnimatedBeamDemo"
+import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import { HeartHandshake } from "lucide-react";
 import {
   IconClipboardCopy,
@@ -39,7 +38,7 @@ const items = [
   {
     title: "Collaboration",
     description: "I excel at collaborating with clients by fostering transparent and open communication.",
-    header:<AnimatedBeamDemo />,
+    header:<Skeleton />,
     className: "md:col-span-2",
     icon: <HeartHandshake className="h-8 w-8 text-neutral-500" />,
   },
