@@ -11,9 +11,9 @@ export function NavBarItem() {
 
   const navItems = [
     { name: "Home", url: "#", icon: Home },
-    { name: "About", url: "#", icon: User },
-    { name: "Projects", url: "#", icon: Briefcase },
-    { name: "Resume", url: "#", icon: FileText },
+    { name: "About", url: "/about", icon: User },
+    { name: "Work", url: "/work", icon: Briefcase },
+    { name: "Blog", url: "/blog", icon: FileText },
   ]
 
   return (

@@ -7,11 +7,14 @@ import { BentoGridSecondDemo } from "../components/BentoGridSecondDemo";
 import { FeaturedWork } from "./FeaturedCard";
 import TechStack from "../components/TechStack";
 import { DirectionAwareHoverDemo } from "../components/DirectionAwareHoverDemo";
-import FavouriteTools from "../components/favouriteTools";
-import { StickyScrollRevealDemo } from "../components/StickyScrollRevealDemo";
+import FavouriteTools from "../components/FavouriteTools";
+import SuccessCard from "../components/SuccessCard";
+import  SpotifyCardProps  from "../components/SpotifyCard"
+import  Footer  from "../components/Footer"; 
 
 export function HeroSection() {
   return (
+    <>
     <div className="h-full rounded-md bg-black flex flex-col items-center justify-center relative w-full">
       <ShootingStars className="z-0" />
       <StarsBackground className="z-0" />
@@ -26,7 +29,6 @@ export function HeroSection() {
       {/*Curate Projects  div*/}
       <div className="h-full">
         <FeaturedWork />
-        <StickyScrollRevealDemo />
       </div>
       {/*Tech-stack div*/}
       <div>
@@ -54,17 +56,33 @@ export function HeroSection() {
         </div>
       </div>
       {/*Testinomials div*/}
-      <div className="flex flex-col">
-        <div className="">
-          <FavouriteTools />
-        </div>
-        <div className=""></div>
-        <div className=""></div>
-      </div>
-      {/*Let me know  div*/}
-      <div></div>
+    
+  {/* Container title */}
+
+
+  {/* Components row */}
+  <div className="flex justify-center items-start gap-8 w-full h-full">
+  {/* Favourite Tools Container */}
+  <div className="relative w-[440px] h-[280px] bg-gray-700 p-7">
+    <FavouriteTools />
+   
+  </div>
+
+  {/* Success Card Container */}
+  <div className="relative w-[440px] h-[280px] bg-gray-700 flex items-center justify-center">
+    <SuccessCard />
+  </div>
+
+  {/* Spotify Card Container */}
+  <div className="relative w-[440px] h-[280px] bg-gray-700 flex items-center justify-center">
+    <SpotifyCardProps />
+  </div>
+</div>
+
       {/*Footer div*/}
-      <div></div>
+      
     </div>
+    <div><Footer /></div>
+    </>
   );
 }
