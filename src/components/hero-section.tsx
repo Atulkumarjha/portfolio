@@ -8,6 +8,7 @@ import { FeaturedWork } from "./FeaturedCard";
 import TechStack from "../components/TechStack";
 import { DirectionAwareHoverDemo } from "../components/DirectionAwareHoverDemo";
 import FavouriteTools from "../components/favouriteTools";
+import { StickyScrollRevealDemo } from "../components/StickyScrollRevealDemo";
 
 export function HeroSection() {
   return (
@@ -25,6 +26,7 @@ export function HeroSection() {
       {/*Curate Projects  div*/}
       <div className="h-full">
         <FeaturedWork />
+        <StickyScrollRevealDemo />
       </div>
       {/*Tech-stack div*/}
       <div>
