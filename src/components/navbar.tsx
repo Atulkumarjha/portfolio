@@ -10,7 +10,7 @@ export function NavBarItem() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const navItems = [
-    { name: "Home", url: "#", icon: Home },
+    { name: "Home", url: "/", icon: Home },
     { name: "About", url: "/about", icon: User },
     { name: "Work", url: "/work", icon: Briefcase },
     { name: "Blog", url: "/blog", icon: FileText },
@@ -21,11 +21,11 @@ export function NavBarItem() {
       {/* Left: Logo */}
       <Link href="/" className="flex items-center">
         <Image
-          src="/logo.png"
+          src="/assets/atulkumarjha.jpg"
           alt="Logo"
-          width={40}
-          height={40}
-          className="cursor-pointer"
+          width={30}
+          height={30}
+          className="cursor-pointer rounded-full"
         />
       </Link>
 
