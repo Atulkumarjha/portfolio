@@ -14,6 +14,7 @@ export function NavBarItem() {
     { name: "About", url: "/about", icon: User },
     { name: "Work", url: "/work", icon: Briefcase },
     { name: "Blog", url: "/blog", icon: FileText },
+    { name:"Book a call", url: "/", icon: User },
   ]
 
   return (
