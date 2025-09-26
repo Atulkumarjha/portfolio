@@ -42,17 +42,6 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
       <Box sx={{ overflowY: "auto", flexGrow: 1, p: 3 }}>
         {/* Social Icons */}
         <Box sx={{ display: "flex", justifyContent: "center", gap: 4, mb: 2 }}>
-      {/* Scrollable content */}
-      <Box sx={{ overflowY: "auto", flexGrow: 1, p: 3 }}>
-        {/* Social Icons */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 4,
-            marginBottom: 2,
-          }}
-        >
           <a href="https://github.com" target="_blank" rel="noopener noreferrer">
             <GitHubIcon sx={{ color: "white", fontSize: 36 }} />
           </a>
@@ -105,9 +94,6 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
             flexDirection: "row",
             gap: 2,
             flexWrap: "wrap",
-            flexDirection: "row", // <-- horizontal layout
-            gap: 2,
-            flexWrap: "wrap", // allows responsiveness
           }}
         >
           {activeTab === "quick" ? (
@@ -117,7 +103,6 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                 href="mailto:hello@aayushbharti.in"
                 sx={{
                   flex: 1,
-                  flex: 1, // take equal width
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "flex-start",
@@ -176,7 +161,6 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   color: "#00ff00",
                   fontWeight: "bold",
                   width: "100%",
-                  width: "100%", // spans full row
                 }}
               >
                 Currently available for new opportunities
@@ -240,10 +224,6 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   </button>
                 </Box>
               </form>
-              <h3 className="text-lg font-semibold">Fill a Form Content</h3>
-              <p className="mt-2 text-gray-400">
-                This is the fill a form section. You can place an input form here for users to submit their info.
-              </p>
             </Box>
           )}
         </Box>
