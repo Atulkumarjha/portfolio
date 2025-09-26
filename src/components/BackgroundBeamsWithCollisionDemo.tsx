@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { Check, Copy, Mail } from "lucide-react";
 import ConnectDrawer from "@/components/BottomDrawer"; 
+import ConnectDrawer from "@/components/BottomDrawer"; // 👈 import new drawer component
 
 interface BackgroundBeamsWithCollisionDemoProps {
   className?: string;

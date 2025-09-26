@@ -32,6 +32,22 @@ export function NavBarWrapper() {
             className="rounded-full cursor-pointer"
           />
         </Link>
+    { name: "Blog", url: "/blog", icon: FileText },
+    { name:"Book a call", url: "/", icon: User },
+  ]
+
+  return (
+<header className="fixed top-0 left-1/2 -translate-x-1/2 w-210 pb-5 pt-5 flex items-center justify-between px-4 py-3 bg-black backdrop-blur-md  rounded-lg z-[9999]">
+      {/* Left: Logo */}
+      <Link href="/" className="flex items-center">
+        <Image
+          src="/assets/atulkumarjha.jpg"
+          alt="Logo"
+          width={30}
+          height={30}
+          className="cursor-pointer rounded-full"
+        />
+      </Link>
 
         {/* Center: Navbar */}
         <div className="flex-1 flex justify-center">
