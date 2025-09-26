@@ -39,6 +39,9 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
         },
       }}
     >
+      <Box sx={{ overflowY: "auto", flexGrow: 1, p: 3 }}>
+        {/* Social Icons */}
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 4, mb: 2 }}>
       {/* Scrollable content */}
       <Box sx={{ overflowY: "auto", flexGrow: 1, p: 3 }}>
         {/* Social Icons */}
@@ -99,6 +102,9 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
         <Box
           sx={{
             display: "flex",
+            flexDirection: "row",
+            gap: 2,
+            flexWrap: "wrap",
             flexDirection: "row", // <-- horizontal layout
             gap: 2,
             flexWrap: "wrap", // allows responsiveness
@@ -110,6 +116,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
               <Button
                 href="mailto:hello@aayushbharti.in"
                 sx={{
+                  flex: 1,
                   flex: 1, // take equal width
                   display: "flex",
                   flexDirection: "column",
@@ -168,6 +175,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   textAlign: "center",
                   color: "#00ff00",
                   fontWeight: "bold",
+                  width: "100%",
                   width: "100%", // spans full row
                 }}
               >
@@ -176,6 +184,62 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
             </>
           ) : (
             <Box sx={{ width: "100%" }}>
+              <h3 className="text-lg font-semibold mb-2">Send me a message</h3>
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.target as any;
+                  const data = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    message: form.message.value,
+                  };
+
+                  try {
+                    await fetch("/api/sendEmail", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify(data),
+                    });
+
+                    // Clear all fields after submission
+                    form.reset();
+                  } catch (err) {
+                    console.error("Error sending message:", err);
+                  }
+                }}
+              >
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                    className="p-2 rounded bg-[#1a1a1a] text-white border border-gray-700"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="your.email@example.com"
+                    required
+                    className="p-2 rounded bg-[#1a1a1a] text-white border border-gray-700"
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="What would you like to discuss?"
+                    required
+                    maxLength={1000}
+                    rows={5}
+                    className="p-2 rounded bg-[#1a1a1a] text-white border border-gray-700 resize-none"
+                  />
+                  <button
+                    type="submit"
+                    className="bg-blue-600 hover:bg-blue-700 transition-colors p-3 rounded text-white font-semibold flex items-center justify-center gap-2"
+                  >
+                    <span>Send message</span>
+                  </button>
+                </Box>
+              </form>
               <h3 className="text-lg font-semibold">Fill a Form Content</h3>
               <p className="mt-2 text-gray-400">
                 This is the fill a form section. You can place an input form here for users to submit their info.
