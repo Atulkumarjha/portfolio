@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from "react";
 import { ArrowRight, Twitter, Github, Linkedin, Instagram, Globe } from 'lucide-react';
+import ConnectDrawer  from "@/components/BottomDrawer";
 
 const Footer = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+  
   return (
     <footer className="relative bg-black text-white overflow-hidden">
       {/* Dark textured background */}
@@ -49,12 +56,18 @@ const Footer = () => {
           </div>
 
           {/* CTA Button */}
-          <button className="inline-flex items-center gap-4 bg-gray-800/80 hover:bg-gray-700/80 backdrop-blur-sm px-10 py-5 rounded-full transition-all duration-300 group mb-16 border border-gray-700/50">
-            <span className="text-xl">Get In Touch</span>
-            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
-              <ArrowRight className="w-4 h-4 text-black" />
-            </div>
-          </button>
+          <button
+        onClick={handleOpen}
+        className="inline-flex items-center gap-4 bg-gray-800/80 hover:bg-gray-700/80 backdrop-blur-sm px-10 py-5 rounded-full transition-all duration-300 group mb-16 border border-gray-700/50"
+      >
+        <span className="text-xl">Get In Touch</span>
+        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
+          <ArrowRight className="w-4 h-4 text-black" />
+        </div>
+      </button>
+
+      {/* Render ConnectDrawer conditionally */}
+      <ConnectDrawer open={isOpen} onClose={handleClose} />
 
           {/* Description */}
           <div className="max-w-3xl mx-auto space-y-6">
