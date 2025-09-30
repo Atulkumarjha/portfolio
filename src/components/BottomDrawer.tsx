@@ -42,24 +42,21 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
       <Box sx={{ overflowY: "auto", flexGrow: 1, p: 3 }}>
         {/* Social Icons */}
         <Box sx={{ display: "flex", justifyContent: "center", gap: 4, mb: 2 }}>
-      {/* Scrollable content */}
-      <Box sx={{ overflowY: "auto", flexGrow: 1, p: 3 }}>
-        {/* Social Icons */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 4,
-            marginBottom: 2,
-          }}
-        >
           <a href="https://github.com" target="_blank" rel="noopener noreferrer">
             <GitHubIcon sx={{ color: "white", fontSize: 36 }} />
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <LinkedInIcon sx={{ color: "white", fontSize: 36 }} />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <TwitterIcon sx={{ color: "white", fontSize: 36 }} />
           </a>
         </Box>
@@ -104,9 +101,6 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
             display: "flex",
             flexDirection: "row",
             gap: 2,
-            flexWrap: "wrap",
-            flexDirection: "row", // <-- horizontal layout
-            gap: 2,
             flexWrap: "wrap", // allows responsiveness
           }}
         >
@@ -117,7 +111,6 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                 href="mailto:hello@aayushbharti.in"
                 sx={{
                   flex: 1,
-                  flex: 1, // take equal width
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "flex-start",
@@ -136,7 +129,9 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   <h3 className="font-semibold">Email</h3>
                 </Box>
                 <p className="text-gray-400">hello@aayushbharti.in</p>
-                <p className="text-gray-500 text-sm">Send me an email directly</p>
+                <p className="text-gray-500 text-sm">
+                  Send me an email directly
+                </p>
               </Button>
 
               {/* Book a Call Button */}
@@ -162,7 +157,9 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   <h3 className="font-semibold">Book a Call</h3>
                 </Box>
                 <p className="text-gray-400">Schedule a time slot</p>
-                <p className="text-gray-500 text-sm">Book a call on my calendar</p>
+                <p className="text-gray-500 text-sm">
+                  Book a call on my calendar
+                </p>
               </Button>
 
               {/* Status Bar */}
@@ -175,7 +172,6 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   textAlign: "center",
                   color: "#00ff00",
                   fontWeight: "bold",
-                  width: "100%",
                   width: "100%", // spans full row
                 }}
               >
@@ -240,10 +236,6 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   </button>
                 </Box>
               </form>
-              <h3 className="text-lg font-semibold">Fill a Form Content</h3>
-              <p className="mt-2 text-gray-400">
-                This is the fill a form section. You can place an input form here for users to submit their info.
-              </p>
             </Box>
           )}
         </Box>
