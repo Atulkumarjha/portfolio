@@ -45,10 +45,18 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
           <a href="https://github.com" target="_blank" rel="noopener noreferrer">
             <GitHubIcon sx={{ color: "white", fontSize: 36 }} />
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <LinkedInIcon sx={{ color: "white", fontSize: 36 }} />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <TwitterIcon sx={{ color: "white", fontSize: 36 }} />
           </a>
         </Box>
@@ -93,6 +101,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
             display: "flex",
             flexDirection: "row",
             gap: 2,
+            flexWrap: "wrap", // allows responsiveness
             flexWrap: "wrap",
           }}
         >
@@ -121,7 +130,9 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   <h3 className="font-semibold">Email</h3>
                 </Box>
                 <p className="text-gray-400">hello@aayushbharti.in</p>
-                <p className="text-gray-500 text-sm">Send me an email directly</p>
+                <p className="text-gray-500 text-sm">
+                  Send me an email directly
+                </p>
               </Button>
 
               {/* Book a Call Button */}
@@ -147,7 +158,9 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   <h3 className="font-semibold">Book a Call</h3>
                 </Box>
                 <p className="text-gray-400">Schedule a time slot</p>
-                <p className="text-gray-500 text-sm">Book a call on my calendar</p>
+                <p className="text-gray-500 text-sm">
+                  Book a call on my calendar
+                </p>
               </Button>
 
               {/* Status Bar */}
@@ -160,6 +173,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   textAlign: "center",
                   color: "#00ff00",
                   fontWeight: "bold",
+                  width: "100%", // spans full row
                   width: "100%",
                 }}
               >

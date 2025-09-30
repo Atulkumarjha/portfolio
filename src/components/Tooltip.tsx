@@ -6,7 +6,7 @@ const Tooltip = () => {
     <StyledWrapper>
       <ul className="example-2">
         <li className="icon-content">
-          <a href="https://linkedin.com/" aria-label="LinkedIn" data-social="linkedin">
+          <a href="https://www.linkedin.com/in/atul-kumar-jha-09535b233/" aria-label="LinkedIn" data-social="linkedin" target="_blank">
             <div className="filled" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ const Tooltip = () => {
         </li>
 
         <li className="icon-content">
-          <a href="https://www.github.com/" aria-label="GitHub" data-social="github">
+          <a href="https://github.com/Atulkumarjha" aria-label="GitHub" data-social="github" target="_blank">
             <div className="filled" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ const Tooltip = () => {
         </li>
 
         <li className="icon-content">
-          <a href="https://discord.com/" aria-label="Discord" data-social="discord">
+          <a href="https://discord.com/users/1067672509677322282" aria-label="Discord" data-social="discord" target="_blank">
             <div className="filled" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@ const Tooltip = () => {
         </li>
 
         <li className="icon-content">
-          <a href="https://x.com/" aria-label="X" data-social="x">
+          <a href="https://x.com/atul_kumar_jha" aria-label="X" data-social="x" target="_blank">
             <div className="filled" />
             <img src="/assets/logo-black.png" className="icon-img black" alt="X Black" />
             <img src="/assets/logo-white.png" className="icon-img white" alt="X White" />
