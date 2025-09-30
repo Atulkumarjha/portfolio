@@ -13,6 +13,7 @@ export function NavBarWrapper() {
     { name: "Home", url: "/", icon: Home },
     { name: "About", url: "/about", icon: User },
     { name: "Work", url: "/work", icon: Briefcase },
+    { name: "Blog", url: "/blog", icon: FileText },
     { name: "More", url: "/more", icon: FileText },
     { name: "Book a call", url: "/", icon: User },
   ];

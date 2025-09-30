@@ -102,6 +102,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
             flexDirection: "row",
             gap: 2,
             flexWrap: "wrap", // allows responsiveness
+            flexWrap: "wrap",
           }}
         >
           {activeTab === "quick" ? (
@@ -173,6 +174,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   color: "#00ff00",
                   fontWeight: "bold",
                   width: "100%", // spans full row
+                  width: "100%",
                 }}
               >
                 Currently available for new opportunities
