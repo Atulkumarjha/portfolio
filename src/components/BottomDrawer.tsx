@@ -9,6 +9,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
 import EventIcon from "@mui/icons-material/Event";
+import { FaDiscord } from "react-icons/fa";
 
 interface ConnectDrawerProps {
   open: boolean;
@@ -26,7 +27,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
       PaperProps={{
         sx: {
           width: "90%",
-          maxWidth: "910px",
+          maxWidth: "710px",
           margin: "0 auto",
           borderTopLeftRadius: "16px",
           borderTopRightRadius: "16px",
@@ -39,56 +40,86 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
         },
       }}
     >
-      <Box sx={{ overflowY: "auto", flexGrow: 1, p: 3 }}>
+      <Box sx={{ overflowY: "auto", flexGrow: 1, p: 6 }}>
         {/* Social Icons */}
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 4, mb: 2 }}>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-            <GitHubIcon sx={{ color: "white", fontSize: 36 }} />
-          </a>
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 4, mb: 4 }}>
           <a
-            href="https://www.linkedin.com"
+            href="https://github.com/Atulkumarjha"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <LinkedInIcon sx={{ color: "white", fontSize: 36 }} />
+            <GitHubIcon sx={{ color: "white", fontSize: 25 }} />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://www.linkedin.com/in/atul-kumar-jha-09535b233/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <TwitterIcon sx={{ color: "white", fontSize: 36 }} />
+            <LinkedInIcon sx={{ color: "white", fontSize: 25 }} />
+          </a>
+          <a
+            href="https://x.com/atul_kumar_jha"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <TwitterIcon sx={{ color: "white", fontSize: 25 }} />
+          </a>
+          <a
+            href="https://discord.com/users/1067672509677322282"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaDiscord style={{ fontSize: 25 }} />
           </a>
         </Box>
 
-        {/* Drawer Header */}
-        <div className="text-center mb-4">
-          <h2 className="text-xl font-bold">Connect with me 🤝</h2>
-          <p className="mt-2 text-gray-400">
-            Choose a method to connect quickly or fill out a form.
-          </p>
-        </div>
+        {/* Tabs with sliding background */}
+        <Box
+          sx={{
+            position: "relative",
+            display: "flex",
+            justifyContent: "center",
+            gap: 2,
+            mb: 3,
+            backgroundColor: "#1c1d1c",
+            borderRadius: "8px",
+            p: 1,
+          }}
+        >
+          {/* Sliding background */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: activeTab === "quick" ? 0 : "50%", // move slider
+              width: "50%", // full width of one tab
+              height: "100%",
+              backgroundColor: "#333",
+              borderRadius: "8px",
+              transition: "all 0.3s ease",
+              zIndex: 0,
+            }}
+          />
 
-        {/* Tabs */}
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 3 }}>
           <Button
-            variant={activeTab === "quick" ? "contained" : "outlined"}
             onClick={() => setActiveTab("quick")}
             sx={{
-              backgroundColor: activeTab === "quick" ? "#333" : "transparent",
               color: "white",
-              transition: "all 0.3s ease",
+              zIndex: 1,
+              flex: 1, // makes it take full tab width
+              textTransform: "none",
             }}
           >
             Quick Connect
           </Button>
+
           <Button
-            variant={activeTab === "form" ? "contained" : "outlined"}
             onClick={() => setActiveTab("form")}
             sx={{
-              backgroundColor: activeTab === "form" ? "#333" : "transparent",
               color: "white",
-              transition: "all 0.3s ease",
+              zIndex: 1,
+              flex: 1,
+              textTransform: "none",
             }}
           >
             Fill a Form
@@ -108,7 +139,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
             <>
               {/* Email Button */}
               <Button
-                href="mailto:hello@aayushbharti.in"
+                href="mailto:jhaak301@gmail.com"
                 sx={{
                   flex: 1,
                   display: "flex",
@@ -128,7 +159,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   <EmailIcon sx={{ color: "#00aaff" }} />
                   <h3 className="font-semibold">Email</h3>
                 </Box>
-                <p className="text-gray-400">hello@aayushbharti.in</p>
+                <p className="text-gray-400">jhaak301@gmail.com</p>
                 <p className="text-gray-500 text-sm">
                   Send me an email directly
                 </p>
