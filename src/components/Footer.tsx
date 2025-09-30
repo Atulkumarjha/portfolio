@@ -14,6 +14,13 @@ type LinkItem = {
 
 const Footer = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const links = [
+    { Icon: FaDiscord, url: "https://discord.com/users/1067672509677322282" },
+    { Icon: Github, url: "https://github.com/Atulkumarjha" },
+    { Icon: Linkedin, url: "https://www.linkedin.com/in/atul-kumar-jha-09535b233/" },
+    { Icon: Twitter, url: "https://x.com/atul_kumar_jha" },
+  ];
+
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -120,6 +127,7 @@ const Footer = () => {
               />
             </pattern>
           </defs>
+          <rect width="100%" height="100%" fill="url(#waves)" />
           <rect width="100%" height="100%" fill="url(#footer-diagonal)" />
         </svg>
       </div>
@@ -256,12 +264,111 @@ const Footer = () => {
             <p>
               © {currentYear} Atul Kumar Jha. Crafted with curiosity and caffeine.
             </p>
+            <p className="text-base md:text-lg text-gray-400 leading-relaxed">
+              I build dynamic web applications that blend performance with seamless user experiences.
             <p>
               <a href="/privacy" className="hover:text-gray-300">Privacy Policy</a>
               <span className="mx-2">·</span>
               <a href="/terms" className="hover:text-gray-300">Terms &amp; Conditions</a>
             </p>
           </div>
+        </div>
+
+        {/* Links Section */}
+        <div className="border-t border-gray-800/50 px-6 py-16">
+          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center md:text-left">
+            {/* Brand */}
+            <div className="space-y-4 col-span-2 md:col-span-1">
+              <div className="flex justify-center md:justify-start items-center gap-3">
+                <div className="w-12 h-12  rounded-full flex items-center justify-center font-bold text-lg">
+                 <img className="rounded-full" src="/assets/atulkumarjha2.jpg" />
+                </div>
+                <span className="font-semibold">Atul Kumar Jha</span>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Full-Stack Creator | Designer | Programmer | Innovator & Developer
+              </p>
+            </div>
+
+            {/* General */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-gray-200">
+                General
+              </h3>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    Blog
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Specifics */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-gray-200">
+                Specifics
+              </h3>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    Guest Book
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    Bucket List
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    Uses
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    Attribution
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* More */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-gray-200">More</h3>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    Book a Call
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    Links
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white text-gray-400">
+                    RSS
+                  </a>
+                </li>
+              </ul>
+            </div>
           <div className="flex items-center gap-3">
             {socialLinks.map(({ Icon, url, label }) => (
               <motion.a
