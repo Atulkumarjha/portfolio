@@ -213,7 +213,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
             </>
           ) : (
             <Box sx={{ width: "100%" }}>
-              <h3 className="text-lg font-semibold mb-2">Send me a message</h3>
+              <h3 className="text-base font-medium mb-3">Send me a message</h3>
               <form
                 onSubmit={async (e) => {
                   e.preventDefault();
@@ -230,42 +230,49 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify(data),
                     });
-
-                    // Clear all fields after submission
                     form.reset();
                   } catch (err) {
                     console.error("Error sending message:", err);
                   }
                 }}
               >
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                    className="p-2 rounded bg-[#1a1a1a] text-white border border-gray-700"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="your.email@example.com"
-                    required
-                    className="p-2 rounded bg-[#1a1a1a] text-white border border-gray-700"
-                  />
+                <Box
+                  sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}
+                >
+                  {/* Name + Email side by side */}
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      required
+                      className="flex-1 px-2 py-1.5 text-sm rounded bg-[#1a1a1a] text-white border border-gray-700 focus:border-blue-500 outline-none"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                      className="flex-1 px-2 py-1.5 text-sm rounded bg-[#1a1a1a] text-white border border-gray-700 focus:border-blue-500 outline-none"
+                    />
+                  </div>
+
+                  {/* Message box */}
                   <textarea
                     name="message"
-                    placeholder="What would you like to discuss?"
+                    placeholder="Message..."
                     required
                     maxLength={1000}
-                    rows={5}
-                    className="p-2 rounded bg-[#1a1a1a] text-white border border-gray-700 resize-none"
+                    rows={3}
+                    className="px-2 py-1.5 text-sm rounded bg-[#1a1a1a] text-white border border-gray-700 focus:border-blue-500 outline-none resize-none"
                   />
+
+                  {/* Send button */}
                   <button
                     type="submit"
-                    className="bg-blue-600 hover:bg-blue-700 transition-colors p-3 rounded text-white font-semibold flex items-center justify-center gap-2"
+                    className="bg-blue-600 hover:bg-blue-700 transition-colors py-2 rounded text-sm text-white font-medium"
                   >
-                    <span>Send message</span>
+                    Send
                   </button>
                 </Box>
               </form>
