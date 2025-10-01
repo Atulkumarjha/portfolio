@@ -78,7 +78,7 @@ const PersonalIntro: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-between  min-h-screen">
+    <div className="flex flex-row items-center justify-between  min-h-210">
       {/* Text Content */}
       <div className="w-full md:w-1/2 flex flex-col justify-center">
         <h2

@@ -18,7 +18,7 @@ export function NavBarWrapper() {
   ];
 
   return (
-    <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl flex items-center justify-between px-4 py-3 bg-black/70 backdrop-blur-md rounded-lg z-[9999]">
+    <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl flex items-center justify-between px-4 py-3  rounded-lg z-[9999]">
       {/* Left: Logo */}
       <Link href="/" className="flex items-center">
         <Image

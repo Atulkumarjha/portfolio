@@ -41,11 +41,11 @@ export function NavBar({ items, className }: NavBarProps) {
     <>
       <div
         className={cn(
-          "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
+          "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-4",
           className
         )}
       >
-        <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+        <div className="h-12 w-132 pl-2 flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg rounded-full shadow-lg">
           {items.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.name;
@@ -129,6 +129,7 @@ export function NavBar({ items, className }: NavBarProps) {
                         Projects
                       </Link>
                       <Link
+
                         href="/services"
                         className="block px-3 py-2 text-sm hover:bg-muted rounded"
                       >
@@ -154,7 +155,7 @@ export function NavBar({ items, className }: NavBarProps) {
                   type="button"
                   onClick={() => setShowDrawer(true)}
                   className={cn(
-                    "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
+                    "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors bg-[#272627]",
                     "text-foreground/80 hover:text-primary",
                     isActive && "bg-muted text-primary"
                   )}
