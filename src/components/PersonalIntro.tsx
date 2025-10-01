@@ -78,7 +78,11 @@ const PersonalIntro: React.FC = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="flex flex-row items-center justify-between  min-h-210">
+=======
+    <div className="flex flex-row items-center justify-between  min-h-screen">
+>>>>>>> fd8b958 (Done with about page and upadeated all the links)
       {/* Text Content */}
       <div className="w-full md:w-1/2 flex flex-col justify-center">
         <h2
