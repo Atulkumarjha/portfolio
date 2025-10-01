@@ -13,13 +13,12 @@ export function NavBarWrapper() {
     { name: "Home", url: "/", icon: Home },
     { name: "About", url: "/about", icon: User },
     { name: "Work", url: "/work", icon: Briefcase },
-    { name: "Blog", url: "/blog", icon: FileText },
     { name: "More", url: "/more", icon: FileText },
     { name: "Book a call", url: "/", icon: User },
   ];
 
   return (
-    <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl flex items-center justify-between px-4 py-3 bg-black/70 backdrop-blur-md rounded-lg z-[9999]">
+    <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl flex items-center justify-between px-4 py-3  rounded-lg z-[9999]">
       {/* Left: Logo */}
       <Link href="/" className="flex items-center">
         <Image
