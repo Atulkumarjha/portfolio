@@ -4,12 +4,14 @@ import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { NavBarItem } from "@/components/navbar";
 import PersonalIntro from "@/components/PersonalIntro";
-import { TimelineDemo } from "@/components/TimelineDemo";
+import  ExperienceTimeline  from "@/components/TimelineDemo";
 import GitHubActivity from "@/components/GithubStats";
 import FavouriteTools from "@/components/FavouriteTools";
 import SuccessCard from "@/components/SuccessCard";
 import SpotifyCardProps from "@/components/SpotifyCard";
 import Footer from "@/components/Footer";
+import  Tool  from "@/components/tools";
+
 
 export default function About() {
   return (
@@ -22,27 +24,12 @@ export default function About() {
           <PersonalIntro />
         </div>
         <div>
-          <TimelineDemo />
+          <ExperienceTimeline />
         </div>
         <div>
           <GitHubActivity username="Atulkumarjha" />
         </div>
-        <div className="flex justify-center items-start gap-8 w-full h-full">
-          {/* Favourite Tools Container */}
-          <div className="relative w-[440px] h-[280px] bg-gray-700 p-7">
-            <FavouriteTools />
-          </div>
-
-          {/* Success Card Container */}
-          <div className="relative w-[440px] h-[280px] bg-gray-700 flex items-center justify-center">
-            <SuccessCard />
-          </div>
-
-          {/* Spotify Card Container */}
-          <div className="relative w-[440px] h-[280px] bg-gray-700 flex items-center justify-center">
-            <SpotifyCardProps />
-          </div>
-        </div>
+        <div className="mt-50"><Tool /></div>
       </div>
       <div>
         <Footer />
