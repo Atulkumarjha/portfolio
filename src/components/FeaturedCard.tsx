@@ -203,7 +203,10 @@ export const FeaturedWork: React.FC = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              ref={(el) => (projectRefs.current[index] = el)}
+              id={project.id.toLowerCase()}
+              ref={(el) => {
+                projectRefs.current[index] = el;
+              }}
             >
               <ProjectCard
                 project={project}
