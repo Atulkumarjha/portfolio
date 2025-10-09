@@ -14,13 +14,6 @@ type LinkItem = {
 
 const Footer = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const links = [
-    { Icon: FaDiscord, url: "https://discord.com/users/1067672509677322282" },
-    { Icon: Github, url: "https://github.com/Atulkumarjha" },
-    { Icon: Linkedin, url: "https://www.linkedin.com/in/atul-kumar-jha-09535b233/" },
-    { Icon: Twitter, url: "https://x.com/atul_kumar_jha" },
-  ];
-
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -68,7 +61,7 @@ const Footer = () => {
           },
           {
             label: "Book a Call",
-            href: "mailto:atulpc682@gmail.com?subject=Let%27s%20collaborate",
+            href: "mailto:jhaak301@gmail.com?subject=Let%27s%20collaborate",
           },
           {
             label: "Link Hub",
@@ -91,8 +84,8 @@ const Footer = () => {
 
   const contactDetails: LinkItem[] = [
     {
-      label: "atulpc682@gmail.com",
-      href: "mailto:atulpc682@gmail.com",
+      label: "jhaak301@gmail.com",
+      href: "mailto:jhaak301@gmail.com",
     },
     {
       label: "New Delhi, India",
@@ -127,7 +120,6 @@ const Footer = () => {
               />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#waves)" />
           <rect width="100%" height="100%" fill="url(#footer-diagonal)" />
         </svg>
       </div>
@@ -138,237 +130,125 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col gap-10 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur md:flex-row md:items-center md:justify-between"
+          className="flex flex-col gap-6 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur md:flex-row md:items-center md:justify-between"
         >
-          <div className="space-y-4 text-center md:text-left">
-            <motion.p
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="text-xs uppercase tracking-[0.4em] text-indigo-400"
-            >
-              Let’s collaborate
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.2, duration: 0.55 }}
-              className="text-3xl font-semibold md:text-4xl"
-            >
-              Building something ambitious?
-              <span className="block text-indigo-300">I’d love to hear about it.</span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, x: -32 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.3, duration: 0.55 }}
-              className="text-sm text-gray-300 md:max-w-md"
-            >
-              Reach out for product engineering, creative coding, or mentorship opportunities. I usually respond within 24 hours.
-            </motion.p>
+          <div className="space-y-3">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.08] px-4 py-1 text-xs font-medium uppercase tracking-[0.3em] text-white/80">
+              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              Available for collaborations
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Let’s build something meaningful together.
+            </h2>
+            <p className="max-w-xl text-base text-gray-300">
+              From idea to launch, I help craft performant web experiences with delightful details.
+              Share your vision and I’ll bring it to life.
+            </p>
           </div>
+
           <motion.button
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 text-sm font-semibold text-white"
+            className="group relative mt-4 inline-flex items-center justify-center overflow-hidden rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition-all hover:border-white/40 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-transform duration-300 group-hover:scale-110" />
-            <span className="relative">Open contact drawer</span>
+            <span className="absolute inset-0 origin-left scale-x-0 rounded-full bg-white/10 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+            <span className="relative flex items-center gap-2">
+              Book a discovery call
+              <motion.span
+                initial={{ x: 0 }}
+                animate={{ x: [0, 6, 0] }}
+                transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+                className="text-lg"
+              >
+                →
+              </motion.span>
+            </span>
           </motion.button>
         </motion.section>
 
-        <ConnectDrawer open={isOpen} onClose={() => setIsOpen(false)} />
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { staggerChildren: 0.12, duration: 0.5, ease: "easeOut" },
-            },
-          }}
-          className="mt-16 grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1fr]"
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="mt-16 grid gap-10 border border-white/10 bg-white/[0.04] p-8 backdrop-blur lg:grid-cols-[1.2fr_2fr]"
         >
-          <motion.div variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }} className="space-y-8">
+          <div className="space-y-6">
             <div className="flex items-center gap-4">
               <img
                 src="/assets/atulkumarjha2.jpg"
-                alt="Portrait of Atul Kumar Jha"
-                className="h-16 w-16 rounded-2xl border border-white/10 object-cover"
+                alt="Atul Kumar Jha"
+                className="h-16 w-16 rounded-full border border-white/20 object-cover"
               />
               <div>
-                <p className="text-lg font-semibold">Atul Kumar Jha</p>
-                <p className="text-sm text-gray-400">Full-stack engineer crafting immersive web experiences.</p>
+                <p className="text-sm uppercase tracking-[0.3em] text-white/60">Let’s collaborate</p>
+                <h3 className="text-2xl font-semibold text-white">Work with Atul</h3>
               </div>
             </div>
-            <div className="space-y-2 text-sm text-gray-300">
+            <ul className="space-y-3 text-sm text-gray-300">
               {contactDetails.map(({ label, href, external }) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-2 text-left transition hover:text-white"
-                  whileHover={{ x: 4 }}
-                >
-                  <span className="inline-flex h-2.5 w-2.5 rounded-full bg-indigo-400" />
-                  {label}
-                </motion.a>
+                <li key={label}>
+                  <a
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="inline-flex items-center gap-2 transition hover:text-white"
+                  >
+                    <span className="inline-flex h-1.5 w-1.5 rounded-full bg-white/60" />
+                    {label}
+                  </a>
+                </li>
               ))}
-            </div>
-          </motion.div>
+            </ul>
+          </div>
 
-          {navigation.map(({ heading, links }) => (
-            <motion.nav
-              key={heading}
-              variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
-              className="space-y-4"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">
-                {heading}
-              </p>
-              <ul className="space-y-3 text-sm text-gray-300">
-                {links.map(({ label, href, external }) => (
-                  <motion.li key={label} whileHover={{ x: 4 }}>
-                    <a
-                      href={href}
-                      target={external ? "_blank" : undefined}
-                      rel={external ? "noopener noreferrer" : undefined}
-                      className="transition hover:text-white"
-                    >
-                      {label}
-                    </a>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.nav>
-          ))}
-        </motion.div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {navigation.map(({ heading, links }) => (
+              <div key={heading} className="space-y-4">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">
+                  {heading}
+                </h4>
+                <ul className="space-y-3 text-sm text-gray-300">
+                  {links.map(({ label, href, external }) => (
+                    <li key={label}>
+                      <a
+                        href={href}
+                        target={external ? "_blank" : undefined}
+                        rel={external ? "noopener noreferrer" : undefined}
+                        className="inline-flex items-center gap-2 transition hover:text-white"
+                      >
+                        <span className="inline-flex h-1.5 w-1.5 rounded-full bg-white/40" />
+                        {label}
+                        {external && (
+                          <span className="text-white/40">↗</span>
+                        )}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </motion.section>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="mt-16 flex flex-col gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between"
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mt-16 flex flex-col gap-6 rounded-3xl border border-white/10 bg-black/40 p-6 backdrop-blur md:flex-row md:items-center md:justify-between"
         >
-          <div className="text-xs text-gray-500">
-            <p>
-              © {currentYear} Atul Kumar Jha. Crafted with curiosity and caffeine.
-            </p>
-            <p className="text-base md:text-lg text-gray-400 leading-relaxed">
-              I build dynamic web applications that blend performance with seamless user experiences.
-            <p>
-              <a href="/privacy" className="hover:text-gray-300">Privacy Policy</a>
-              <span className="mx-2">·</span>
-              <a href="/terms" className="hover:text-gray-300">Terms &amp; Conditions</a>
+          <div className="space-y-1 text-sm text-gray-400">
+            <p>© {currentYear} Atul Kumar Jha. Crafted with curiosity and caffeine.</p>
+            <p className="space-x-3">
+              <a href="/privacy" className="hover:text-gray-200">Privacy Policy</a>
+              <span>·</span>
+              <a href="/terms" className="hover:text-gray-200">Terms &amp; Conditions</a>
+              <span>·</span>
+              <a href="/attribution" className="hover:text-gray-200">Colophon</a>
             </p>
           </div>
-        </div>
-
-        {/* Links Section */}
-        <div className="border-t border-gray-800/50 px-6 py-16">
-          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center md:text-left">
-            {/* Brand */}
-            <div className="space-y-4 col-span-2 md:col-span-1">
-              <div className="flex justify-center md:justify-start items-center gap-3">
-                <div className="w-12 h-12  rounded-full flex items-center justify-center font-bold text-lg">
-                 <img className="rounded-full" src="/assets/atulkumarjha2.jpg" />
-                </div>
-                <span className="font-semibold">Atul Kumar Jha</span>
-              </div>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Full-Stack Creator | Designer | Programmer | Innovator & Developer
-              </p>
-            </div>
-
-            {/* General */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-gray-200">
-                General
-              </h3>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    Projects
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    Blog
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Specifics */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-gray-200">
-                Specifics
-              </h3>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    Guest Book
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    Bucket List
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    Uses
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    Attribution
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* More */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-gray-200">More</h3>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    Book a Call
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    Links
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white text-gray-400">
-                    RSS
-                  </a>
-                </li>
-              </ul>
-            </div>
           <div className="flex items-center gap-3">
             {socialLinks.map(({ Icon, url, label }) => (
               <motion.a
@@ -388,6 +268,8 @@ const Footer = () => {
           </div>
         </motion.div>
       </div>
+
+      <ConnectDrawer open={isOpen} onClose={() => setIsOpen(false)} />
     </footer>
   );
 };

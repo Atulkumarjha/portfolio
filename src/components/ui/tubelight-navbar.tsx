@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ConnectDrawer from "@/components/BottomDrawer";
-import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 
-const imageUrl1 = "/assets/atulkumarjha2.jpg";
-const imageUrl2 = "/assets/atulkumarjha2.jpg";
+const portrait = "/assets/atulkumarjha2.jpg";
 
 interface NavItem {
   name: string;
@@ -22,10 +20,40 @@ interface NavBarProps {
   className?: string;
 }
 
+const moreLinks = [
+  {
+    eyebrow: "Community",
+    title: "Guestbook",
+    description: "Kind words from collaborators and a place to sign yours.",
+    href: "/guestbook",
+  },
+  {
+    eyebrow: "In motion",
+    title: "Bucket List",
+    description: "Keep an eye on the milestones I'm chasing next.",
+    href: "/bucket-list",
+  },
+  {
+    eyebrow: "Toolkit",
+    title: "Uses",
+    description: "Hardware, software, and rituals behind my builds.",
+    href: "/uses",
+  },
+  {
+    eyebrow: "Credits",
+    title: "Attribution",
+    description: "Resources and humans who inspired this portfolio.",
+    href: "/attribution",
+  },
+];
+
 export function NavBar({ items, className }: NavBarProps) {
-  const [activeTab, setActiveTab] = useState(items[0].name);
+  const [activeTab, setActiveTab] = useState(items[0]?.name ?? "");
   const [isMobile, setIsMobile] = useState(false);
-  const [showDrawer, setShowDrawer] = useState(false); // state to control drawer
+  const [showDrawer, setShowDrawer] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const closeTimer = useRef<NodeJS.Timeout | null>(null);
+  const moreContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,30 +65,76 @@ export function NavBar({ items, className }: NavBarProps) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const clearCloseTimer = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  const openMore = () => {
+    clearCloseTimer();
+    setMoreOpen(true);
+  };
+
+  const scheduleMoreClose = () => {
+    clearCloseTimer();
+    closeTimer.current = setTimeout(() => setMoreOpen(false), 120);
+  };
+
+  const handleMoreBlur = (event: React.FocusEvent<HTMLDivElement>) => {
+    const nextFocused = event.relatedTarget as Node | null;
+    if (moreContainerRef.current && !moreContainerRef.current.contains(nextFocused)) {
+      scheduleMoreClose();
+    }
+  };
+
   return (
     <>
       <div
         className={cn(
-          "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-4",
+          "fixed bottom-0 left-1/2 z-50 mb-6 -translate-x-1/2 sm:top-0 sm:pt-4",
           className
         )}
       >
-        <div className="h-12 w-132 pl-2 flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg rounded-full shadow-lg">
+        <div className="flex h-12 w-132 items-center gap-3 rounded-full border border-border bg-background/5 pl-2 shadow-lg backdrop-blur-lg">
           {items.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.name;
 
-            // 🔹 More (hover dropdown)
             if (item.name === "More") {
+              const showHighlight = isActive || moreOpen;
+
               return (
-                <div key={item.name} className="relative group">
+                <div
+                  key={item.name}
+                  ref={moreContainerRef}
+                  className="relative"
+                  onMouseEnter={() => {
+                    setActiveTab(item.name);
+                    openMore();
+                  }}
+                  onMouseLeave={scheduleMoreClose}
+                  onFocusCapture={() => {
+                    setActiveTab(item.name);
+                    openMore();
+                  }}
+                  onBlur={handleMoreBlur}
+                >
                   <button
                     type="button"
-                    onMouseEnter={() => setActiveTab(item.name)}
+                    onClick={() => {
+                      if (isMobile) {
+                        window.location.href = item.url;
+                      } else {
+                        openMore();
+                      }
+                    }}
                     className={cn(
-                      "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
-                      "text-foreground/80 hover:text-primary",
-                      isActive && "bg-muted text-primary"
+                      "group relative flex select-none items-center rounded-full px-4 py-1.5 text-sm font-light transition",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
+                      "text-white/70 hover:text-white",
+                      showHighlight && "text-white"
                     )}
                   >
                     <span className="hidden md:inline">{item.name}</span>
@@ -68,94 +142,97 @@ export function NavBar({ items, className }: NavBarProps) {
                       <Icon size={18} strokeWidth={2.5} />
                     </span>
 
-                    {isActive && (
+                    {showHighlight && (
                       <motion.div
-                        layoutId="lamp" 
-                        className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
+                        layoutId="lamp"
+                        className="absolute inset-0 -z-10 w-full rounded-full bg-white/[0.08]"
                         initial={false}
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 30,
-                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       >
-                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full">
-                          <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />
-                          <div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1" />
-                          <div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2" />
+                        <div className="absolute -top-2 left-1/2 h-1 w-8 -translate-x-1/2 rounded-t-full bg-white/80">
+                          <div className="absolute -top-2 -left-2 h-6 w-12 rounded-full bg-white/30 blur-md" />
+                          <div className="absolute -top-1 h-6 w-8 rounded-full bg-white/30 blur-md" />
+                          <div className="absolute top-0 left-2 h-4 w-4 rounded-full bg-white/30 blur-sm" />
                         </div>
                       </motion.div>
                     )}
                   </button>
 
-                  {/* Hover Dropdown */}
-                  <div className="absolute top-full left-0 mt-2 w-[28rem] bg-background border border-border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transform transition-all duration-200 flex flex-row p-4 gap-4">
-                    {/* Image Card 1 */}
-                    <div className="relative w-28 h-28 rounded-lg overflow-hidden cursor-pointer group">
-                      <img
-                        src={imageUrl1}
-                        alt="Image 1"
-                        className="w-full h-full object-cover filter brightness-75 transition-all duration-300 transform group-hover:brightness-100 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-1">
-                        <p className="font-bold text-sm">👋Hello There</p>
-                        <p className="font-normal text-xs">
-                          Thank you for visiting my site
-                        </p>
+                  <div
+                    onMouseEnter={openMore}
+                    onMouseLeave={scheduleMoreClose}
+                    className={cn(
+                      "absolute top-full left-0 z-[60] mt-1 w-[22rem] rounded-2xl border border-white/10 bg-black/95 p-4 shadow-2xl backdrop-blur",
+                      moreOpen
+                        ? "pointer-events-auto translate-y-2 opacity-100"
+                        : "pointer-events-none -translate-y-2 opacity-0"
+                    )}
+                  >
+                    <div className="flex flex-col gap-3">
+                      <div className="rounded-xl border border-white/10 bg-gradient-to-r from-indigo-600/20 via-indigo-500/10 to-purple-500/20 p-3">
+                        <div className="flex items-center gap-3">
+                          <img
+                            src={portrait}
+                            alt="Atul Kumar Jha"
+                            className="h-10 w-10 rounded-lg object-cover shadow-lg"
+                          />
+                          <div className="space-y-1">
+                            <p className="text-[0.55rem] font-semibold uppercase tracking-[0.32em] text-indigo-200">
+                              Explore more
+                            </p>
+                            <p className="text-xs text-white/85">
+                              Quick access to community stories, goals, and my tool stack.
+                            </p>
+                          </div>
+                        </div>
+                        <Link
+                          href="/more"
+                          className="mt-3 inline-flex items-center gap-2 text-[0.7rem] font-medium text-indigo-100 transition hover:text-white"
+                        >
+                          Open hub
+                          <span aria-hidden>→</span>
+                        </Link>
                       </div>
-                    </div>
 
-                    {/* Image Card 2 */}
-                    <div className="relative w-28 h-28 rounded-lg overflow-hidden cursor-pointer group">
-                      <img
-                        src={imageUrl2}
-                        alt="Image 2"
-                        className="w-full h-full object-cover filter brightness-75 transition-all duration-300 transform group-hover:brightness-100 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-1">
-                        <p className="font-bold text-sm">👋Hello There</p>
-                        <p className="font-normal text-xs">
-                          Thank you for visiting my site
-                        </p>
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {moreLinks.map((link) => (
+                          <Link
+                            key={link.title}
+                            href={link.href}
+                            className="group/link flex flex-col gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.04] p-2 transition hover:border-indigo-400/60 hover:bg-indigo-500/10"
+                          >
+                            <span className="text-[0.5rem] font-semibold uppercase tracking-[0.3em] text-indigo-300">
+                              {link.eyebrow}
+                            </span>
+                            <span className="text-sm font-medium text-white">
+                              {link.title}
+                            </span>
+                            <span className="text-[0.72rem] leading-snug text-gray-300">
+                              {link.description}
+                            </span>
+                            <span className="text-xs text-indigo-200 transition group-hover/link:translate-x-1">
+                              →
+                            </span>
+                          </Link>
+                        ))}
                       </div>
-                    </div>
-
-                    {/* Links */}
-                    <div className="flex flex-col justify-center gap-2">
-                      <Link
-                        href="/projects"
-                        className="block px-3 py-2 text-sm hover:bg-muted rounded"
-                      >
-                        Projects
-                      </Link>
-                      <Link
-
-                        href="/services"
-                        className="block px-3 py-2 text-sm hover:bg-muted rounded"
-                      >
-                        Services
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="block px-3 py-2 text-sm hover:bg-muted rounded"
-                      >
-                        Contact
-                      </Link>
                     </div>
                   </div>
                 </div>
               );
             }
 
-            // 🔹 Book a call (onClick opens drawer)
             if (item.name === "Book a call") {
               return (
                 <button
                   key={item.name}
                   type="button"
-                  onClick={() => setShowDrawer(true)}
+                  onClick={() => {
+                    scheduleMoreClose();
+                    setShowDrawer(true);
+                  }}
                   className={cn(
-                    "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors bg-[#272627]",
+                    "relative cursor-pointer rounded-full px-6 py-2 text-sm font-semibold transition-colors bg-[#272627]",
                     "text-foreground/80 hover:text-primary",
                     isActive && "bg-muted text-primary"
                   )}
@@ -168,14 +245,17 @@ export function NavBar({ items, className }: NavBarProps) {
               );
             }
 
-            // 🔹 Default nav items
             return (
               <Link
                 key={item.name}
                 href={item.url}
-                onClick={() => setActiveTab(item.name)}
+                onClick={() => {
+                  setActiveTab(item.name);
+                  scheduleMoreClose();
+                }}
+                onMouseEnter={scheduleMoreClose}
                 className={cn(
-                  "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
+                  "relative cursor-pointer rounded-full px-6 py-2 text-sm font-semibold transition-colors",
                   "text-foreground/80 hover:text-primary",
                   isActive && "bg-muted text-primary"
                 )}
@@ -187,18 +267,14 @@ export function NavBar({ items, className }: NavBarProps) {
                 {isActive && (
                   <motion.div
                     layoutId="lamp"
-                    className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
+                    className="absolute inset-0 -z-10 w-full rounded-full bg-primary/5"
                     initial={false}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 30,
-                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   >
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full">
-                      <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />
-                      <div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1" />
-                      <div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2" />
+                    <div className="absolute -top-2 left-1/2 h-1 w-8 -translate-x-1/2 rounded-t-full bg-primary">
+                      <div className="absolute -top-2 -left-2 h-6 w-12 rounded-full bg-primary/30 blur-md" />
+                      <div className="absolute -top-1 h-6 w-8 rounded-full bg-primary/30 blur-md" />
+                      <div className="absolute top-0 left-2 h-4 w-4 rounded-full bg-primary/30 blur-sm" />
                     </div>
                   </motion.div>
                 )}
@@ -208,7 +284,6 @@ export function NavBar({ items, className }: NavBarProps) {
         </div>
       </div>
 
-      {/* 🔹 Render ConnectDrawer */}
       <ConnectDrawer open={showDrawer} onClose={() => setShowDrawer(false)} />
     </>
   );
