@@ -62,7 +62,6 @@ const Footer = () => {
           {
             label: "Book a Call",
             href: "mailto:jhaak301@gmail.com?subject=Let%27s%20collaborate",
-            href: "mailto:atulpc682@gmail.com?subject=Let%27s%20collaborate",
           },
           {
             label: "Link Hub",
@@ -87,8 +86,6 @@ const Footer = () => {
     {
       label: "jhaak301@gmail.com",
       href: "mailto:jhaak301@gmail.com",
-      label: "atulpc682@gmail.com",
-      href: "mailto:atulpc682@gmail.com",
     },
     {
       label: "New Delhi, India",
@@ -223,9 +220,7 @@ const Footer = () => {
                       >
                         <span className="inline-flex h-1.5 w-1.5 rounded-full bg-white/40" />
                         {label}
-                        {external && (
-                          <span className="text-white/40">↗</span>
-                        )}
+                        {external && <span className="text-white/40">↗</span>}
                       </a>
                     </li>
                   ))}
@@ -234,120 +229,6 @@ const Footer = () => {
             ))}
           </div>
         </motion.section>
-          className="flex flex-col gap-10 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur md:flex-row md:items-center md:justify-between"
-        >
-          <div className="space-y-4 text-center md:text-left">
-            <motion.p
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="text-xs uppercase tracking-[0.4em] text-indigo-400"
-            >
-              Let’s collaborate
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.2, duration: 0.55 }}
-              className="text-3xl font-semibold md:text-4xl"
-            >
-              Building something ambitious?
-              <span className="block text-indigo-300">I’d love to hear about it.</span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, x: -32 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.3, duration: 0.55 }}
-              className="text-sm text-gray-300 md:max-w-md"
-            >
-              Reach out for product engineering, creative coding, or mentorship opportunities. I usually respond within 24 hours.
-            </motion.p>
-          </div>
-          <motion.button
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => setIsOpen(true)}
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 text-sm font-semibold text-white"
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-transform duration-300 group-hover:scale-110" />
-            <span className="relative">Open contact drawer</span>
-          </motion.button>
-        </motion.section>
-
-        <ConnectDrawer open={isOpen} onClose={() => setIsOpen(false)} />
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { staggerChildren: 0.12, duration: 0.5, ease: "easeOut" },
-            },
-          }}
-          className="mt-16 grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1fr]"
-        >
-          <motion.div variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }} className="space-y-8">
-            <div className="flex items-center gap-4">
-              <img
-                src="/assets/atulkumarjha2.jpg"
-                alt="Portrait of Atul Kumar Jha"
-                className="h-16 w-16 rounded-2xl border border-white/10 object-cover"
-              />
-              <div>
-                <p className="text-lg font-semibold">Atul Kumar Jha</p>
-                <p className="text-sm text-gray-400">Full-stack engineer crafting immersive web experiences.</p>
-              </div>
-            </div>
-            <div className="space-y-2 text-sm text-gray-300">
-              {contactDetails.map(({ label, href, external }) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-2 text-left transition hover:text-white"
-                  whileHover={{ x: 4 }}
-                >
-                  <span className="inline-flex h-2.5 w-2.5 rounded-full bg-indigo-400" />
-                  {label}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-
-          {navigation.map(({ heading, links }) => (
-            <motion.nav
-              key={heading}
-              variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
-              className="space-y-4"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-400">
-                {heading}
-              </p>
-              <ul className="space-y-3 text-sm text-gray-300">
-                {links.map(({ label, href, external }) => (
-                  <motion.li key={label} whileHover={{ x: 4 }}>
-                    <a
-                      href={href}
-                      target={external ? "_blank" : undefined}
-                      rel={external ? "noopener noreferrer" : undefined}
-                      className="transition hover:text-white"
-                    >
-                      {label}
-                    </a>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.nav>
-          ))}
-        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -364,17 +245,6 @@ const Footer = () => {
               <a href="/terms" className="hover:text-gray-200">Terms &amp; Conditions</a>
               <span>·</span>
               <a href="/attribution" className="hover:text-gray-200">Colophon</a>
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="mt-16 flex flex-col gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between"
-        >
-          <div className="text-xs text-gray-500">
-            <p>
-              © {currentYear} Atul Kumar Jha. Crafted with curiosity and caffeine.
-            </p>
-            <p>
-              <a href="/privacy" className="hover:text-gray-300">Privacy Policy</a>
-              <span className="mx-2">·</span>
-              <a href="/terms" className="hover:text-gray-300">Terms &amp; Conditions</a>
             </p>
           </div>
           <div className="flex items-center gap-3">

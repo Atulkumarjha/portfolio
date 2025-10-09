@@ -72,6 +72,11 @@ export function NavBar({ items, className }: NavBarProps) {
     }
   };
 
+  const closeMore = () => {
+    clearCloseTimer();
+    setMoreOpen(false);
+  };
+
   const openMore = () => {
     clearCloseTimer();
     setMoreOpen(true);
@@ -79,16 +84,35 @@ export function NavBar({ items, className }: NavBarProps) {
 
   const scheduleMoreClose = () => {
     clearCloseTimer();
-    closeTimer.current = setTimeout(() => setMoreOpen(false), 120);
+    closeTimer.current = setTimeout(() => {
+      closeMore();
+    }, 120);
   };
 
-  const handleMoreBlur = (event: React.FocusEvent<HTMLDivElement>) => {
-    const nextFocused = event.relatedTarget as Node | null;
-    if (moreContainerRef.current && !moreContainerRef.current.contains(nextFocused)) {
-      scheduleMoreClose();
+  const handleMoreBlur = (event: React.FocusEvent<HTMLElement>) => {
+    if (
+      moreContainerRef.current &&
+      event.relatedTarget &&
+      moreContainerRef.current.contains(event.relatedTarget as Node)
+    ) {
+      return;
     }
+    scheduleMoreClose();
   };
 
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      if (
+        moreContainerRef.current &&
+        !moreContainerRef.current.contains(event.target as Node)
+      ) {
+        closeMore();
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, []);
   return (
     <>
       <div
@@ -98,11 +122,6 @@ export function NavBar({ items, className }: NavBarProps) {
         )}
       >
         <div className="flex h-12 w-132 items-center gap-3 rounded-full border border-border bg-background/5 pl-2 shadow-lg backdrop-blur-lg">
-          "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-4",
-          className
-        )}
-      >
-        <div className="h-12 w-132 pl-2 flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg rounded-full shadow-lg">
           {items.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.name;
@@ -151,8 +170,6 @@ export function NavBar({ items, className }: NavBarProps) {
                       <motion.div
                         layoutId="lamp"
                         className="absolute inset-0 -z-10 w-full rounded-full bg-white/[0.08]"
-                        layoutId="lamp" 
-                        className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
                         initial={false}
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       >
@@ -224,29 +241,6 @@ export function NavBar({ items, className }: NavBarProps) {
                         ))}
                       </div>
                     </div>
-
-                    {/* Links */}
-                    <div className="flex flex-col justify-center gap-2">
-                      <Link
-                        href="/projects"
-                        className="block px-3 py-2 text-sm hover:bg-muted rounded"
-                      >
-                        Projects
-                      </Link>
-                      <Link
-
-                        href="/services"
-                        className="block px-3 py-2 text-sm hover:bg-muted rounded"
-                      >
-                        Services
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="block px-3 py-2 text-sm hover:bg-muted rounded"
-                      >
-                        Contact
-                      </Link>
-                    </div>
                   </div>
                 </div>
               );
@@ -263,7 +257,6 @@ export function NavBar({ items, className }: NavBarProps) {
                   }}
                   className={cn(
                     "relative cursor-pointer rounded-full px-6 py-2 text-sm font-semibold transition-colors bg-[#272627]",
-                    "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors bg-[#272627]",
                     "text-foreground/80 hover:text-primary",
                     isActive && "bg-muted text-primary"
                   )}
