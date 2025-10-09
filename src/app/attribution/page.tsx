@@ -32,6 +32,9 @@ const credits: Array<{
         label: "Himanshu Yadav",
         description: "Inspiration for structure, cadence, and storytelling.",
         href: "https://himanshuy.me/"
+        label: "Aayush Bharti",
+        description: "Portfolio inspiration for structure, cadence, and storytelling.",
+        href: "https://aayushbharti.in/"
       }
     ]
   },

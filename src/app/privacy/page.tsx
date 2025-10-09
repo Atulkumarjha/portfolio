@@ -34,6 +34,7 @@ const policySections = [
   {
     title: "6. Your Rights",
   body: "You can request, update, or delete your personal information by emailing me at jhaak301@gmail.com.",
+    body: "You can request, update, or delete your personal information by emailing me at atulpc682@gmail.com.",
   },
   {
     title: "7. Updates",
@@ -83,6 +84,8 @@ export default function PrivacyPage() {
             Have questions about how your information is handled? Email me at {" "}
             <a href="mailto:jhaak301@gmail.com" className="font-medium text-white hover:underline">
               jhaak301@gmail.com
+            <a href="mailto:atulpc682@gmail.com" className="font-medium text-white hover:underline">
+              atulpc682@gmail.com
             </a>
             .
           </p>
