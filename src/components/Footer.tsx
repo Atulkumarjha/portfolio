@@ -61,7 +61,7 @@ const Footer = () => {
           },
           {
             label: "Book a Call",
-            href: "mailto:jhaak301@gmail.com?subject=Let%27s%20collaborate",
+            href: "/contact",
           },
           {
             label: "Link Hub",
@@ -100,6 +100,11 @@ const Footer = () => {
 
   return (
     <footer className="relative overflow-hidden bg-black text-white">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-40 left-1/2 h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,_rgba(99,102,241,0.35),_rgba(17,24,39,0))] blur-3xl" />
+        <div className="absolute bottom-[-260px] right-[-180px] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,_rgba(236,72,153,0.25),_rgba(17,24,39,0))] blur-[120px]" />
+        <div className="absolute bottom-16 left-[-200px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_center,_rgba(45,212,191,0.24),_rgba(17,24,39,0))] blur-3xl" />
+      </div>
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-950" />
         <svg width="100%" height="100%" className="h-full w-full">
@@ -187,45 +192,68 @@ const Footer = () => {
               </div>
             </div>
             <ul className="space-y-3 text-sm text-gray-300">
-              {contactDetails.map(({ label, href, external }) => (
-                <li key={label}>
-                  <a
+              {contactDetails.map(({ label, href, external }, index) => (
+                <motion.li
+                  key={label}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + index * 0.05, duration: 0.45, ease: "easeOut" }}
+                >
+                  <motion.a
                     href={href}
                     target={external ? "_blank" : undefined}
                     rel={external ? "noopener noreferrer" : undefined}
                     className="inline-flex items-center gap-2 transition hover:text-white"
+                    whileHover={{ x: 4 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     <span className="inline-flex h-1.5 w-1.5 rounded-full bg-white/60" />
                     {label}
-                  </a>
-                </li>
+                  </motion.a>
+                </motion.li>
               ))}
             </ul>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {navigation.map(({ heading, links }) => (
-              <div key={heading} className="space-y-4">
+            {navigation.map(({ heading, links }, columnIndex) => (
+              <motion.div
+                key={heading}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.15 + columnIndex * 0.08, duration: 0.5, ease: "easeOut" }}
+                className="space-y-4"
+              >
                 <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">
                   {heading}
                 </h4>
                 <ul className="space-y-3 text-sm text-gray-300">
-                  {links.map(({ label, href, external }) => (
-                    <li key={label}>
-                      <a
+                  {links.map(({ label, href, external }, linkIndex) => (
+                    <motion.li
+                      key={label}
+                      initial={{ opacity: 0, y: 6 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.25 + columnIndex * 0.08 + linkIndex * 0.04, duration: 0.4, ease: "easeOut" }}
+                    >
+                      <motion.a
                         href={href}
                         target={external ? "_blank" : undefined}
                         rel={external ? "noopener noreferrer" : undefined}
-                        className="inline-flex items-center gap-2 transition hover:text-white"
+                        className="inline-flex items-center gap-2 rounded-full px-3 py-2 transition hover:bg-white/5 hover:text-white"
+                        whileHover={{ x: 4 }}
+                        whileTap={{ scale: 0.97 }}
                       >
                         <span className="inline-flex h-1.5 w-1.5 rounded-full bg-white/40" />
                         {label}
                         {external && <span className="text-white/40">↗</span>}
-                      </a>
-                    </li>
+                      </motion.a>
+                    </motion.li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.section>

@@ -167,7 +167,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
 
               {/* Book a Call Button */}
               <Button
-                href="/"
+                href="/contact"
                 sx={{
                   flex: 1,
                   display: "flex",
@@ -187,9 +187,9 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   <EventIcon sx={{ color: "#ff6f61" }} />
                   <h3 className="font-semibold">Book a Call</h3>
                 </Box>
-                <p className="text-gray-400">Schedule a time slot</p>
+                <p className="text-gray-400">Schedule a discovery session</p>
                 <p className="text-gray-500 text-sm">
-                  Book a call on my calendar
+                  Opens the detailed contact page to pick a time
                 </p>
               </Button>
 

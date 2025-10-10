@@ -14,7 +14,7 @@ export function NavBarWrapper() {
     { name: "About", url: "/about", icon: User },
     { name: "Work", url: "/work", icon: Briefcase },
     { name: "More", url: "/more", icon: FileText },
-    { name: "Book a call", url: "/", icon: User },
+  { name: "Book a call", url: "/contact", icon: User },
   ];
 
   return (

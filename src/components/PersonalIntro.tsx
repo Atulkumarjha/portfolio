@@ -8,7 +8,7 @@ interface ImageData {
 }
 
 const PersonalIntro: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(1); // Start with middle image (travel)
+  const [currentIndex, setCurrentIndex] = useState(1); // Start with middle image
 
   const images: ImageData[] = [
     {
@@ -32,7 +32,6 @@ const PersonalIntro: React.FC = () => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 4000);
-
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -79,7 +78,6 @@ const PersonalIntro: React.FC = () => {
 
   return (
     <div className="flex flex-row items-center justify-between min-h-screen">
-    <div className="flex flex-row items-center justify-between  min-h-210">
       {/* Text Content */}
       <div className="w-full md:w-1/2 flex flex-col justify-center">
         <h2
@@ -118,13 +116,14 @@ const PersonalIntro: React.FC = () => {
           Every day, I wake up with the mindset to{" "}
           <b>build, learn, and make a difference.</b>
         </p>
-        <div className="flex gap-1 relative">
+
+        {/* Social Links */}
+        <div className="flex gap-2 mt-4">
           <a
             href="https://www.linkedin.com/in/atul-kumar-jha-09535b233/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-12 h-12 rounded-full transition-colors"
-            style={{ pointerEvents: "auto" }}
+            className="flex items-center justify-center w-12 h-12 rounded-full transition hover:text-white"
           >
             <FaLinkedin
               size={20}
@@ -136,8 +135,7 @@ const PersonalIntro: React.FC = () => {
             href="https://github.com/Atulkumarjha"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-12 h-12 rounded-full  transition-colors"
-            style={{ pointerEvents: "auto" }}
+            className="flex items-center justify-center w-12 h-12 rounded-full transition hover:text-white"
           >
             <FaGithub
               size={20}
@@ -149,8 +147,7 @@ const PersonalIntro: React.FC = () => {
             href="https://x.com/atul_kumar_jha"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-12 h-12 rounded-full transition-colors"
-            style={{ pointerEvents: "auto" }}
+            className="flex items-center justify-center w-12 h-12 rounded-full transition hover:text-white"
           >
             <FaTwitter
               size={20}
@@ -161,7 +158,7 @@ const PersonalIntro: React.FC = () => {
       </div>
 
       {/* 3D Image Carousel */}
-      <div className="relative flex h-[350px] w-full max-w-[200px] flex-col items-center justify-center max-lg:mt-12 lg:h-[450px] lg:max-w-[270px] cursor-grab active:cursor-grabbing lg:me-20">
+      <div className="relative flex h-[350px] w-full max-w-[200px] flex-col items-center justify-center lg:h-[450px] lg:max-w-[270px] cursor-grab active:cursor-grabbing lg:me-20">
         <div className="relative h-full w-full">
           {images.map((image, index) => (
             <div
@@ -183,7 +180,7 @@ const PersonalIntro: React.FC = () => {
         </div>
 
         {/* Dynamic Title */}
-        <h3 className="text-center text-2xl font-light mt-8 transition-opacity duration-500 text-gray-800 dark:text-gray-200">
+        <h3 className="text-center text-2xl font-light mt-8 text-gray-800 dark:text-gray-200 transition-opacity duration-500">
           {images[currentIndex]?.title}
         </h3>
 
