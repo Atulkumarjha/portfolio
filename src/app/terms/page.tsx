@@ -31,8 +31,7 @@ const termsSections = [
   },
   {
     title: "8. Contact",
-  body: "If you have questions about these terms, reach out at jhaak301@gmail.com.",
-    body: "If you have questions about these terms, reach out at atulpc682@gmail.com.",
+    body: "If you have questions about these terms, reach out at jhaak301@gmail.com.",
   },
 ];
 
@@ -63,11 +62,13 @@ export default function TermsPage() {
 
         <footer className="rounded-2xl border border-purple-500/40 bg-purple-500/10 p-6 text-sm text-purple-200">
           <p>
-            Questions or collaboration ideas? Email me at {" "}
+            Questions or collaboration ideas? Email me at{" "}
+            <a href="mailto:jhaak301@gmail.com" className="font-medium text-white hover:underline">
+              atulpc682@gmail.com
+            </a>{" "}
+            or{" "}
             <a href="mailto:jhaak301@gmail.com" className="font-medium text-white hover:underline">
               jhaak301@gmail.com
-            <a href="mailto:atulpc682@gmail.com" className="font-medium text-white hover:underline">
-              atulpc682@gmail.com
             </a>
             .
           </p>

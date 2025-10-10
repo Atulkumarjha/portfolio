@@ -33,8 +33,7 @@ const policySections = [
   },
   {
     title: "6. Your Rights",
-  body: "You can request, update, or delete your personal information by emailing me at jhaak301@gmail.com.",
-    body: "You can request, update, or delete your personal information by emailing me at atulpc682@gmail.com.",
+    body: "You can request, update, or delete your personal information by emailing me at jhaak301@gmail.com",
   },
   {
     title: "7. Updates",
@@ -81,11 +80,13 @@ export default function PrivacyPage() {
 
         <footer className="rounded-2xl border border-indigo-500/40 bg-indigo-500/10 p-6 text-sm text-indigo-200">
           <p>
-            Have questions about how your information is handled? Email me at {" "}
+            Have questions about how your information is handled? Email me at{" "}
+            <a href="mailto:jhaak301@gmail.com" className="font-medium text-white hover:underline">
+              atulpc682@gmail.com
+            </a>{" "}
+            or{" "}
             <a href="mailto:jhaak301@gmail.com" className="font-medium text-white hover:underline">
               jhaak301@gmail.com
-            <a href="mailto:atulpc682@gmail.com" className="font-medium text-white hover:underline">
-              atulpc682@gmail.com
             </a>
             .
           </p>
