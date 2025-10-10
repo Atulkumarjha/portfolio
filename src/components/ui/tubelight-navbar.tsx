@@ -6,6 +6,7 @@ import Link from "next/link";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ConnectDrawer from "@/components/BottomDrawer";
+import { usePathname } from "next/navigation";
 
 const portrait = "/assets/atulkumarjha2.jpg";
 
@@ -54,6 +55,7 @@ export function NavBar({ items, className }: NavBarProps) {
   const [moreOpen, setMoreOpen] = useState(false);
   const closeTimer = useRef<NodeJS.Timeout | null>(null);
   const moreContainerRef = useRef<HTMLDivElement | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleResize = () => {
@@ -113,6 +115,15 @@ export function NavBar({ items, className }: NavBarProps) {
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
   }, []);
+
+  useEffect(() => {
+    if (!pathname) return;
+
+    const current = items.find((item) => item.url === pathname);
+    if (current && current.name !== activeTab) {
+      setActiveTab(current.name);
+    }
+  }, [pathname, items, activeTab]);
   return (
     <>
       <div
@@ -277,7 +288,13 @@ export function NavBar({ items, className }: NavBarProps) {
                   setActiveTab(item.name);
                   scheduleMoreClose();
                 }}
-                onMouseEnter={scheduleMoreClose}
+                onMouseEnter={() => {
+                  setActiveTab(item.name);
+                  scheduleMoreClose();
+                }}
+                onFocus={() => {
+                  setActiveTab(item.name);
+                }}
                 className={cn(
                   "relative cursor-pointer rounded-full px-6 py-2 text-sm font-semibold transition-colors",
                   "text-foreground/80 hover:text-primary",
