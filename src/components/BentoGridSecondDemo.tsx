@@ -15,7 +15,7 @@ import { CollaborationCard } from "./collaboration-card";
 
 export function BentoGridSecondDemo() {
   return (
-<BentoGrid className="max-w-4xl mx-auto md:auto-rows-[25rem] bg-black font-bold">
+<BentoGrid className="w-full font-semibold md:auto-rows-[22rem] lg:auto-rows-[24rem]">
   {items.map((item, i) => (
     <BentoGridItem
       key={i}
@@ -55,11 +55,11 @@ const items = [
     title: "Remote",
     description: "I’m highly flexible and can easily accommodate different time zones for communication.",
     header: (
-      <div className="w-full h-full rounded-xl overflow-hidden flex justify-center items-center">
+      <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-xl">
         <img
           src="/assets/globe.png"
           alt="Globe Screenshot"
-          className="w-100 h-105 object-cover"
+          className="h-full w-full object-cover"
         />
       </div>
     ),
@@ -71,8 +71,8 @@ const items = [
     description:
       "Let's Work on your next Project",
     header: (
-      <div className="flex justify-center mt-40">
-      <Tooltip />
+      <div className="flex h-full w-full items-center justify-center">
+        <Tooltip />
       </div>
     ),
     className: "md:col-span-2",

@@ -4,36 +4,39 @@ import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { NavBarItem } from "@/components/navbar";
 import PersonalIntro from "@/components/PersonalIntro";
-import  ExperienceTimeline  from "@/components/TimelineDemo";
+import ExperienceTimeline from "@/components/TimelineDemo";
 import GitHubActivity from "@/components/GithubStats";
-import FavouriteTools from "@/components/FavouriteTools";
-import SuccessCard from "@/components/SuccessCard";
-import SpotifyCardProps from "@/components/SpotifyCard";
 import Footer from "@/components/Footer";
-import  Tool  from "@/components/tools";
+import Tool from "@/components/tools";
+import { SectionWrapper } from "@/components/layout/PageContainer";
 
 
 export default function About() {
   return (
-    <>
-      <div className="h-full rounded-md bg-black flex flex-col items-center justify-center relative w-full">
-        <ShootingStars className="z-0" />
-        <StarsBackground className="z-0" />
-        <NavBarItem />
-        <div className="w-300">
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-black text-white">
+      <ShootingStars className="pointer-events-none" />
+      <StarsBackground className="pointer-events-none" />
+      <NavBarItem />
+
+      <main className="relative z-10 flex flex-col gap-16 pt-32">
+        <SectionWrapper>
           <PersonalIntro />
-        </div>
-        <div>
+        </SectionWrapper>
+
+        <SectionWrapper>
           <ExperienceTimeline />
-        </div>
-        <div>
+        </SectionWrapper>
+
+        <SectionWrapper>
           <GitHubActivity username="Atulkumarjha" />
-        </div>
-        <div className="mt-50"><Tool /></div>
-      </div>
-      <div>
-        <Footer />
-      </div>
-    </>
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <Tool />
+        </SectionWrapper>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

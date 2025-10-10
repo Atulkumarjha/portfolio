@@ -6,34 +6,39 @@ import { NavBarItem } from "@/components/navbar";
 import { FeaturedWork } from "@/components/FeaturedCard";
 import { FaArrowCircleRight } from "react-icons/fa";
 import TechStack from "@/components/TechStack";
-
-
+import { SectionWrapper } from "@/components/layout/PageContainer";
 import Footer from "@/components/Footer";
 
 export default function Work() {
   return (
-    <>
-      <div className="h-full rounded-md bg-black flex flex-col items-center justify-center relative w-full">
-        <ShootingStars className="z-0" />
-        <StarsBackground className="z-0" />
-        <NavBarItem />
-        <div className="h-full">
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-black text-white">
+      <ShootingStars className="pointer-events-none" />
+      <StarsBackground className="pointer-events-none" />
+      <NavBarItem />
+
+      <main className="relative z-10 flex flex-1 flex-col gap-16 pt-24 md:pt-32">
+        <SectionWrapper>
           <FeaturedWork />
-        </div>
-        <a
-          href="https://github.com/Atulkumarjha"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative z-10 text-purple-400 hover:text-purple-300 mt-10"
-        >
-          <span className="font-bold text-xl text-white flex flex-row gap-3 items-center">
-            Want to see more works <FaArrowCircleRight />
-          </span>
-        </a>
-      </div>
-      <div>
-        <Footer />
-      </div>
-    </>
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <TechStack />
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <a
+            href="https://github.com/Atulkumarjha"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 text-lg font-semibold text-purple-300 transition hover:text-purple-200"
+          >
+            Want to see more works
+            <FaArrowCircleRight />
+          </a>
+        </SectionWrapper>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

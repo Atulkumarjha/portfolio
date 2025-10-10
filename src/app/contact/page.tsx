@@ -159,14 +159,6 @@ export default function ContactPage() {
                   Tell me about the product you’re dreaming up, the platform you need to scale, or the experience you want to polish.
                   I’ll reply within a day with thoughts, personalized timelines, and a recommended next step.
                 </motion.p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 32 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.6, ease: "easeOut" }}
-                className="grid gap-4 sm:grid-cols-2"
-              >
                 <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                   <div className="flex items-center gap-3">
                     <Clock className="h-5 w-5 text-indigo-300" />

@@ -5,6 +5,7 @@ import { Github, Linkedin, Twitter } from "lucide-react";
 import { FaDiscord } from "react-icons/fa";
 import ConnectDrawer from "@/components/BottomDrawer";
 import { motion } from "framer-motion";
+import { PageContainer } from "@/components/layout/PageContainer";
 
 type LinkItem = {
   label: string;
@@ -129,7 +130,7 @@ const Footer = () => {
         </svg>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <PageContainer className="relative space-y-16 py-20">
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -172,7 +173,7 @@ const Footer = () => {
           </motion.button>
         </motion.section>
 
-        <motion.section
+  <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -258,7 +259,7 @@ const Footer = () => {
           </div>
         </motion.section>
 
-        <motion.div
+  <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -293,7 +294,7 @@ const Footer = () => {
             ))}
           </div>
         </motion.div>
-      </div>
+      </PageContainer>
 
       <ConnectDrawer open={isOpen} onClose={() => setIsOpen(false)} />
     </footer>

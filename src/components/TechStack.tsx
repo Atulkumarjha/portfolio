@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaLock, FaCode } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -209,6 +209,7 @@ const TechButton: React.FC<{ tech: TechButton }> = ({ tech }) => {
   return (
     <div className="relative">
       <button
+        type="button"
         className={`
           group relative flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-700/50
           ${tech.bgColor} ${tech.color} w-full h-12 min-w-[140px]
@@ -230,25 +231,23 @@ const TechButton: React.FC<{ tech: TechButton }> = ({ tech }) => {
 
 const TechStack: React.FC = () => {
   return (
-    <section className="min-h-full m-[300px] bg-transparent flex flex-col items-center justify-center p-8">
-      <div className="max-w-6xl mx-auto text-center">
-        {/* Header */}
-        <div className="mb-12">
-          <h2 className="mb-3 text-xs font-normal tracking-widest text-black/80 uppercase md:text-sm dark:text-white/70">
-            MY SKILLS
-          </h2>
-          <h1 className="text-6xl md:text-7xl font-light text-white mb-2 font-serif">
-            The Tech{" "}
-            <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x font-serif pe-2 tracking-tight italic">Alchemy</span>
-          </h1>
-        </div>
+    <section className="flex w-full flex-col items-center justify-center gap-10 bg-transparent text-center">
+      <div>
+        <h2 className="mb-3 text-xs font-normal uppercase tracking-[0.4em] text-white/70">
+          MY SKILLS
+        </h2>
+        <h3 className="font-serif text-4xl font-light text-white sm:text-5xl lg:text-6xl">
+          The Tech
+          <span className="ml-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x italic">
+            Alchemy
+          </span>
+        </h3>
+      </div>
 
-        {/* Tech Stack Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 max-w-5xl mx-auto">
-          {techStack.map((tech, index) => (
-            <TechButton key={index} tech={tech} />
-          ))}
-        </div>
+      <div className="grid w-full max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+        {techStack.map((tech, index) => (
+          <TechButton key={index} tech={tech} />
+        ))}
       </div>
     </section>
   );
