@@ -75,8 +75,7 @@ export default function GuestbookPage() {
               Sign the guestbook
             </a>
             <a
-              href="mailto:jhaak301@gmail.com?subject=Quick%20hello%20from%20your%20portfolio"
-              href="mailto:atulpc682@gmail.com?subject=Quick%20hello%20from%20your%20portfolio"
+              href="mailto:jhaak301@gmail.com?cc=jhaak301@gmail.com&subject=Quick%20hello%20from%20your%20portfolio"
               className="inline-flex items-center rounded-full border border-white/10 px-5 py-2 text-sm font-medium text-gray-200 transition hover:border-white/30 hover:text-white"
             >
               Send a message
