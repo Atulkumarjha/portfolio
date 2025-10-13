@@ -77,28 +77,28 @@ const PersonalIntro: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-between min-h-screen">
+    <div className="flex min-h-screen flex-col items-center justify-between gap-12 text-center lg:flex-row lg:items-center lg:text-left">
       {/* Text Content */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center">
+      <div className="flex w-full flex-col justify-center gap-6 px-4 sm:px-6 lg:w-1/2 lg:px-0">
         <h2
           style={{
             textShadow:
               "0px 4px 8px rgba(255,255,255,.05),0px 8px 30px rgba(255,255,255,.25)",
           }}
-          className="relative z-2 mb-8 text-4xl font-medium tracking-tight text-left sm:text-5xl md:mb-12 md:text-6xl"
+          className="relative z-2 text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl lg:text-6xl"
         >
           <p className="mb-3 text-xs font-normal tracking-widest text-black/80 uppercase md:text-sm dark:text-white/70">
             More About Me
           </p>
           <span className="font-serif">
-            <span className="text-5xl">I'm Atul Kumar Jha, a</span>{" "}
-            <span className="text-5xl bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x font-serif pe-2 tracking-tight italic">
+            <span className="text-4xl sm:text-5xl">I'm Atul Kumar Jha, a</span>{" "}
+            <span className="text-4xl sm:text-5xl bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x font-serif pe-2 tracking-tight italic">
               <br />
               Full-Stack Developer
             </span>
           </span>
         </h2>
-        <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed text-left">
+        <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300 sm:text-lg">
           I'm <b>Atul Kumar Jha</b>, a passionate full-stack developer driven to
           craft seamless, impactful web experiences.
           <br />
@@ -118,12 +118,12 @@ const PersonalIntro: React.FC = () => {
         </p>
 
         {/* Social Links */}
-        <div className="flex gap-2 mt-4">
+        <div className="mt-2 flex items-center justify-center gap-3 lg:justify-start">
           <a
             href="https://www.linkedin.com/in/atul-kumar-jha-09535b233/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-12 h-12 rounded-full transition hover:text-white"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 transition hover:-translate-y-1 hover:border-white/40"
           >
             <FaLinkedin
               size={20}
@@ -135,7 +135,7 @@ const PersonalIntro: React.FC = () => {
             href="https://github.com/Atulkumarjha"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-12 h-12 rounded-full transition hover:text-white"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 transition hover:-translate-y-1 hover:border-white/40"
           >
             <FaGithub
               size={20}
@@ -147,7 +147,7 @@ const PersonalIntro: React.FC = () => {
             href="https://x.com/atul_kumar_jha"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-12 h-12 rounded-full transition hover:text-white"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 transition hover:-translate-y-1 hover:border-white/40"
           >
             <FaTwitter
               size={20}
@@ -158,7 +158,7 @@ const PersonalIntro: React.FC = () => {
       </div>
 
       {/* 3D Image Carousel */}
-      <div className="relative flex h-[350px] w-full max-w-[200px] flex-col items-center justify-center lg:h-[450px] lg:max-w-[270px] cursor-grab active:cursor-grabbing lg:me-20">
+      <div className="relative flex h-[320px] w-full max-w-[220px] flex-col items-center justify-center px-4 cursor-grab active:cursor-grabbing sm:h-[360px] lg:h-[450px] lg:max-w-[270px] lg:px-0 lg:me-20">
         <div className="relative h-full w-full">
           {images.map((image, index) => (
             <div
@@ -167,7 +167,7 @@ const PersonalIntro: React.FC = () => {
               style={getImageStyle(index)}
               onClick={() => handleImageClick(index)}
             >
-              <div className="relative aspect-[4/5] w-[220px] lg:w-[300px]">
+              <div className="relative aspect-[4/5] w-[200px] sm:w-[220px] lg:w-[300px]">
                 <img
                   alt={image.alt}
                   draggable="false"
@@ -180,12 +180,12 @@ const PersonalIntro: React.FC = () => {
         </div>
 
         {/* Dynamic Title */}
-        <h3 className="text-center text-2xl font-light mt-8 text-gray-800 dark:text-gray-200 transition-opacity duration-500">
+        <h3 className="mt-6 text-center text-xl font-light text-gray-800 transition-opacity duration-500 dark:text-gray-200 sm:text-2xl">
           {images[currentIndex]?.title}
         </h3>
 
         {/* Pagination Dots */}
-        <div className="flex gap-2 mt-4">
+        <div className="mt-3 flex gap-2">
           {images.map((_, index) => (
             <button
               key={index}
