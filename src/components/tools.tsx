@@ -71,8 +71,6 @@ function Tool() {
   const resolvedTrack = primaryTrack ?? trackFallback;
 
   return (
-    <div className="transition-colors duration-300 px-4 sm:px-6 md:px-8">
-      <div className="relative mx-auto flex w-full flex-col gap-8 sm:gap-10 md:gap-12">
     <div className="transition-colors duration-300">
       <div className="relative mx-auto flex w-full flex-col gap-12">
         {/* Hero Section */}
@@ -100,8 +98,6 @@ function Tool() {
         </div>
 
         {/* Cards Grid */}
-        <div
-          className={`mt-8 sm:mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 transition-all duration-1000 delay-300 lg:grid-cols-3 ${
         <div 
           className={`mt-12 grid grid-cols-1 gap-6 transition-all duration-1000 delay-300 sm:mt-16 md:grid-cols-12 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
@@ -110,7 +106,6 @@ function Tool() {
           {/* Uses Card */}
           <Link
             href="/uses"
-            className="group relative flex min-h-[280px] sm:min-h-[300px] md:min-h-[320px] lg:min-h-[340px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 sm:col-span-2 lg:col-span-1"
             className="group relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-12 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
@@ -174,7 +169,6 @@ function Tool() {
           {/* Guestbook Card */}
           <Link
             href="/guestbook"
-            className="group relative flex min-h-[280px] sm:min-h-[300px] md:min-h-[320px] lg:min-h-[340px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800"
             className="group relative col-span-12 flex min-h-[280px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
@@ -226,7 +220,6 @@ function Tool() {
             href="https://open.spotify.com/playlist/4u4aNv2oc6YOFObfqAUSK0"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex min-h-[280px] sm:min-h-[300px] md:min-h-[320px] lg:min-h-[340px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800"
             className="group relative col-span-12 flex min-h-[280px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
