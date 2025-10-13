@@ -72,7 +72,7 @@ function Tool() {
 
   return (
     <div className="transition-colors duration-300">
-      <div className="relative mx-auto container">
+      <div className="relative mx-auto flex w-full flex-col gap-12">
         {/* Hero Section */}
         <div 
           className={`transition-all duration-1000 ${
@@ -99,16 +99,16 @@ function Tool() {
 
         {/* Cards Grid */}
         <div 
-          className={`mt-20 grid grid-cols-1 gap-6 md:grid-cols-12 transition-all duration-1000 delay-300 ${
+          className={`mt-12 grid grid-cols-1 gap-6 transition-all duration-1000 delay-300 sm:mt-16 md:grid-cols-12 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}
         >
           {/* Uses Card */}
           <Link
             href="/uses"
-            className="group relative flex flex-col justify-between rounded-xl col-span-12 h-[300px] md:col-span-12 lg:col-span-4 cursor-pointer overflow-hidden"
+            className="group relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-12 lg:col-span-4"
           >
-            <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-500 transform-gpu hover:-translate-y-1">
+            <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               
               {/* Hover Arrow */}
               <div className="absolute right-4 bottom-4 z-50 flex h-9 w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
@@ -169,9 +169,9 @@ function Tool() {
           {/* Guestbook Card */}
           <Link
             href="/guestbook"
-            className="group relative w-full col-span-12 h-[300px] md:col-span-6 lg:col-span-4 cursor-pointer"
+            className="group relative col-span-12 flex min-h-[280px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
-            <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-500 transform-gpu hover:-translate-y-1">
+            <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               
               {/* Hover Arrow */}
               <div className="absolute right-4 bottom-4 z-50 flex h-9 w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-0 transition-all duration-500 group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
@@ -220,9 +220,9 @@ function Tool() {
             href="https://open.spotify.com/playlist/4u4aNv2oc6YOFObfqAUSK0"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative col-span-12 h-[300px] md:col-span-6 lg:col-span-4 cursor-pointer"
+            className="group relative col-span-12 flex min-h-[280px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
-            <div className="group flex size-full flex-col justify-between overflow-hidden rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-500 transform-gpu hover:-translate-y-1">
+            <div className="group flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               
               {/* Background Accent */}
               <div 

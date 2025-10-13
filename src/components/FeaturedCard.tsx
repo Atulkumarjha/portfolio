@@ -1,9 +1,25 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { ProjectCard } from "./ui/ProjectCard";
 import { ProjectSidebar } from "./ui/ProjectSidebar";
 
-const projects = [
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  gradient: string;
+  textColor: string;
+  shadowColor: string;
+  features: string[];
+  techStack: { name: string; icon: string }[];
+  url: string;
+}
+
+const projects: Project[] = [
   {
     id: "Moody",
     title: "Moody YourVibeYourPlaylist",
@@ -29,10 +45,7 @@ const projects = [
       { name: "Spotify API", icon: "https://cdn.simpleicons.org/spotify" },
       { name: "Sanity cms", icon: "https://cdn.simpleicons.org/sanity" },
       { name: "Auth.js", icon: "https://cdn.simpleicons.org/nextdns" },
-      {
-        name: "markdown",
-        icon: "https://cdn.simpleicons.org/markdown/lightblue",
-      },
+      { name: "markdown", icon: "https://cdn.simpleicons.org/markdown/lightblue" },
     ],
     url: "https://moody-your-vibe-your-playlist.vercel.app/",
   },
@@ -63,7 +76,7 @@ const projects = [
     url: "https://atul-drum-music.netlify.app/",
   },
   {
-    id: "The blog",
+    id: "TheBlog",
     title: "Stories, tutorials, and lessons",
     description:
       "Sharing knowledge, tips, and tutorials for building scalable and modern web applications, from frontend to backend.",
@@ -90,13 +103,12 @@ const projects = [
   },
   {
     id: "Weather",
-    title:
-      "Know the skies before you step outside — live forecasts and alerts at your fingertips.",
+    title: "Know the skies before you step outside — live forecasts and alerts at your fingertips.",
     description:
       "Real-time weather updates, forecasts, and insights to keep you prepared wherever you go.",
     longDescription:
       "Stay ahead of the weather with SkyCast — get accurate forecasts, temperature trends, and severe weather alerts anytime, anywhere.",
-    image: "assets/weather.png",
+    image: "/assets/weather.png",
     gradient:
       "linear-gradient(188.62deg, #3D1A7A 49.9%, #7E22CE 81.7%, #C084FC 93.88%, #F9D793 113.5%)",
     textColor: "text-purple-300",
@@ -116,15 +128,13 @@ const projects = [
     url: "https://0xitshimanshu.github.io/WeatherApp/",
   },
   {
-    id: "portfolio",
-    title:
-      "Modern Portfolio",
+    id: "Portfolio",
+    title: "Modern Portfolio",
     description:
       "A sleek, modern portfolio showcasing creative web development projects and interactive UI/UX designs.",
     longDescription:
       "PixelPerfect Portfolio is a cutting-edge personal portfolio project designed to highlight creative web development and design skills. It features a fully responsive layout, smooth animations, and interactive components to engage visitors. With optimized performance, dark and light themes, and seamless navigation",
-    image:
-      "/assets/portfolio.png",
+    image: "/assets/portfolio.png",
     gradient:
       "linear-gradient(188.62deg, #6B0D33 49.9%, #DB2777 81.7%, #F472B6 93.88%, #F9D793 113.5%)",
     textColor: "text-pink-300",
@@ -145,48 +155,38 @@ const projects = [
 ];
 
 export const FeaturedWork: React.FC = () => {
-  const [activeProject, setActiveProject] = useState(projects[0]);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeProject, setActiveProject] = useState<Project | null>(
+    projects.length > 0 ? projects[0] : null
+  );
 
+  // Intersection Observer to update active project
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const indexAttr = entry.target.getAttribute("data-index");
+          if (!indexAttr) return;
+          const project = projects[Number(indexAttr)];
+          if (!project) return;
 
-      for (let i = 0; i < projectRefs.current.length; i++) {
-        const element = projectRefs.current[i];
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const elementTop = rect.top + window.scrollY;
-          const elementBottom = elementTop + rect.height;
-
-          if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
-            if (activeProject.id !== projects[i].id) {
-              setActiveProject(projects[i]);
-            }
-            break;
+          if (entry.isIntersecting) {
+            setActiveProject(project);
           }
-        }
-      }
+        });
+      },
+      { threshold: 0.5, rootMargin: "0px 0px -30% 0px" }
+    );
+
+    projectRefs.current.forEach((card) => card && observer.observe(card));
+    return () => {
+      projectRefs.current.forEach((card) => card && observer.unobserve(card));
     };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check initial position
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeProject.id]);
+  }, []);
 
   return (
-    <section
-      id="work"
-      className="relative mx-auto mt-28 w-full max-w-7xl py-1"
-    >
-      <h2
-        style={{
-          textShadow:
-            "0px 4px 8px rgba(255,255,255,.05),0px 8px 30px rgba(255,255,255,.25)",
-        }}
-        className="relative z-2 mb-20 text-5xl font-medium tracking-tight text-balance sm:text-5xl md:mb-36 md:text-6xl text-center"
-      >
+    <section id="work" className="relative w-full">
+      <h2 className="relative z-10 mb-12 text-center text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">
         <p className="mb-3 text-xs font-normal tracking-widest text-black/80 uppercase md:text-sm dark:text-white/70">
           FEATURED PROJECTS
         </p>
@@ -198,29 +198,60 @@ export const FeaturedWork: React.FC = () => {
         </span>
       </h2>
 
-      <div className="relative mx-auto flex w-full">
-        <div className="mx-auto grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 lg:flex lg:max-w-[65%] lg:flex-col lg:gap-y-24">
-          {projects.map((project, index) => (
+      <div className="flex flex-col gap-16">
+        {projects.map((project, index) => {
+          const isActive = activeProject?.id === project.id;
+
+          return (
             <div
               key={project.id}
-              id={project.id.toLowerCase()}
+              data-index={index}
               ref={(el) => {
                 projectRefs.current[index] = el;
               }}
+              className="group/project"
             >
-              <ProjectCard
-                project={project}
-                isActive={activeProject.id === project.id}
-                onHover={() => setActiveProject(project)}
-                onClick={() =>
-                  project.url && window.open(project.url, "_blank")
-                } // opens URL in new tab
-              />
-            </div>
-          ))}
-        </div>
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
+                <ProjectCard
+                  project={project}
+                  isActive={isActive}
+                  onHover={() => setActiveProject(project)}
+                  onClick={() => project.url && window.open(project.url, "_blank")}
+                />
 
-        <ProjectSidebar activeProject={activeProject} />
+                <AnimatePresence mode="wait">
+                  {isActive ? (
+                    <motion.div
+                      key={`${project.id}-desktop`}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ type: "spring", stiffness: 140, damping: 20, mass: 0.8 }}
+                      className="hidden lg:block"
+                    >
+                      <ProjectSidebar project={project} className="lg:max-w-md" />
+                    </motion.div>
+                  ) : null}
+                </AnimatePresence>
+              </div>
+
+              <AnimatePresence mode="wait">
+                {isActive ? (
+                  <motion.div
+                    key={`${project.id}-mobile`}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -16 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="mt-6 lg:hidden"
+                  >
+                    <ProjectSidebar project={project} />
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

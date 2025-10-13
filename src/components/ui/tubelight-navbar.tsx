@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ConnectDrawer from "@/components/BottomDrawer";
@@ -128,11 +129,26 @@ export function NavBar({ items, className }: NavBarProps) {
     <>
       <div
         className={cn(
-          "fixed bottom-0 left-1/2 z-50 mb-6 -translate-x-1/2 sm:top-0 sm:pt-4",
+          "fixed left-1/2 top-4 z-50 w-full max-w-2xl -translate-x-1/2 px-4 sm:px-0",
           className
         )}
       >
-        <div className="flex h-12 w-132 items-center gap-3 rounded-full border border-border bg-background/5 pl-2 shadow-lg backdrop-blur-lg">
+        <div className="flex w-full flex-wrap items-center justify-between gap-2 rounded-full border border-border/60 bg-background/80 px-3 py-2 shadow-lg backdrop-blur-xl sm:px-4">
+          <Link
+            href="/"
+            className="flex items-center gap-2 rounded-full border border-transparent bg-white/5 px-2 py-1 text-xs font-medium text-white/80 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+          >
+            <Image
+              src="/assets/atulkumarjha.jpg"
+              alt="Atul Kumar Jha"
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-full object-cover"
+            />
+            <span className="hidden sm:inline">Atul Kumar Jha</span>
+          </Link>
+
+          <div className="flex flex-wrap items-center justify-end gap-2">
           {items.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.name;
@@ -166,7 +182,7 @@ export function NavBar({ items, className }: NavBarProps) {
                       }
                     }}
                     className={cn(
-                      "group relative flex select-none items-center rounded-full px-4 py-1.5 text-sm font-light transition",
+                      "group relative flex select-none items-center rounded-full px-3 py-1 text-sm font-light transition",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
                       "text-white/70 hover:text-white",
                       showHighlight && "text-white"
@@ -267,7 +283,7 @@ export function NavBar({ items, className }: NavBarProps) {
                     setShowDrawer(true);
                   }}
                   className={cn(
-                    "relative cursor-pointer rounded-full px-6 py-2 text-sm font-semibold transition-colors bg-[#272627]",
+                    "relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-semibold transition-colors bg-[#272627]",
                     "text-foreground/80 hover:text-primary",
                     isActive && "bg-muted text-primary"
                   )}
@@ -296,7 +312,7 @@ export function NavBar({ items, className }: NavBarProps) {
                   setActiveTab(item.name);
                 }}
                 className={cn(
-                  "relative cursor-pointer rounded-full px-6 py-2 text-sm font-semibold transition-colors",
+                  "relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-semibold transition-colors",
                   "text-foreground/80 hover:text-primary",
                   isActive && "bg-muted text-primary"
                 )}
@@ -322,6 +338,7 @@ export function NavBar({ items, className }: NavBarProps) {
               </Link>
             );
           })}
+          </div>
         </div>
       </div>
 

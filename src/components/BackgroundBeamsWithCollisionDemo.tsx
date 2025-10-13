@@ -29,25 +29,25 @@ export function BackgroundBeamsWithCollisionDemo({
   };
 
   return (
-    <div className="h-125">
+    <div className="w-full">
       <BackgroundBeamsWithCollision>
         {/* Resume Button */}
         <button
           onClick={() => window.open("/atul_resume.pdf", "_blank")}
-          className="mt-20 mb-10 bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block"
+          className="group relative mt-12 mb-8 inline-flex cursor-pointer items-center justify-center rounded-full bg-slate-800 p-px text-xs font-semibold leading-6 text-white shadow-2xl shadow-zinc-900 transition-colors duration-200 hover:bg-slate-700 sm:mt-16 sm:mb-10 lg:mt-20"
         >
           <span className="absolute inset-0 overflow-hidden rounded-full">
             <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           </span>
-          <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 ">
-            <span>Click to checkout my latest CV </span>
-            <FaSquareArrowUpRight className="h-10"/>
+          <div className="relative z-10 flex items-center gap-2 rounded-full bg-zinc-950 py-1.5 px-4 ring-1 ring-white/10">
+            <span className="text-xs sm:text-sm">Click to checkout my latest CV</span>
+            <FaSquareArrowUpRight className="h-4 w-4" />
           </div>
           <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
         </button>
 
         {/* Heading */}
-        <div className="flex flex-col items-center text-center font-bold text-4xl">
+        <div className="flex flex-col items-center px-4 text-center text-3xl font-bold sm:text-4xl">
           <div className="mb-2 bg-gradient-to-b from-white via-gray-400 to-gray-700 bg-clip-text text-transparent">
             From imagination to execution
           </div>
@@ -57,32 +57,32 @@ export function BackgroundBeamsWithCollisionDemo({
         </div>
 
         {/* Intro Section */}
-        <div className="flex flex-row mb-7 mt-2">
-          <div className="mt-1 bg-gradient-to-b from-white via-gray-400 to-gray-700 bg-clip-text text-transparent">
+        <div className="mb-7 mt-3 flex flex-col items-center gap-3 px-4 text-center text-base font-medium sm:flex-row sm:text-lg">
+          <div className="bg-gradient-to-b from-white via-gray-400 to-gray-700 bg-clip-text text-transparent">
             Hi Everyone, I'm Atul Kr. Jha
           </div>
           <div>
             <img
               src="/assets/atulkumarjha.jpg"
               alt="Atul Kumar Jha portrait"
-              className="mx-2 h-10 w-10 rounded-full object-cover shadow-sm ring-1 ring-white/20"
+              className="mx-2 h-12 w-12 rounded-full object-cover shadow-sm ring-1 ring-white/20"
             />
           </div>
-          <div className="mt-1 bg-gradient-to-b from-white via-gray-400 to-gray-700 bg-clip-text text-transparent">
+          <div className="bg-gradient-to-b from-white via-gray-400 to-gray-700 bg-clip-text text-transparent">
             A Full Stack Developer
           </div>
         </div>
 
         {/* Buttons Section */}
-        <div className="flex flex-col items-center ml-6">
-          <div className="flex flex-row items-center gap-6">
+        <div className="flex w-full flex-col items-center gap-4 px-4 sm:px-6">
+          <div className="flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
             {/* Let's Connect Button */}
             <button
               onClick={() => setDrawerOpen(true)}
-              className="p-[3px] relative"
+              className="relative w-full overflow-hidden rounded-lg p-[3px] sm:w-auto"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-              <div className="px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent">
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500" />
+              <div className="relative rounded-[6px] bg-black px-6 py-2 text-center text-sm font-semibold text-white transition duration-200 hover:bg-transparent sm:px-8">
                 Let's Connect
               </div>
             </button>
@@ -90,11 +90,11 @@ export function BackgroundBeamsWithCollisionDemo({
             {/* Copy Email Button */}
             <button
               onClick={copyEmail}
-              className="px-6 py-2 bg-black rounded-[6px] text-white flex items-center gap-2 hover:bg-neutral-800 transition"
+              className="group flex w-full flex-wrap items-center justify-center gap-2 rounded-[6px] bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-800 sm:w-auto sm:flex-nowrap sm:px-6"
             >
-              <Mail className="w-5 h-5" />
-              {email}
-              <Copy className="w-5 h-5 opacity-70 hover:opacity-100 transition" />
+              <Mail className="h-5 w-5" />
+              <span className="truncate sm:whitespace-nowrap">{email}</span>
+              <Copy className="h-5 w-5 opacity-70 transition group-hover:opacity-100" />
             </button>
           </div>
         </div>
