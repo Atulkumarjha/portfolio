@@ -23,6 +23,8 @@ export function HeroSection() {
         <NavBarItem />
 
         <SectionWrapper
+          className="relative z-10 pt-16 sm:pt-20 md:pt-24 lg:pt-28"
+          containerClassName="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12"
           className="relative z-10 pt-20 sm:pt-24 md:pt-28 lg:pt-32"
           containerClassName="flex flex-col gap-8 sm:gap-10 md:gap-12"
           className="relative z-10 pt-24 md:pt-32"
@@ -45,6 +47,7 @@ export function HeroSection() {
 
         <SectionWrapper
           className="relative z-10"
+          containerClassName="grid gap-6 sm:gap-8 md:gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12"
           containerClassName="grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12"
         >
           <div className="space-y-4 sm:space-y-5 md:space-y-6">
@@ -52,9 +55,9 @@ export function HeroSection() {
               <p className="mb-2 sm:mb-3 text-xs font-semibold tracking-[0.35em] text-white/60">
           containerClassName="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]"
         >
-          <div className="space-y-6">
+          <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
             <div>
-              <p className="mb-3 text-xs font-semibold tracking-[0.35em] text-white/60">
+              <p className="mb-1.5 sm:mb-2 md:mb-3 text-xs font-semibold tracking-[0.35em] text-white/60">
                 Know About Me
               </p>
               <h2
@@ -100,7 +103,7 @@ export function HeroSection() {
                 <FaLinkedin size={16} className="sm:w-[18px] sm:h-[18px]" />
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 transition hover:border-white/40 hover:bg-white/20"
               >
-                <FaLinkedin size={18} />
+                <FaLinkedin size={16} className="sm:w-[18px] sm:h-[18px]" />
               </a>
               <a
                 href="https://github.com/Atulkumarjha"
@@ -111,7 +114,7 @@ export function HeroSection() {
                 <FaGithub size={16} className="sm:w-[18px] sm:h-[18px]" />
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 transition hover:border-white/40 hover:bg-white/20"
               >
-                <FaGithub size={18} />
+                <FaGithub size={16} className="sm:w-[18px] sm:h-[18px]" />
               </a>
               <a
                 href="https://x.com/atul_kumar_jha"
@@ -122,7 +125,7 @@ export function HeroSection() {
                 <FaTwitter size={16} className="sm:w-[18px] sm:h-[18px]" />
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 transition hover:border-white/40 hover:bg-white/20"
               >
-                <FaTwitter size={18} />
+                <FaTwitter size={16} className="sm:w-[18px] sm:h-[18px]" />
               </a>
             </div>
           </div>

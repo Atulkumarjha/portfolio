@@ -43,6 +43,7 @@ export function IconCloudDemo() {
 
   return (
     <div className="relative flex size-full items-center justify-center overflow-hidden">
+      <div className="flex w-full h-full scale-75 sm:scale-90 md:scale-100">
       <div className="flex flex-col items-center justify-center gap-3 sm:hidden">
         <div className="inline-flex items-center rounded-full border border-gray-200 bg-gray-100 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-gray-600 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
           Toolset

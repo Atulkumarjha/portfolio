@@ -38,7 +38,7 @@ export function SectionWrapper({
   as: Component = "section",
 }: SectionWrapperProps) {
   return (
-    <Component className={clsx("py-12 sm:py-16 lg:py-20", className)}>
+    <Component className={clsx("py-8 sm:py-12 md:py-16 lg:py-20", className)}>
       <PageContainer className={containerClassName}>{children}</PageContainer>
     </Component>
   );

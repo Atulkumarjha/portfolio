@@ -18,7 +18,7 @@ export default function About() {
       <StarsBackground className="pointer-events-none" />
       <NavBarItem />
 
-      <main className="relative z-10 flex flex-col gap-16 pt-32">
+      <main className="relative z-10 flex flex-col gap-8 sm:gap-12 md:gap-16 pt-20 sm:pt-24 md:pt-28 lg:pt-32">
         <SectionWrapper>
           <PersonalIntro />
         </SectionWrapper>

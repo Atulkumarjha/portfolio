@@ -77,9 +77,9 @@ const PersonalIntro: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between gap-12 text-center lg:flex-row lg:items-center lg:text-left">
+    <div className="flex min-h-screen flex-col items-center justify-between gap-8 sm:gap-10 md:gap-12 text-center lg:flex-row lg:items-center lg:text-left">
       {/* Text Content */}
-      <div className="flex w-full flex-col justify-center gap-6 px-4 sm:px-6 lg:w-1/2 lg:px-0">
+      <div className="flex w-full flex-col justify-center gap-4 sm:gap-5 md:gap-6 px-4 sm:px-6 lg:w-1/2 lg:px-0">
         <h2
           style={{
             textShadow:
@@ -87,7 +87,7 @@ const PersonalIntro: React.FC = () => {
           }}
           className="relative z-2 text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl lg:text-6xl"
         >
-          <p className="mb-3 text-xs font-normal tracking-widest text-black/80 uppercase md:text-sm dark:text-white/70">
+          <p className="mb-2 sm:mb-2.5 md:mb-3 text-xs font-normal tracking-widest text-black/80 uppercase md:text-sm dark:text-white/70">
             More About Me
           </p>
           <span className="font-serif">
@@ -118,7 +118,7 @@ const PersonalIntro: React.FC = () => {
         </p>
 
         {/* Social Links */}
-        <div className="mt-2 flex items-center justify-center gap-3 lg:justify-start">
+        <div className="mt-1 sm:mt-1.5 md:mt-2 flex items-center justify-center gap-2 sm:gap-2.5 md:gap-3 lg:justify-start">
           <a
             href="https://www.linkedin.com/in/atul-kumar-jha-09535b233/"
             target="_blank"
@@ -158,20 +158,20 @@ const PersonalIntro: React.FC = () => {
       </div>
 
       {/* 3D Image Carousel */}
-      <div className="relative flex h-[320px] w-full max-w-[220px] flex-col items-center justify-center px-4 cursor-grab active:cursor-grabbing sm:h-[360px] lg:h-[450px] lg:max-w-[270px] lg:px-0 lg:me-20">
+      <div className="relative flex h-[180px] w-full max-w-[110px] flex-col items-center justify-center px-2 cursor-grab active:cursor-grabbing sm:h-[240px] sm:max-w-[150px] md:h-[320px] md:max-w-[220px] lg:h-[450px] lg:max-w-[270px] lg:px-0 lg:me-20">
         <div className="relative h-full w-full">
           {images.map((image, index) => (
             <div
               key={index}
-              className="absolute transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] rounded-3xl shadow-[rgba(0,0,0,0.5)_0px_10px_30px] cursor-pointer hover:shadow-[rgba(0,0,0,0.6)_0px_15px_40px]"
+              className="absolute transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] rounded-2xl sm:rounded-3xl shadow-[rgba(0,0,0,0.5)_0px_10px_30px] cursor-pointer hover:shadow-[rgba(0,0,0,0.6)_0px_15px_40px]"
               style={getImageStyle(index)}
               onClick={() => handleImageClick(index)}
             >
-              <div className="relative aspect-[4/5] w-[200px] sm:w-[220px] lg:w-[300px]">
+              <div className="relative aspect-[4/5] w-[100px] sm:w-[140px] md:w-[200px] lg:w-[300px]">
                 <img
                   alt={image.alt}
                   draggable="false"
-                  className="rounded-3xl object-cover w-full h-full transition-all duration-300"
+                  className="rounded-2xl sm:rounded-3xl object-cover w-full h-full transition-all duration-300"
                   src={image.src}
                 />
               </div>
@@ -180,19 +180,19 @@ const PersonalIntro: React.FC = () => {
         </div>
 
         {/* Dynamic Title */}
-        <h3 className="mt-6 text-center text-xl font-light text-gray-800 transition-opacity duration-500 dark:text-gray-200 sm:text-2xl">
+        <h3 className="mt-2 sm:mt-3 md:mt-5 lg:mt-6 text-center text-sm font-light text-gray-800 transition-opacity duration-500 dark:text-gray-200 sm:text-base md:text-xl lg:text-2xl">
           {images[currentIndex]?.title}
         </h3>
 
         {/* Pagination Dots */}
-        <div className="mt-3 flex gap-2">
+        <div className="mt-1.5 sm:mt-2 md:mt-3 flex gap-1 sm:gap-1.5 md:gap-2">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => handleImageClick(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? "bg-blue-600 scale-125"
+                  ? "bg-blue-600 scale-110 sm:scale-125"
                   : "bg-gray-300 hover:bg-gray-400"
               }`}
               aria-label={`Go to image ${index + 1}`}

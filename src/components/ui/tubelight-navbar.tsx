@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -57,29 +57,30 @@ export function NavBar({ items, className }: NavBarProps) {
   const moreContainerRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
 
+  const clearCloseTimer = useCallback(() => {
   const clearCloseTimer = () => {
     if (closeTimer.current) {
       clearTimeout(closeTimer.current);
       closeTimer.current = null;
     }
-  };
+  }, []);
 
-  const closeMore = () => {
+  const closeMore = useCallback(() => {
     clearCloseTimer();
     setMoreOpen(false);
-  };
+  }, [clearCloseTimer]);
 
-  const openMore = () => {
+  const openMore = useCallback(() => {
     clearCloseTimer();
     setMoreOpen(true);
-  };
+  }, [clearCloseTimer]);
 
-  const scheduleMoreClose = () => {
+  const scheduleMoreClose = useCallback(() => {
     clearCloseTimer();
     closeTimer.current = setTimeout(() => {
       closeMore();
-    }, 120);
-  };
+    }, 200);
+  }, [clearCloseTimer, closeMore]);
 
   const handleMoreBlur = (event: React.FocusEvent<HTMLElement>) => {
     if (
@@ -104,7 +105,7 @@ export function NavBar({ items, className }: NavBarProps) {
 
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, []);
+  }, [closeMore]);
 
   useEffect(() => {
     if (!pathname) return;
@@ -118,6 +119,7 @@ export function NavBar({ items, className }: NavBarProps) {
     <>
       <div
         className={cn(
+          "fixed left-1/2 top-2 sm:top-4 z-50 w-[calc(100%-1rem)] sm:w-full max-w-[95%] sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl -translate-x-1/2 px-2 sm:px-4",
           "fixed left-1/2 top-2 sm:top-4 z-50 w-[calc(100%-1rem)] sm:w-full max-w-[95%] sm:max-w-xl md:max-w-2xl -translate-x-1/2",
           className
         )}
@@ -130,10 +132,10 @@ export function NavBar({ items, className }: NavBarProps) {
           className
         )}
       >
-        <div className="flex w-full flex-wrap items-center justify-between gap-2 rounded-full border border-border/60 bg-background/80 px-3 py-2 shadow-lg backdrop-blur-xl sm:px-4">
+        <div className="flex w-full items-center justify-between gap-1.5 sm:gap-2 rounded-full border border-border/60 bg-background/80 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 shadow-lg backdrop-blur-xl">
           <Link
             href="/"
-            className="flex items-center gap-2 rounded-full border border-transparent bg-white/5 px-2 py-1 text-xs font-medium text-white/80 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+            className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-transparent bg-white/5 px-1.5 py-0.5 sm:px-2 sm:py-1 text-xs font-medium text-white/80 transition hover:border-white/20 hover:bg-white/10 hover:text-white flex-shrink-0"
           >
             <Image
               src="/assets/atulkumarjha.jpg"
@@ -151,7 +153,7 @@ export function NavBar({ items, className }: NavBarProps) {
             <span className="hidden sm:inline">Atul Kumar Jha</span>
           </Link>
 
-          <div className="flex flex-wrap items-center justify-end gap-2">
+          <div className="flex items-center justify-end gap-1 sm:gap-2 overflow-x-auto scrollbar-hide">
           {items.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.name;
@@ -174,9 +176,28 @@ export function NavBar({ items, className }: NavBarProps) {
                     openMore();
                   }}
                   onBlur={handleMoreBlur}
+                  onTouchStart={(e) => {
+                    e.stopPropagation();
+                    if (moreOpen) {
+                      closeMore();
+                    } else {
+                      setActiveTab(item.name);
+                      openMore();
+                    }
+                  }}
                 >
                   <button
                     type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (moreOpen) {
+                        closeMore();
+                      } else {
+                        openMore();
+                      }
+                    }}
+                    className={cn(
+                      "group relative flex select-none items-center rounded-full px-2 sm:px-3 py-1 text-[10px] sm:text-xs md:text-sm font-medium uppercase tracking-[0.12em] sm:tracking-[0.18em] md:tracking-normal transition whitespace-nowrap",
                     onClick={() => {
                       openMore();
                     }}
@@ -204,18 +225,43 @@ export function NavBar({ items, className }: NavBarProps) {
                         initial={false}
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       >
-                        <div className="absolute -top-2 left-1/2 h-1 w-8 -translate-x-1/2 rounded-t-full bg-white/80">
-                          <div className="absolute -top-2 -left-2 h-6 w-12 rounded-full bg-white/30 blur-md" />
-                          <div className="absolute -top-1 h-6 w-8 rounded-full bg-white/30 blur-md" />
-                          <div className="absolute top-0 left-2 h-4 w-4 rounded-full bg-white/30 blur-sm" />
+                        <div className="absolute -top-2 left-1/2 h-1 w-8 lg:w-12 -translate-x-1/2 rounded-t-full bg-white/80">
+                          <div className="absolute -top-2 -left-2 h-6 w-12 lg:h-8 lg:w-16 rounded-full bg-white/30 blur-md" />
+                          <div className="absolute -top-1 h-6 w-8 lg:h-8 lg:w-12 rounded-full bg-white/30 blur-md" />
+                          <div className="absolute top-0 left-2 h-4 w-4 lg:h-6 lg:w-6 rounded-full bg-white/30 blur-sm" />
                         </div>
                       </motion.div>
                     )}
                   </button>
 
+                  {/* Hover bridge to prevent accidental close */}
+                  <div 
+                    className={cn(
+                      "absolute top-full left-0 right-0 h-3 z-[59]",
+                      moreOpen ? "pointer-events-auto" : "pointer-events-none"
+                    )}
+                    onMouseEnter={openMore}
+                    onMouseLeave={scheduleMoreClose}
+                  />
+
                   <div
                     onMouseEnter={openMore}
                     onMouseLeave={scheduleMoreClose}
+                    style={{
+                      display: moreOpen ? 'block' : 'none',
+                      position: 'absolute',
+                      top: '100%',
+                      right: 0,
+                      zIndex: 9999,
+                      marginTop: '12px',
+                      width: 'calc(100vw - 2rem)',
+                      maxWidth: '22rem',
+                      borderRadius: '1rem',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                      padding: '1rem',
+                      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                    }}
                     className={cn(
                       "absolute top-full right-0 sm:left-0 z-[60] mt-1 w-[calc(100vw-2rem)] sm:w-[22rem] max-w-[22rem] rounded-2xl border border-white/10 bg-black/95 p-3 sm:p-4 shadow-2xl backdrop-blur transition-all duration-200",
                       moreOpen
@@ -327,7 +373,7 @@ export function NavBar({ items, className }: NavBarProps) {
                     isActive && "bg-muted text-primary"
                   )}
                 className={cn(
-                  "relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-semibold transition-colors",
+                  "relative cursor-pointer rounded-full px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.2em] md:tracking-normal transition-colors whitespace-nowrap",
                   "text-foreground/80 hover:text-primary",
                   isActive && "bg-muted text-primary"
                 )}
@@ -347,6 +393,10 @@ export function NavBar({ items, className }: NavBarProps) {
                     initial={false}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   >
+                    <div className="absolute -top-2 left-1/2 h-1 w-6 sm:w-8 lg:w-12 -translate-x-1/2 rounded-t-full bg-primary">
+                      <div className="absolute -top-2 -left-2 h-4 sm:h-6 lg:h-8 w-8 sm:w-12 lg:w-16 rounded-full bg-primary/30 blur-md" />
+                      <div className="absolute -top-1 h-4 sm:h-6 lg:h-8 w-6 sm:w-8 lg:w-12 rounded-full bg-primary/30 blur-md" />
+                      <div className="absolute top-0 left-2 h-3 sm:h-4 lg:h-6 w-3 sm:w-4 lg:w-6 rounded-full bg-primary/30 blur-sm" />
                     <div className="absolute -top-2 left-1/2 h-1 w-6 sm:w-8 -translate-x-1/2 rounded-t-full bg-primary">
                       <div className="absolute -top-2 -left-2 h-4 sm:h-6 w-8 sm:w-12 rounded-full bg-primary/30 blur-md" />
                       <div className="absolute -top-1 h-4 sm:h-6 w-6 sm:w-8 rounded-full bg-primary/30 blur-md" />

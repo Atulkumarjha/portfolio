@@ -6,14 +6,7 @@ import { Check, Copy, Mail } from "lucide-react";
 import ConnectDrawer from "@/components/BottomDrawer";
 import { FaSquareArrowUpRight } from "react-icons/fa6";
 
-
-interface BackgroundBeamsWithCollisionDemoProps {
-  className?: string;
-}
-
-export function BackgroundBeamsWithCollisionDemo({
-  className,
-}: BackgroundBeamsWithCollisionDemoProps) {
+export function BackgroundBeamsWithCollisionDemo() {
   const email = "jhaak301@gmail.com";
   const [copied, setCopied] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -95,10 +88,10 @@ export function BackgroundBeamsWithCollisionDemo({
             {/* Let's Connect Button */}
             <button
               onClick={() => setDrawerOpen(true)}
-              className="relative w-full overflow-hidden rounded-lg p-[3px] sm:w-auto"
+              className="relative w-full overflow-hidden rounded-lg p-[3px] sm:w-auto sm:min-w-[160px] md:min-w-[180px]"
             >
               <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500" />
-              <div className="relative rounded-[6px] bg-black px-6 py-2 text-center text-sm font-semibold text-white transition duration-200 hover:bg-transparent sm:px-8">
+              <div className="relative rounded-[6px] bg-black px-6 py-2 text-center text-sm font-semibold text-white transition duration-200 hover:bg-transparent sm:px-6 md:px-8 md:py-2.5">
                 Let's Connect
               </div>
             </button>
@@ -113,9 +106,9 @@ export function BackgroundBeamsWithCollisionDemo({
               <Copy className="h-4 w-4 sm:h-5 sm:w-5 opacity-70 transition group-hover:opacity-100 flex-shrink-0" />
               className="group flex w-full flex-wrap items-center justify-center gap-2 rounded-[6px] bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-800 sm:w-auto sm:flex-nowrap sm:px-6"
             >
-              <Mail className="h-5 w-5" />
-              <span className="truncate sm:whitespace-nowrap">{email}</span>
-              <Copy className="h-5 w-5 opacity-70 transition group-hover:opacity-100" />
+              <Mail className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+              <span className="truncate max-w-[200px] sm:max-w-none">{email}</span>
+              <Copy className="h-4 w-4 sm:h-5 sm:w-5 opacity-70 transition group-hover:opacity-100 flex-shrink-0" />
             </button>
           </div>
         </div>
