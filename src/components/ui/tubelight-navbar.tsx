@@ -58,6 +58,7 @@ export function NavBar({ items, className }: NavBarProps) {
   const pathname = usePathname();
 
   const clearCloseTimer = useCallback(() => {
+  const clearCloseTimer = () => {
     if (closeTimer.current) {
       clearTimeout(closeTimer.current);
       closeTimer.current = null;
@@ -119,6 +120,15 @@ export function NavBar({ items, className }: NavBarProps) {
       <div
         className={cn(
           "fixed left-1/2 top-2 sm:top-4 z-50 w-[calc(100%-1rem)] sm:w-full max-w-[95%] sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl -translate-x-1/2 px-2 sm:px-4",
+          "fixed left-1/2 top-2 sm:top-4 z-50 w-[calc(100%-1rem)] sm:w-full max-w-[95%] sm:max-w-xl md:max-w-2xl -translate-x-1/2",
+          className
+        )}
+      >
+        <div className="flex w-full items-center justify-between gap-1.5 sm:gap-2 rounded-full border border-border/60 bg-background/80 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 shadow-lg backdrop-blur-xl">
+          <Link
+            href="/"
+            className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-transparent bg-white/5 px-1.5 py-0.5 sm:px-2 sm:py-1 text-xs font-medium text-white/80 transition hover:border-white/20 hover:bg-white/10 hover:text-white flex-shrink-0"
+          "fixed left-1/2 top-4 z-50 w-full max-w-2xl -translate-x-1/2 px-4 sm:px-0",
           className
         )}
       >
@@ -133,6 +143,12 @@ export function NavBar({ items, className }: NavBarProps) {
               width={32}
               height={32}
               className="h-6 w-6 sm:h-8 sm:w-8 rounded-full object-cover"
+            />
+            
+          </Link>
+
+          <div className="flex items-center justify-end gap-1 sm:gap-2 overflow-x-auto scrollbar-hide">
+              className="h-8 w-8 rounded-full object-cover"
             />
             <span className="hidden sm:inline">Atul Kumar Jha</span>
           </Link>
@@ -182,6 +198,12 @@ export function NavBar({ items, className }: NavBarProps) {
                     }}
                     className={cn(
                       "group relative flex select-none items-center rounded-full px-2 sm:px-3 py-1 text-[10px] sm:text-xs md:text-sm font-medium uppercase tracking-[0.12em] sm:tracking-[0.18em] md:tracking-normal transition whitespace-nowrap",
+                    onClick={() => {
+                      openMore();
+                    }}
+                    className={cn(
+                      "group relative flex select-none items-center rounded-full px-2 sm:px-3 py-1 text-[10px] sm:text-xs md:text-sm font-medium uppercase tracking-[0.12em] sm:tracking-[0.18em] md:tracking-normal transition whitespace-nowrap",
+                      "group relative flex select-none items-center rounded-full px-3 py-1 text-sm font-light transition",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
                       "text-white/70 hover:text-white",
                       showHighlight && "text-white"
@@ -240,6 +262,12 @@ export function NavBar({ items, className }: NavBarProps) {
                       padding: '1rem',
                       boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
                     }}
+                    className={cn(
+                      "absolute top-full right-0 sm:left-0 z-[60] mt-1 w-[calc(100vw-2rem)] sm:w-[22rem] max-w-[22rem] rounded-2xl border border-white/10 bg-black/95 p-3 sm:p-4 shadow-2xl backdrop-blur transition-all duration-200",
+                      moreOpen
+                        ? "pointer-events-auto translate-y-2 opacity-100"
+                        : "pointer-events-none -translate-y-2 opacity-0"
+                    )}
                   >
                     <div className="flex flex-col gap-3">
                       <div className="rounded-xl border border-white/10 bg-gradient-to-r from-indigo-600/20 via-indigo-500/10 to-purple-500/20 p-2.5 sm:p-3">
@@ -306,6 +334,7 @@ export function NavBar({ items, className }: NavBarProps) {
                   }}
                   className={cn(
                     "relative cursor-pointer rounded-full px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.2em] md:tracking-normal transition-colors bg-[#272627] whitespace-nowrap",
+                    "relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-semibold transition-colors bg-[#272627]",
                     "text-foreground/80 hover:text-primary",
                     isActive && "bg-muted text-primary"
                   )}
@@ -338,6 +367,11 @@ export function NavBar({ items, className }: NavBarProps) {
                 onFocus={() => {
                   setActiveTab(item.name);
                 }}
+                  className={cn(
+                    "relative cursor-pointer rounded-full px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.2em] md:tracking-normal transition-colors whitespace-nowrap",
+                    "text-foreground/80 hover:text-primary",
+                    isActive && "bg-muted text-primary"
+                  )}
                 className={cn(
                   "relative cursor-pointer rounded-full px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.2em] md:tracking-normal transition-colors whitespace-nowrap",
                   "text-foreground/80 hover:text-primary",
@@ -363,6 +397,10 @@ export function NavBar({ items, className }: NavBarProps) {
                       <div className="absolute -top-2 -left-2 h-4 sm:h-6 lg:h-8 w-8 sm:w-12 lg:w-16 rounded-full bg-primary/30 blur-md" />
                       <div className="absolute -top-1 h-4 sm:h-6 lg:h-8 w-6 sm:w-8 lg:w-12 rounded-full bg-primary/30 blur-md" />
                       <div className="absolute top-0 left-2 h-3 sm:h-4 lg:h-6 w-3 sm:w-4 lg:w-6 rounded-full bg-primary/30 blur-sm" />
+                    <div className="absolute -top-2 left-1/2 h-1 w-6 sm:w-8 -translate-x-1/2 rounded-t-full bg-primary">
+                      <div className="absolute -top-2 -left-2 h-4 sm:h-6 w-8 sm:w-12 rounded-full bg-primary/30 blur-md" />
+                      <div className="absolute -top-1 h-4 sm:h-6 w-6 sm:w-8 rounded-full bg-primary/30 blur-md" />
+                      <div className="absolute top-0 left-2 h-3 sm:h-4 w-3 sm:w-4 rounded-full bg-primary/30 blur-sm" />
                     </div>
                   </motion.div>
                 )}

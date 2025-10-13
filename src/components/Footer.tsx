@@ -186,6 +186,7 @@ const Footer = () => {
                 src="/assets/atulkumarjha2.jpg"
                 alt="Atul Kumar Jha"
                 className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 rounded-full border border-white/20 object-cover"
+                className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full border border-white/20 object-cover"
               />
               <div>
                 <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-white/60">Let's collaborate</p>

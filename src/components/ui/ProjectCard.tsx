@@ -72,6 +72,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               </h3>
               <ArrowRight className="size-4 sm:size-5 lg:size-6 flex-shrink-0" />
             </div>
+
+            <div className="flex w-full flex-col gap-3 rounded-2xl bg-black/50 px-5 py-6 text-white backdrop-blur-sm lg:hidden">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xl font-serif tracking-wide">
+                  {project.title}
+                </h3>
+                <ArrowRight className="size-5 opacity-70" />
+              </div>
+              <p className="text-sm text-white/80">{project.description}</p>
+            </div>
             <img
               alt={project.title}
               loading="lazy"
