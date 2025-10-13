@@ -26,12 +26,13 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
       onClose={onClose}
       PaperProps={{
         sx: {
-          width: "90%",
+          width: { xs: "95%", sm: "90%" },
           maxWidth: "710px",
           margin: "0 auto",
-          borderTopLeftRadius: "16px",
-          borderTopRightRadius: "16px",
-          height: "38vh",
+          borderTopLeftRadius: { xs: "12px", sm: "16px" },
+          borderTopRightRadius: { xs: "12px", sm: "16px" },
+          height: { xs: "auto", sm: "38vh" },
+          maxHeight: { xs: "85vh", sm: "38vh" },
           backgroundColor: "#0a0a0a",
           color: "white",
           display: "flex",
@@ -40,29 +41,29 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
         },
       }}
     >
-      <Box sx={{ overflowY: "auto", flexGrow: 1, p: 6 }}>
+      <Box sx={{ overflow: "hidden", flexGrow: 1, p: { xs: 3, sm: 4, md: 6 } }}>
         {/* Social Icons */}
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 4, mb: 4 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", gap: { xs: 2, sm: 3, md: 4 }, mb: { xs: 2, sm: 3, md: 4 } }}>
           <a
             href="https://github.com/Atulkumarjha"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <GitHubIcon sx={{ color: "white", fontSize: 25 }} />
+            <GitHubIcon sx={{ color: "white", fontSize: { xs: 20, sm: 22, md: 25 } }} />
           </a>
           <a
             href="https://www.linkedin.com/in/atul-kumar-jha-09535b233/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <LinkedInIcon sx={{ color: "white", fontSize: 25 }} />
+            <LinkedInIcon sx={{ color: "white", fontSize: { xs: 20, sm: 22, md: 25 } }} />
           </a>
           <a
             href="https://x.com/atul_kumar_jha"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <TwitterIcon sx={{ color: "white", fontSize: 25 }} />
+            <TwitterIcon sx={{ color: "white", fontSize: { xs: 20, sm: 22, md: 25 } }} />
           </a>
           <a
             href="https://discord.com/users/1067672509677322282"
@@ -79,11 +80,11 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
             position: "relative",
             display: "flex",
             justifyContent: "center",
-            gap: 2,
-            mb: 3,
+            gap: { xs: 1, sm: 2 },
+            mb: { xs: 2, sm: 3 },
             backgroundColor: "#1c1d1c",
             borderRadius: "8px",
-            p: 1,
+            p: { xs: 0.5, sm: 1 },
           }}
         >
           {/* Sliding background */}
@@ -108,6 +109,8 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
               zIndex: 1,
               flex: 1, // makes it take full tab width
               textTransform: "none",
+              fontSize: { xs: "0.75rem", sm: "0.875rem" },
+              py: { xs: 0.5, sm: 1 },
             }}
           >
             Quick Connect
@@ -120,6 +123,8 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
               zIndex: 1,
               flex: 1,
               textTransform: "none",
+              fontSize: { xs: "0.75rem", sm: "0.875rem" },
+              py: { xs: 0.5, sm: 1 },
             }}
           >
             Fill a Form
@@ -145,22 +150,23 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: 1,
-                  p: 3,
+                  gap: { xs: 0.5, sm: 1 },
+                  p: { xs: 1.5, sm: 2, md: 3 },
                   backgroundColor: "#1a1a1a",
                   borderRadius: 2,
                   border: "1px solid #333",
                   color: "white",
                   textTransform: "none",
                   "&:hover": { backgroundColor: "#2a2a2a" },
+                  minWidth: { xs: "130px", sm: "auto" },
                 }}
               >
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <EmailIcon sx={{ color: "#00aaff" }} />
-                  <h3 className="font-semibold">Email</h3>
+                  <EmailIcon sx={{ color: "#00aaff", fontSize: { xs: 18, sm: 20, md: 24 } }} />
+                  <h3 className="font-semibold text-xs sm:text-sm md:text-base">Email</h3>
                 </Box>
-                <p className="text-gray-400">jhaak301@gmail.com</p>
-                <p className="text-gray-500 text-sm">
+                <p className="text-gray-400 text-[10px] sm:text-xs md:text-sm">jhaak301@gmail.com</p>
+                <p className="text-gray-500 text-[9px] sm:text-xs md:text-sm hidden sm:block">
                   Send me an email directly
                 </p>
               </Button>
@@ -173,22 +179,23 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: 1,
-                  p: 3,
+                  gap: { xs: 0.5, sm: 1 },
+                  p: { xs: 1.5, sm: 2, md: 3 },
                   backgroundColor: "#1a1a1a",
                   borderRadius: 2,
                   border: "1px solid #333",
                   color: "white",
                   textTransform: "none",
                   "&:hover": { backgroundColor: "#2a2a2a" },
+                  minWidth: { xs: "130px", sm: "auto" },
                 }}
               >
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <EventIcon sx={{ color: "#ff6f61" }} />
-                  <h3 className="font-semibold">Book a Call</h3>
+                  <EventIcon sx={{ color: "#ff6f61", fontSize: { xs: 18, sm: 20, md: 24 } }} />
+                  <h3 className="font-semibold text-xs sm:text-sm md:text-base">Book a Call</h3>
                 </Box>
-                <p className="text-gray-400">Schedule a discovery session</p>
-                <p className="text-gray-500 text-sm">
+                <p className="text-gray-400 text-[10px] sm:text-xs md:text-sm">Schedule a discovery session</p>
+                <p className="text-gray-500 text-[9px] sm:text-xs md:text-sm hidden sm:block">
                   Opens the detailed contact page to pick a time
                 </p>
               </Button>
@@ -196,14 +203,15 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
               {/* Status Bar */}
               <Box
                 sx={{
-                  mt: 2,
-                  p: 2,
+                  mt: { xs: 1.5, sm: 2 },
+                  p: { xs: 1.5, sm: 2 },
                   backgroundColor: "#0f0f0f",
                   borderRadius: 1,
                   textAlign: "center",
                   color: "#00ff00",
                   fontWeight: "bold",
                   width: "100%", // spans full row
+                  fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },
                 }}
               >
                 Currently available for new opportunities
@@ -211,15 +219,15 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
             </>
           ) : (
             <Box sx={{ width: "100%" }}>
-              <h3 className="text-base font-medium mb-3">Send me a message</h3>
+              <h3 className="text-sm sm:text-base font-medium mb-2 sm:mb-3">Send me a message</h3>
               <form
                 onSubmit={async (e) => {
                   e.preventDefault();
-                  const form = e.target as any;
+                  const form = e.target as HTMLFormElement;
                   const data = {
-                    name: form.name.value,
-                    email: form.email.value,
-                    message: form.message.value,
+                    name: (form.elements.namedItem('name') as HTMLInputElement).value,
+                    email: (form.elements.namedItem('email') as HTMLInputElement).value,
+                    message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
                   };
 
                   try {
@@ -235,23 +243,23 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                 }}
               >
                 <Box
-                  sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}
+                  sx={{ display: "flex", flexDirection: "column", gap: { xs: 1, sm: 1.5 } }}
                 >
                   {/* Name + Email side by side */}
-                  <div className="flex gap-2">
+                  <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
                     <input
                       type="text"
                       name="name"
                       placeholder="Name"
                       required
-                      className="flex-1 px-2 py-1.5 text-sm rounded bg-[#1a1a1a] text-white border border-gray-700 focus:border-blue-500 outline-none"
+                      className="flex-1 px-2 py-1.5 text-xs sm:text-sm rounded bg-[#1a1a1a] text-white border border-gray-700 focus:border-blue-500 outline-none"
                     />
                     <input
                       type="email"
                       name="email"
                       placeholder="Email"
                       required
-                      className="flex-1 px-2 py-1.5 text-sm rounded bg-[#1a1a1a] text-white border border-gray-700 focus:border-blue-500 outline-none"
+                      className="flex-1 px-2 py-1.5 text-xs sm:text-sm rounded bg-[#1a1a1a] text-white border border-gray-700 focus:border-blue-500 outline-none"
                     />
                   </div>
 
@@ -262,13 +270,13 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                     required
                     maxLength={1000}
                     rows={3}
-                    className="px-2 py-1.5 text-sm rounded bg-[#1a1a1a] text-white border border-gray-700 focus:border-blue-500 outline-none resize-none"
+                    className="px-2 py-1.5 text-xs sm:text-sm rounded bg-[#1a1a1a] text-white border border-gray-700 focus:border-blue-500 outline-none resize-none"
                   />
 
                   {/* Send button */}
                   <button
                     type="submit"
-                    className="bg-blue-600 hover:bg-blue-700 transition-colors py-2 rounded text-sm text-white font-medium"
+                    className="bg-blue-600 hover:bg-blue-700 transition-colors py-1.5 sm:py-2 rounded text-xs sm:text-sm text-white font-medium"
                   >
                     Send
                   </button>

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { HeartHandshake, ArrowRight } from "lucide-react"
+import { } from "lucide-react"
 import { useState } from "react"
 import profile from "../../public/assets/atulkumarjha.jpg"
 import Image from "next/image"
@@ -163,11 +163,11 @@ export function CollaborationCard() {
               </div>
             </motion.span>
 
-            <span className="hidden lg:block">
+            <span className="block">
               {connections.map((connection, index) => (
                 <motion.div
                   key={connection.id}
-                  className={`absolute ${sizeClasses[connection.size]} p-1 z-10`}
+                  className={`absolute ${sizeClasses[connection.size]} p-0.5 sm:p-1 z-10`}
                   style={{
                     top: connection.position.top,
                     left: connection.position.left,
@@ -183,7 +183,7 @@ export function CollaborationCard() {
                   whileHover={{ scale: 1.1 }}
                 >
                   <div
-                    className={`rounded-full border border-white/5 bg-[#2A2A2A] ${sizeClasses[connection.size]} p-1`}
+                    className={`rounded-full border border-white/5 bg-[#2A2A2A] ${sizeClasses[connection.size]} p-0.5 sm:p-1`}
                   >
                     <img
                       className="rounded-full w-full h-full object-cover"

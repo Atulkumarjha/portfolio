@@ -212,9 +212,10 @@ export const FeaturedWork: React.FC = () => {
       { threshold: 0.5, rootMargin: "0px 0px -30% 0px" }
     );
 
-    projectRefs.current.forEach((card) => card && observer.observe(card));
+    const currentRefs = projectRefs.current;
+    currentRefs.forEach((card) => card && observer.observe(card));
     return () => {
-      projectRefs.current.forEach((card) => card && observer.unobserve(card));
+      currentRefs.forEach((card) => card && observer.unobserve(card));
     };
   }, [isMobile]);
 
@@ -224,14 +225,8 @@ export const FeaturedWork: React.FC = () => {
 
   return (
     <section id="work" className="relative w-full px-4 sm:px-6 md:px-8">
-      <h2 className="relative z-10 mb-8 sm:mb-10 md:mb-12 text-center text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-        <p className="mb-2 sm:mb-3 text-xs font-normal tracking-widest text-black/80 uppercase sm:text-sm md:text-base dark:text-white/70">
-  }, []);
-
-  return (
-    <section id="work" className="relative w-full">
-      <h2 className="relative z-10 mb-12 text-center text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">
-        <p className="mb-3 text-xs font-normal tracking-widest text-black/80 uppercase md:text-sm dark:text-white/70">
+      <h2 className="relative z-10 mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-center text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+        <p className="mb-1.5 sm:mb-2 md:mb-3 text-xs font-normal tracking-widest text-black/80 uppercase sm:text-sm md:text-base dark:text-white/70">
           FEATURED PROJECTS
         </p>
         <span className="font-serif">
@@ -243,7 +238,7 @@ export const FeaturedWork: React.FC = () => {
       </h2>
 
       {isMobile ? (
-        <div className="flex flex-col gap-6 sm:gap-8 md:gap-10">
+        <div className="flex flex-col gap-4 sm:gap-6 md:gap-8">
           {projects.map((project) => {
             const isExpanded = expandedProjectId === project.id;
             return (
@@ -257,7 +252,7 @@ export const FeaturedWork: React.FC = () => {
           })}
         </div>
       ) : (
-        <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">
+        <div className="flex flex-col gap-10 md:gap-12 lg:gap-14 xl:gap-16">
           {projects.map((project, index) => {
             const isActive = activeProject?.id === project.id;
 
@@ -283,61 +278,23 @@ export const FeaturedWork: React.FC = () => {
                   <AnimatePresence mode="wait">
                     {isActive ? (
                       <motion.div
-                        key={`${project.id}-desktop`}
-                        initial={{ opacity: 0, y: 20 }}
+                        key={`${project.id}-sidebar`}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ type: "spring", stiffness: 140, damping: 20, mass: 0.8 }}
-                        className="hidden lg:block"
+                        exit={{ opacity: 0, y: -16 }}
+                        transition={{ 
+                          type: "spring", 
+                          stiffness: 140, 
+                          damping: 20, 
+                          mass: 0.8
+                        }}
+                        className="mt-4 sm:mt-6 lg:mt-0 lg:ml-6"
                       >
                         <ProjectSidebar project={project} className="lg:max-w-md" />
                       </motion.div>
                     ) : null}
                   </AnimatePresence>
                 </div>
-      <div className="flex flex-col gap-16">
-        {projects.map((project, index) => {
-          const isActive = activeProject?.id === project.id;
-
-          return (
-            <div
-              key={project.id}
-              data-index={index}
-              ref={(el) => {
-                projectRefs.current[index] = el;
-              }}
-              className="group/project"
-            >
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
-                <ProjectCard
-                  project={project}
-                  isActive={isActive}
-                  onHover={() => setActiveProject(project)}
-                  onClick={() => project.url && window.open(project.url, "_blank")}
-                />
-
-                <AnimatePresence mode="wait">
-                  {isActive ? (
-                    <motion.div
-                      key={`${project.id}-mobile`}
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -16 }}
-                      transition={{ duration: 0.25, ease: "easeOut" }}
-                      className="mt-4 sm:mt-6 lg:hidden"
-                    >
-                      <ProjectSidebar project={project} />
-                      key={`${project.id}-desktop`}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ type: "spring", stiffness: 140, damping: 20, mass: 0.8 }}
-                      className="hidden lg:block"
-                    >
-                      <ProjectSidebar project={project} className="lg:max-w-md" />
-                    </motion.div>
-                  ) : null}
-                </AnimatePresence>
               </div>
             );
           })}
@@ -437,24 +394,6 @@ const MobileProjectCard: React.FC<MobileProjectCardProps> = ({
             </motion.div>
           ) : null}
         </AnimatePresence>
-
-              <AnimatePresence mode="wait">
-                {isActive ? (
-                  <motion.div
-                    key={`${project.id}-mobile`}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -16 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
-                    className="mt-6 lg:hidden"
-                  >
-                    <ProjectSidebar project={project} />
-                  </motion.div>
-                ) : null}
-              </AnimatePresence>
-            </div>
-          );
-        })}
       </div>
     </article>
   );

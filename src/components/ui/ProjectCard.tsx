@@ -27,7 +27,6 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
-  isActive,
   onHover,
   onClick,
 }) => {
@@ -66,22 +65,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               }}
             />
             <div
-              className={`hidden w-full flex-row items-center justify-between px-12 py-8 lg:flex ${project.textColor}`}
+              className={`w-full flex-row items-center justify-between px-5 py-4 sm:px-8 sm:py-6 lg:px-12 lg:py-8 flex ${project.textColor}`}
             >
-              <h3 className="max-w-[90%] text-3xl font-serif tracking-wide">
+              <h3 className="max-w-[90%] text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif tracking-wide">
                 {project.description}
               </h3>
-              <ArrowRight className="size-6" />
-            </div>
-
-            <div className="flex w-full flex-col gap-3 rounded-2xl bg-black/50 px-5 py-6 text-white backdrop-blur-sm lg:hidden">
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl font-serif tracking-wide">
-                  {project.title}
-                </h3>
-                <ArrowRight className="size-5 opacity-70" />
-              </div>
-              <p className="text-sm text-white/80">{project.description}</p>
+              <ArrowRight className="size-4 sm:size-5 lg:size-6 flex-shrink-0" />
             </div>
             <img
               alt={project.title}
