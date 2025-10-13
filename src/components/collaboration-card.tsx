@@ -66,14 +66,14 @@ export function CollaborationCard() {
 
   return (
     <motion.div
-      className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-zinc-950 border border-zinc-800/50 shadow-2xl col-span-6 md:col-span-3 lg:col-span-4 max-md:h-[21rem]"
+  className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-zinc-950 border border-zinc-800/50 shadow-2xl min-h-[180px] sm:min-h-[200px] md:min-h-[220px]"
       whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
       <div className="size-full">
-        <div className="absolute flex h-[300px] w-full flex-col">
+        <div className="absolute flex h-full w-full flex-col">
           <div className="relative h-full [mask-image:linear-gradient(to_right,transparent,black_40%,black_60%,transparent)]">
             <svg
               className="absolute top-0 left-1/2 -translate-x-1/2 [mask-image:linear-gradient(to_right,transparent,black_20%,black_90%,transparent)]"
@@ -126,13 +126,13 @@ export function CollaborationCard() {
             </svg>
 
             <motion.span
-              className="absolute top-2.5 left-1/2 -translate-x-1/2"
+              className="absolute top-2 sm:top-2.5 left-1/2 -translate-x-1/2"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <div className="relative mt-9">
-                <svg className="mx-auto" width="148" height="148" viewBox="0 0 148 148" fill="none">
+              <div className="relative mt-4 sm:mt-5 md:mt-6">
+                <svg className="mx-auto w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[130px] md:h-[130px]" viewBox="0 0 148 148" fill="none">
                   <g filter="url(#filter0_i_0_1)">
                     <rect x="16" y="16" width="116" height="116" rx="58" fill="#2A2A2A" />
                     <motion.rect
@@ -156,7 +156,7 @@ export function CollaborationCard() {
                   </defs>
                 </svg>
                 <Image
-                  className="absolute top-1/2 left-1/2 h-[100px] w-[100px] -translate-x-1/2 -translate-y-1/2 transform rounded-full object-cover"
+                  className="absolute top-1/2 left-1/2 h-[68px] w-[68px] sm:h-[82px] sm:w-[82px] md:h-[88px] md:w-[88px] -translate-x-1/2 -translate-y-1/2 transform rounded-full object-cover"
                   src={profile}
                   alt="Profile picture"
                 />
@@ -197,7 +197,7 @@ export function CollaborationCard() {
 
             <span className="lg:hidden">
               <motion.div
-                className="rounded-full border border-white/5 bg-[#2A2A2A] w-10 h-10 p-1 absolute top-6 left-4"
+                className="rounded-full border border-white/5 bg-[#2A2A2A] w-7 h-7 sm:w-8 sm:h-8 p-1 absolute top-3 sm:top-4 left-2 sm:left-3"
                 animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0 }}
                 transition={{ duration: 0.3 }}
               >
@@ -208,7 +208,7 @@ export function CollaborationCard() {
                 />
               </motion.div>
               <motion.div
-                className="rounded-full border border-white/5 bg-[#2A2A2A] size-9 p-1 absolute bottom-24 left-18"
+                className="rounded-full border border-white/5 bg-[#2A2A2A] w-6 h-6 sm:w-7 sm:h-7 p-1 absolute bottom-16 sm:bottom-18 left-12 sm:left-14"
                 animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
               >
@@ -219,7 +219,7 @@ export function CollaborationCard() {
                 />
               </motion.div>
               <motion.div
-                className="rounded-full border border-white/5 bg-[#2A2A2A] w-14 h-14 p-1 absolute top-4 right-16"
+                className="rounded-full border border-white/5 bg-[#2A2A2A] w-10 h-10 sm:w-11 sm:h-11 p-1 absolute top-2 sm:top-3 right-10 sm:right-12"
                 animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
               >
@@ -230,7 +230,7 @@ export function CollaborationCard() {
                 />
               </motion.div>
               <motion.div
-                className="rounded-full border border-white/5 bg-[#2A2A2A] w-11 h-11 p-1 absolute right-4 bottom-20"
+                className="rounded-full border border-white/5 bg-[#2A2A2A] w-8 h-8 sm:w-9 sm:h-9 p-1 absolute right-2 sm:right-3 bottom-14 sm:bottom-16"
                 animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0 }}
                 transition={{ duration: 0.3, delay: 0.3 }}
               >
@@ -244,37 +244,6 @@ export function CollaborationCard() {
           </div>
         </div>
       </div>
-
-      {/* <motion.div
-        className="pointer-events-none z-10 flex flex-col gap-1 p-6 transform-gpu transition-all duration-300"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
-        whileHover={{ y: -10 }}
-      >
-        <motion.div whileHover={{ scale: 0.75 }} transition={{ duration: 0.3, ease: "easeInOut" }}>
-          <HeartHandshake className="size-12 origin-left text-neutral-700" />
-        </motion.div>
-        <h3 className="max-w-lg text-neutral-400">Collaboration</h3>
-        <p className="font-serif text-xl font-semibold tracking-wide text-neutral-300">
-          I prioritize client collaboration, fostering open communication
-        </p>
-      </motion.div> */}
-
-      <motion.div
-        className="pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 text-base tracking-wider opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-        initial={{ y: 40, opacity: 0 }}
-        whileHover={{ y: 0, opacity: 1 }}
-      >
-        <motion.button
-          className="inline-flex cursor-pointer items-center justify-center whitespace-nowrap text-sm font-medium transition-all hover:bg-accent hover:text-accent-foreground h-8 rounded-md gap-1.5 px-3 pointer-events-auto"
-          whileHover={{ x: 5 }}
-          transition={{ duration: 0.2 }}
-        >
-          Book a call
-          <ArrowRight className="ml-2 size-4" />
-        </motion.button>
-      </motion.div>
 
       <motion.div
         className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] dark:group-hover:bg-neutral-800/10"

@@ -91,7 +91,7 @@ export default function ExperienceTimeline() {
   }, []);
 
   return (
-    <div ref={timelineRef} className="mx-auto w-full max-w-6xl px-4 md:px-10 py-20">
+  <div ref={timelineRef} className="mx-auto w-full max-w-6xl px-4 md:px-10 py-16 sm:py-20">
       <h2
         className="relative z-2 text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl text-center mb-4 md:mb-0 max-w-3xl mx-auto"
         style={{
@@ -111,11 +111,11 @@ export default function ExperienceTimeline() {
       </h2>
 
       <div className="relative mx-auto mt-20 mb-20 max-w-7xl">
-        <div className="flex w-full flex-col max-md:ps-16 md:gap-10">
+  <div className="flex w-full flex-col gap-10 ps-12 sm:ps-14 md:ps-0 md:gap-10">
           {experiences.map((exp) => (
             <article
               key={exp.id}
-              className="grid grid-cols-1 gap-6 py-12 first:pt-0 last:pb-0 md:grid-cols-[2fr_1fr_4fr]"
+              className="grid grid-cols-1 gap-6 py-10 first:pt-0 last:pb-0 md:grid-cols-[2fr_1fr_4fr]"
             >
               <div className="w-full lg:max-w-sm">
                 <div className="flex flex-col items-start gap-y-3 text-sm font-light">
@@ -134,13 +134,13 @@ export default function ExperienceTimeline() {
                     {exp.location && (
                       <div className="flex items-center gap-1.5 text-neutral-500 dark:text-neutral-400">
                         <MapPin className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
-                        <span className="text-sm">{exp.location}</span>
+                        <span className="text-xs sm:text-sm">{exp.location}</span>
                       </div>
                     )}
                     {exp.type && (
                       <div className="flex items-center gap-1.5 text-neutral-500 dark:text-neutral-400">
                         <Briefcase className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
-                        <span className="text-sm font-medium">
+                        <span className="text-xs font-medium sm:text-sm">
                           {exp.type === 'Remote' ? 'Remote work' : 'On-site'}
                         </span>
                       </div>
@@ -154,13 +154,13 @@ export default function ExperienceTimeline() {
               <div className="relative w-full">
                 <div className="flex flex-col gap-y-6 text-xs leading-relaxed md:text-sm">
                   <header>
-                    <h3 className="font-serif text-2xl font-bold text-neutral-900 md:text-3xl dark:text-neutral-100 tracking-wide">
+                    <h3 className="font-serif text-xl font-bold text-neutral-900 sm:text-2xl md:text-3xl dark:text-neutral-100 tracking-wide">
                       {exp.role}
                     </h3>
                   </header>
 
                   <section aria-label="Key achievements">
-                    <ul className="flex list-none flex-col gap-y-4 text-neutral-700 dark:text-neutral-300/90">
+                    <ul className="flex list-none flex-col gap-y-3 text-sm text-neutral-700 dark:text-neutral-300/90">
                       {exp.achievements.map((achievement, i) => (
                         <li
                           key={i}
@@ -181,7 +181,7 @@ export default function ExperienceTimeline() {
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="inline-flex items-center justify-center rounded-lg border px-3 py-1 w-fit whitespace-nowrap text-xs md:text-sm font-mono bg-white dark:bg-neutral-900 border-neutral-200 dark:border-white/[0.14] text-black dark:text-white transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800"
+                          className="inline-flex max-w-full items-center justify-center rounded-lg border px-3 py-1 text-xs font-mono bg-white text-black transition-colors dark:bg-neutral-900 border-neutral-200 dark:border-white/[0.14] dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-800 sm:text-xs"
                         >
                           {tech}
                         </span>

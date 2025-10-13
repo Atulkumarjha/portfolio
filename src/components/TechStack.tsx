@@ -211,19 +211,27 @@ const TechButton: React.FC<{ tech: TechButton }> = ({ tech }) => {
       <button
         type="button"
         className={`
-          group relative flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-700/50
-          ${tech.bgColor} ${tech.color} w-full h-12 min-w-[140px]
+          group relative flex h-14 items-center justify-center rounded-lg border border-gray-700/50
+          ${tech.bgColor} ${tech.color} w-full px-3 py-2 sm:h-12 sm:gap-2 md:gap-1.5
           transition-all duration-300 ease-out
           hover:border-gray-600/70 hover:scale-105 hover:shadow-lg hover:shadow-gray-900/20
           backdrop-blur-sm
         `}
         onClick={() => window.open(tech.url, "_blank")}
+        aria-label={tech.name}
       >
-        {tech.icon && <span className="w-5 h-5">{tech.icon}</span>}
-        <span className="text-sm font-medium text-center truncate">
+        {tech.icon && (
+          <span className="flex h-8 w-8 items-center justify-center text-xl sm:h-5 sm:w-5 sm:text-base md:h-4 md:w-4 md:text-sm">
+            {tech.icon}
+          </span>
+        )}
+        <span className="sr-only">
           {tech.name}
         </span>
-        <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-70 transition-opacity duration-200" />
+        <span className="hidden truncate text-xs font-medium sm:inline text-center md:text-sm">
+          {tech.name}
+        </span>
+        <ExternalLink className="hidden h-3 w-3 opacity-0 transition-opacity duration-200 sm:block group-hover:opacity-70" />
       </button>
     </div>
   );
@@ -231,12 +239,12 @@ const TechButton: React.FC<{ tech: TechButton }> = ({ tech }) => {
 
 const TechStack: React.FC = () => {
   return (
-    <section className="flex w-full flex-col items-center justify-center gap-10 bg-transparent text-center">
+    <section className="flex w-full flex-col items-center justify-center gap-8 sm:gap-10 bg-transparent text-center px-4 sm:px-6">
       <div>
-        <h2 className="mb-3 text-xs font-normal uppercase tracking-[0.4em] text-white/70">
+        <h2 className="mb-2 sm:mb-3 text-xs font-normal uppercase tracking-[0.4em] text-white/70">
           MY SKILLS
         </h2>
-        <h3 className="font-serif text-4xl font-light text-white sm:text-5xl lg:text-6xl">
+        <h3 className="font-serif text-3xl font-light text-white sm:text-4xl md:text-5xl lg:text-6xl">
           The Tech
           <span className="ml-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x italic">
             Alchemy
@@ -244,7 +252,7 @@ const TechStack: React.FC = () => {
         </h3>
       </div>
 
-      <div className="grid w-full max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+      <div className="grid w-full max-w-6xl grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {techStack.map((tech, index) => (
           <TechButton key={index} tech={tech} />
         ))}
