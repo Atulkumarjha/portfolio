@@ -32,12 +32,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   onClick,
 }) => {
   return (
-    <div className="flex w-full flex-row will-change-auto">
-      <div className="flex flex-col lg:mx-10 lg:w-full">
+    <div className="flex w-full flex-col lg:flex-row">
+      <div className="flex w-full flex-col lg:mx-10">
         {/* Make this div clickable */}
         <div
-          className="border-white-3 relative cursor-pointer overflow-hidden rounded-2xl border bg-[#f2f2f20c] p-1.5 shadow-2xl lg:h-[560px] lg:rounded-3xl lg:p-2 dark:border-white/15 transition-transform hover:scale-[1.02] duration-300"
+          className="duration-300 border-white-3 group relative cursor-pointer overflow-hidden rounded-2xl border bg-[#f2f2f20c] p-1.5 shadow-2xl transition-transform dark:border-white/15 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 lg:h-[560px] lg:rounded-3xl lg:p-2"
           onMouseEnter={onHover}
+          onFocusCapture={onHover}
           onClick={onClick} // <-- click works here
           role="button"
           tabIndex={0}
@@ -72,12 +73,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               </h3>
               <ArrowRight className="size-6" />
             </div>
+
+            <div className="flex w-full flex-col gap-3 rounded-2xl bg-black/50 px-5 py-6 text-white backdrop-blur-sm lg:hidden">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xl font-serif tracking-wide">
+                  {project.title}
+                </h3>
+                <ArrowRight className="size-5 opacity-70" />
+              </div>
+              <p className="text-sm text-white/80">{project.description}</p>
+            </div>
             <img
               alt={project.title}
               loading="lazy"
               width="1203"
               height="753"
-              className="lg:group-hover:translate-y-10 w-full max-w-[85%] translate-y-5 -rotate-3 rounded-t-lg border-[1.5px] border-white/20 transition-all duration-300 will-change-transform lg:block lg:rotate-0 lg:group-hover:scale-[1.08] lg:group-hover:-rotate-3"
+              className="w-full max-w-full rounded-2xl border-[1.5px] border-white/20 object-cover transition-all duration-300 will-change-transform lg:block lg:max-w-[85%] lg:translate-y-5 lg:-rotate-3 lg:rounded-t-lg lg:group-hover:translate-y-10 lg:group-hover:-rotate-3 lg:group-hover:scale-[1.08]"
               style={{
                 color: 'transparent',
                 boxShadow: `0 0 30px ${project.shadowColor}`,

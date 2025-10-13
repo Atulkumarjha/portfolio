@@ -4,6 +4,22 @@ import React, { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ProjectCard } from "./ui/ProjectCard";
 import { ProjectSidebar } from "./ui/ProjectSidebar";
+import { ChevronDown, ExternalLink } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  gradient: string;
+  textColor: string;
+  shadowColor: string;
+  features: string[];
+  techStack: { name: string; icon: string }[];
+  url: string;
+}
 
 interface Project {
   id: string;
@@ -159,9 +175,27 @@ export const FeaturedWork: React.FC = () => {
   const [activeProject, setActiveProject] = useState<Project | null>(
     projects.length > 0 ? projects[0] : null
   );
+  const [isMobile, setIsMobile] = useState(false);
+  const [expandedProjectId, setExpandedProjectId] = useState<string | null>(
+    projects.length > 0 ? projects[0].id : null
+  );
 
   // Intersection Observer to update active project
   useEffect(() => {
+    const updateIsMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    updateIsMobile();
+    window.addEventListener("resize", updateIsMobile);
+    return () => window.removeEventListener("resize", updateIsMobile);
+  }, []);
+
+  // Intersection Observer to update active project
+  useEffect(() => {
+    if (isMobile) {
+      return;
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -182,6 +216,16 @@ export const FeaturedWork: React.FC = () => {
     return () => {
       projectRefs.current.forEach((card) => card && observer.unobserve(card));
     };
+  }, [isMobile]);
+
+  const handleExpandToggle = (projectId: string) => {
+    setExpandedProjectId((prev) => (prev === projectId ? null : projectId));
+  };
+
+  return (
+    <section id="work" className="relative w-full px-4 sm:px-6 md:px-8">
+      <h2 className="relative z-10 mb-8 sm:mb-10 md:mb-12 text-center text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+        <p className="mb-2 sm:mb-3 text-xs font-normal tracking-widest text-black/80 uppercase sm:text-sm md:text-base dark:text-white/70">
   }, []);
 
   return (
@@ -198,6 +242,59 @@ export const FeaturedWork: React.FC = () => {
         </span>
       </h2>
 
+      {isMobile ? (
+        <div className="flex flex-col gap-6 sm:gap-8 md:gap-10">
+          {projects.map((project) => {
+            const isExpanded = expandedProjectId === project.id;
+            return (
+              <MobileProjectCard
+                key={project.id}
+                project={project}
+                isExpanded={isExpanded}
+                onToggle={() => handleExpandToggle(project.id)}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">
+          {projects.map((project, index) => {
+            const isActive = activeProject?.id === project.id;
+
+            return (
+              <div
+                key={project.id}
+                data-index={index}
+                ref={(el) => {
+                  if (!isMobile) {
+                    projectRefs.current[index] = el;
+                  }
+                }}
+                className="group/project"
+              >
+                <div className="grid gap-6 md:gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
+                  <ProjectCard
+                    project={project}
+                    isActive={isActive}
+                    onHover={() => setActiveProject(project)}
+                    onClick={() => project.url && window.open(project.url, "_blank")}
+                  />
+
+                  <AnimatePresence mode="wait">
+                    {isActive ? (
+                      <motion.div
+                        key={`${project.id}-desktop`}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ type: "spring", stiffness: 140, damping: 20, mass: 0.8 }}
+                        className="hidden lg:block"
+                      >
+                        <ProjectSidebar project={project} className="lg:max-w-md" />
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
+                </div>
       <div className="flex flex-col gap-16">
         {projects.map((project, index) => {
           const isActive = activeProject?.id === project.id;
@@ -222,6 +319,14 @@ export const FeaturedWork: React.FC = () => {
                 <AnimatePresence mode="wait">
                   {isActive ? (
                     <motion.div
+                      key={`${project.id}-mobile`}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -16 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="mt-4 sm:mt-6 lg:hidden"
+                    >
+                      <ProjectSidebar project={project} />
                       key={`${project.id}-desktop`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -234,6 +339,104 @@ export const FeaturedWork: React.FC = () => {
                   ) : null}
                 </AnimatePresence>
               </div>
+            );
+          })}
+        </div>
+      )}
+    </section>
+  );
+};
+
+interface MobileProjectCardProps {
+  project: Project;
+  isExpanded: boolean;
+  onToggle: () => void;
+}
+
+const MobileProjectCard: React.FC<MobileProjectCardProps> = ({
+  project,
+  isExpanded,
+  onToggle,
+}) => {
+  return (
+    <article className="overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-md transition-transform duration-300 hover:border-white/30 hover:bg-white/[0.06]">
+      <div className="relative h-48 sm:h-56 md:h-64 w-full">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex flex-col gap-1 sm:gap-2 text-white">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/70">Featured</p>
+          <h3 className="text-xl sm:text-2xl font-semibold leading-tight">{project.title}</h3>
+        </div>
+      </div>
+
+      <div className="space-y-4 sm:space-y-5 px-4 sm:px-5 pb-4 sm:pb-5 pt-5 sm:pt-6 text-white">
+        <p className="text-sm sm:text-base text-white/80">{project.description}</p>
+
+        <div className="flex flex-wrap items-center gap-2">
+          {project.techStack.slice(0, 3).map((tech) => (
+            <span
+              key={tech.name}
+              className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/15 bg-white/5 px-2.5 sm:px-3 py-1 text-xs text-white/80"
+            >
+              <img src={tech.icon} alt={tech.name} className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              {tech.name}
+            </span>
+          ))}
+          {project.techStack.length > 3 ? (
+            <span className="rounded-full border border-white/15 bg-white/5 px-2.5 sm:px-3 py-1 text-xs text-white/70">
+              +{project.techStack.length - 3} more
+            </span>
+          ) : null}
+        </div>
+
+        <div className="flex flex-col gap-2.5 sm:gap-3">
+          <button
+            type="button"
+            onClick={() => project.url && window.open(project.url, "_blank")}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-[0.28em] text-white/80 transition hover:border-white/30 hover:bg-white/10"
+          >
+            Visit project
+            <ExternalLink size={14} className="flex-shrink-0" />
+          </button>
+
+          <button
+            type="button"
+            onClick={onToggle}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-[0.28em] text-white/80 transition hover:border-white/30 hover:bg-white/10"
+            aria-expanded={isExpanded}
+          >
+            Project details
+            <ChevronDown
+              size={14}
+              className={cn(
+                "transition-transform duration-200 flex-shrink-0",
+                isExpanded ? "rotate-180" : "rotate-0"
+              )}
+            />
+          </button>
+        </div>
+
+        <AnimatePresence initial={false}>
+          {isExpanded ? (
+            <motion.div
+              key="mobile-sidebar"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden pt-2 sm:pt-3"
+            >
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 sm:p-4">
+                <ProjectSidebar project={project} />
+              </div>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
 
               <AnimatePresence mode="wait">
                 {isActive ? (
@@ -253,6 +456,6 @@ export const FeaturedWork: React.FC = () => {
           );
         })}
       </div>
-    </section>
+    </article>
   );
 };
