@@ -245,6 +245,12 @@ const TechStack: React.FC = () => {
           MY SKILLS
         </h2>
         <h3 className="font-serif text-3xl font-light text-white sm:text-4xl md:text-5xl lg:text-6xl">
+    <section className="flex w-full flex-col items-center justify-center gap-10 bg-transparent text-center">
+      <div>
+        <h2 className="mb-3 text-xs font-normal uppercase tracking-[0.4em] text-white/70">
+          MY SKILLS
+        </h2>
+        <h3 className="font-serif text-4xl font-light text-white sm:text-5xl lg:text-6xl">
           The Tech
           <span className="ml-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x italic">
             Alchemy
@@ -253,6 +259,7 @@ const TechStack: React.FC = () => {
       </div>
 
       <div className="grid w-full max-w-6xl grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+      <div className="grid w-full max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {techStack.map((tech, index) => (
           <TechButton key={index} tech={tech} />
         ))}

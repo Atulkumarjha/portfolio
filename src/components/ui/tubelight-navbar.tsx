@@ -126,6 +126,14 @@ export function NavBar({ items, className }: NavBarProps) {
           <Link
             href="/"
             className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-transparent bg-white/5 px-1.5 py-0.5 sm:px-2 sm:py-1 text-xs font-medium text-white/80 transition hover:border-white/20 hover:bg-white/10 hover:text-white flex-shrink-0"
+          "fixed left-1/2 top-4 z-50 w-full max-w-2xl -translate-x-1/2 px-4 sm:px-0",
+          className
+        )}
+      >
+        <div className="flex w-full flex-wrap items-center justify-between gap-2 rounded-full border border-border/60 bg-background/80 px-3 py-2 shadow-lg backdrop-blur-xl sm:px-4">
+          <Link
+            href="/"
+            className="flex items-center gap-2 rounded-full border border-transparent bg-white/5 px-2 py-1 text-xs font-medium text-white/80 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
           >
             <Image
               src="/assets/atulkumarjha.jpg"
@@ -138,6 +146,12 @@ export function NavBar({ items, className }: NavBarProps) {
           </Link>
 
           <div className="flex items-center justify-end gap-1 sm:gap-2 overflow-x-auto scrollbar-hide">
+              className="h-8 w-8 rounded-full object-cover"
+            />
+            <span className="hidden sm:inline">Atul Kumar Jha</span>
+          </Link>
+
+          <div className="flex flex-wrap items-center justify-end gap-2">
           {items.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.name;
@@ -168,6 +182,7 @@ export function NavBar({ items, className }: NavBarProps) {
                     }}
                     className={cn(
                       "group relative flex select-none items-center rounded-full px-2 sm:px-3 py-1 text-[10px] sm:text-xs md:text-sm font-medium uppercase tracking-[0.12em] sm:tracking-[0.18em] md:tracking-normal transition whitespace-nowrap",
+                      "group relative flex select-none items-center rounded-full px-3 py-1 text-sm font-light transition",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
                       "text-white/70 hover:text-white",
                       showHighlight && "text-white"
@@ -273,6 +288,7 @@ export function NavBar({ items, className }: NavBarProps) {
                   }}
                   className={cn(
                     "relative cursor-pointer rounded-full px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.2em] md:tracking-normal transition-colors bg-[#272627] whitespace-nowrap",
+                    "relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-semibold transition-colors bg-[#272627]",
                     "text-foreground/80 hover:text-primary",
                     isActive && "bg-muted text-primary"
                   )}
@@ -310,6 +326,11 @@ export function NavBar({ items, className }: NavBarProps) {
                     "text-foreground/80 hover:text-primary",
                     isActive && "bg-muted text-primary"
                   )}
+                className={cn(
+                  "relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-semibold transition-colors",
+                  "text-foreground/80 hover:text-primary",
+                  isActive && "bg-muted text-primary"
+                )}
               >
                 <span className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
                   <Icon
