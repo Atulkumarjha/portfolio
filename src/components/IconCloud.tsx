@@ -44,6 +44,15 @@ export function IconCloudDemo() {
   return (
     <div className="relative flex size-full items-center justify-center overflow-hidden">
       <div className="flex w-full scale-75 sm:scale-100">
+      <div className="flex flex-col items-center justify-center gap-3 sm:hidden">
+        <div className="inline-flex items-center rounded-full border border-gray-200 bg-gray-100 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-gray-600 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
+          Toolset
+        </div>
+        <p className="px-4 text-center text-xs text-gray-600 dark:text-white/70">
+          Scroll to explore the stack I use every day. Jump to a larger screen for the full interactive cloud.
+        </p>
+      </div>
+      <div className="hidden sm:flex">
         <IconCloud images={images} />
       </div>
     </div>

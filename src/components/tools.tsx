@@ -107,6 +107,7 @@ function Tool() {
           <Link
             href="/uses"
             className="group relative flex min-h-[240px] sm:min-h-[240px] md:min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 col-span-12 md:col-span-6 lg:col-span-4"
+            className="group relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-12 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               
@@ -187,6 +188,7 @@ function Tool() {
           <Link
             href="/guestbook"
             className="group relative col-span-12 flex min-h-[240px] sm:min-h-[280px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
+            className="group relative col-span-12 flex min-h-[280px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               
@@ -238,6 +240,7 @@ function Tool() {
             target="_blank"
             rel="noopener noreferrer"
             className="group relative col-span-12 flex min-h-[240px] sm:min-h-[280px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
+            className="group relative col-span-12 flex min-h-[280px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               

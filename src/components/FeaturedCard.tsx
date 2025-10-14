@@ -288,6 +288,28 @@ export const FeaturedWork: React.FC = () => {
                     >
                       <ProjectSidebar project={project} />
                     </motion.div>
+                    <>
+                      <motion.div
+                        key={`${project.id}-mobile`}
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -16 }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
+                        className="mt-4 sm:mt-6 lg:hidden"
+                      >
+                        <ProjectSidebar project={project} />
+                      </motion.div>
+                      <motion.div
+                        key={`${project.id}-desktop`}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ type: "spring", stiffness: 140, damping: 20, mass: 0.8 }}
+                        className="hidden lg:block"
+                      >
+                        <ProjectSidebar project={project} className="lg:max-w-md" />
+                      </motion.div>
+                    </>
                   ) : null}
                 </AnimatePresence>
               </div>
