@@ -80,12 +80,12 @@ function Tool() {
           }`}
         >
           <h2 
-            className="relative z-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-center mb-4 sm:mb-6 md:mb-8 max-w-4xl mx-auto"
+            className="relative z-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-center mb-4 sm:mb-6 md:mb-8 max-w-4xl mx-auto px-4"
             style={{
               textShadow: 'rgba(255, 255, 255, 0.05) 0px 4px 8px, rgba(255, 255, 255, 0.25) 0px 8px 30px'
             }}
           >
-              <p className="mb-2 sm:mb-3 font-mono text-xs font-normal tracking-widest text-black/80 uppercase sm:text-sm md:text-base dark:text-white/70">
+              <p className="mb-2 sm:mb-3 font-mono text-[10px] sm:text-xs md:text-sm font-normal tracking-widest text-black/80 uppercase dark:text-white/70">
                 Inside the buildroom
               </p>
               <span className="font-serif">
@@ -99,20 +99,20 @@ function Tool() {
 
         {/* Cards Grid */}
         <div 
-          className={`mt-12 grid grid-cols-1 gap-6 transition-all duration-1000 delay-300 sm:mt-16 md:grid-cols-12 ${
+          className={`mt-8 sm:mt-12 md:mt-16 grid grid-cols-1 gap-4 sm:gap-6 transition-all duration-1000 delay-300 md:grid-cols-12 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}
         >
           {/* Uses Card */}
           <Link
             href="/uses"
-            className="group relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-12 lg:col-span-4"
+            className="group relative flex min-h-[240px] sm:min-h-[240px] md:min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 col-span-12 md:col-span-6 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               
               {/* Hover Arrow */}
-              <div className="absolute right-4 bottom-4 z-50 flex h-9 w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
-                <ExternalLink className="h-5 w-5 text-gray-700 dark:text-gray-200" />
+              <div className="absolute right-3 bottom-3 sm:right-4 sm:bottom-4 z-50 flex h-7 w-7 sm:h-9 sm:w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
+                <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700 dark:text-gray-200" />
               </div>
 
               {/* Content Area */}
@@ -122,38 +122,55 @@ function Tool() {
                 <div className="absolute inset-y-0 right-0 z-20 w-1/5 bg-gradient-to-l from-white dark:from-gray-800 to-transparent group-hover:from-blue-50 dark:group-hover:from-blue-900/20 transition-all duration-500"></div>
                 
                 {/* Tools Icons */}
-                <div className="mt-6 sm:mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4 transition-all duration-500 ease-in-out">
-                  {[
-                    { name: 'Code2', delay: 'delay-200', size: 'size-[50px] sm:size-[60px] md:size-[70px] lg:size-[80px]' },
-                    { name: 'FileText', delay: 'delay-100', size: 'size-[48px] sm:size-[58px] md:size-[68px] lg:size-[75px]' },
-                    { name: 'Code2', delay: 'delay-0', size: 'size-[54px] sm:size-[64px] md:size-[74px] lg:size-[85px]' },
-                    { name: 'FileText', delay: 'delay-100', size: 'size-[48px] sm:size-[58px] md:size-[68px] lg:size-[75px]' },
-                    { name: 'Music', delay: 'delay-200', size: 'size-[50px] sm:size-[60px] md:size-[70px] lg:size-[80px]' }
-                  ].map((tool, index) => (
-                    <div key={index} className="group/tool inline-block text-center">
-                      <div className={`rounded-lg sm:rounded-xl border-2 border-transparent p-1 sm:p-1.5 md:p-2 transition-all duration-500 group-hover:border-indigo-400 ${tool.size} ${tool.delay} group-hover:-translate-y-2 sm:group-hover:-translate-y-3 transform-gpu`}>
-                        <div className="grid h-full place-items-center rounded-md sm:rounded-lg border-2 border-gray-100 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 shadow-inner hover:shadow-lg transition-all duration-300">
-                          {tool.name === 'Code2' && <Code2 className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-blue-600 dark:text-blue-400" />}
-                          {tool.name === 'FileText' && <FileText className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-green-600 dark:text-green-400" />}
-                          {tool.name === 'Music' && <Music className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-purple-600 dark:text-purple-400" />}
+                <div className="mt-3 sm:mt-4 md:mt-6 lg:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-2 md:gap-3 lg:gap-4 transition-all duration-500 ease-in-out px-4 sm:px-2">
+                  {/* First Row - 3 icons on mobile */}
+                  <div className="flex items-center justify-center gap-3 sm:contents">
+                    {[
+                      { name: 'Code2', delay: 'delay-200', size: 'size-[55px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[80px]' },
+                      { name: 'FileText', delay: 'delay-100', size: 'size-[52px] sm:size-[48px] md:size-[58px] lg:size-[68px] xl:size-[75px]' },
+                      { name: 'Code2', delay: 'delay-0', size: 'size-[58px] sm:size-[54px] md:size-[64px] lg:size-[74px] xl:size-[85px]' },
+                    ].map((tool, index) => (
+                      <div key={index} className="group/tool inline-block text-center">
+                        <div className={`rounded-lg sm:rounded-lg md:rounded-xl border-2 border-transparent p-1 sm:p-1 md:p-1.5 lg:p-2 transition-all duration-500 group-hover:border-indigo-400 ${tool.size} ${tool.delay} group-hover:-translate-y-2 sm:group-hover:-translate-y-3 transform-gpu`}>
+                          <div className="grid h-full place-items-center rounded-md sm:rounded-md md:rounded-lg border-2 border-gray-100 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 shadow-inner hover:shadow-lg transition-all duration-300">
+                            {tool.name === 'Code2' && <Code2 className="h-5 w-5 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-blue-600 dark:text-blue-400" />}
+                            {tool.name === 'FileText' && <FileText className="h-5 w-5 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-green-600 dark:text-green-400" />}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  
+                  {/* Second Row - 2 icons centered on mobile */}
+                  <div className="flex items-center justify-center gap-4 sm:contents">
+                    {[
+                      { name: 'FileText', delay: 'delay-100', size: 'size-[52px] sm:size-[48px] md:size-[58px] lg:size-[68px] xl:size-[75px]' },
+                      { name: 'Music', delay: 'delay-200', size: 'size-[55px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[80px]' }
+                    ].map((tool, index) => (
+                      <div key={index + 3} className="group/tool inline-block text-center">
+                        <div className={`rounded-lg sm:rounded-lg md:rounded-xl border-2 border-transparent p-1 sm:p-1 md:p-1.5 lg:p-2 transition-all duration-500 group-hover:border-indigo-400 ${tool.size} ${tool.delay} group-hover:-translate-y-2 sm:group-hover:-translate-y-3 transform-gpu`}>
+                          <div className="grid h-full place-items-center rounded-md sm:rounded-md md:rounded-lg border-2 border-gray-100 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 shadow-inner hover:shadow-lg transition-all duration-300">
+                            {tool.name === 'FileText' && <FileText className="h-5 w-5 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-green-600 dark:text-green-400" />}
+                            {tool.name === 'Music' && <Music className="h-5 w-5 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-purple-600 dark:text-purple-400" />}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* Text Content */}
-              <div className="pointer-events-none z-10 flex flex-col gap-1.5 sm:gap-2 md:gap-3 p-3 sm:p-4 md:p-5">
-                <h3 className="font-mono text-xs sm:text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide">Uses</h3>
-                <p className="text-base sm:text-lg md:text-xl font-semibold tracking-wide text-gray-700 dark:text-gray-300 leading-tight">
+              <div className="pointer-events-none z-10 flex flex-col gap-0.5 sm:gap-1 md:gap-1.5 lg:gap-2 p-2.5 sm:p-3 md:p-4 lg:p-5">
+                <h3 className="font-mono text-[9px] sm:text-[10px] md:text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Uses</h3>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold tracking-wide text-gray-700 dark:text-gray-300 leading-tight">
                   Dive into the exact hardware, software, and rituals I rely on every week.
                 </p>
-                <ul className="space-y-0.5 sm:space-y-1 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                <ul className="hidden sm:flex flex-col space-y-0.5 sm:space-y-1 text-[10px] sm:text-xs md:text-sm text-gray-500 dark:text-gray-400">
                   {toolsShowcase.slice(0, 3).map(({ label, description }) => (
-                    <li key={label} className="flex items-start gap-1.5 sm:gap-2">
-                      <span className="mt-1 h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-indigo-400/80 flex-shrink-0" />
-                      <span className="leading-snug text-xs sm:text-sm">
+                    <li key={label} className="flex items-start gap-1 sm:gap-1.5 md:gap-2">
+                      <span className="mt-0.5 sm:mt-1 h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-indigo-400/80 flex-shrink-0" />
+                      <span className="leading-snug text-[10px] sm:text-xs md:text-sm">
                         <span className="font-medium text-gray-700 dark:text-gray-200">{label}:</span> {description}
                       </span>
                     </li>
@@ -169,7 +186,7 @@ function Tool() {
           {/* Guestbook Card */}
           <Link
             href="/guestbook"
-            className="group relative col-span-12 flex min-h-[280px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
+            className="group relative col-span-12 flex min-h-[240px] sm:min-h-[280px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               
@@ -220,7 +237,7 @@ function Tool() {
             href="https://open.spotify.com/playlist/4u4aNv2oc6YOFObfqAUSK0"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative col-span-12 flex min-h-[280px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
+            className="group relative col-span-12 flex min-h-[240px] sm:min-h-[280px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               
