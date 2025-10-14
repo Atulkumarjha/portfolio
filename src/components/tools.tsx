@@ -107,6 +107,8 @@ function Tool() {
           <Link
             href="/uses"
             className="group relative flex min-h-[320px] sm:min-h-[320px] md:min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-4"
+            className="group relative flex min-h-[240px] sm:min-h-[240px] md:min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 col-span-12 md:col-span-6 lg:col-span-4"
+            className="group relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-12 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               
@@ -129,12 +131,21 @@ function Tool() {
                       { name: 'Code2', delay: 'delay-200', size: 'size-[65px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[80px]' },
                       { name: 'FileText', delay: 'delay-100', size: 'size-[62px] sm:size-[48px] md:size-[58px] lg:size-[68px] xl:size-[75px]' },
                       { name: 'Code2', delay: 'delay-0', size: 'size-[68px] sm:size-[54px] md:size-[64px] lg:size-[74px] xl:size-[85px]' },
+                <div className="mt-3 sm:mt-4 md:mt-6 lg:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-2 md:gap-3 lg:gap-4 transition-all duration-500 ease-in-out px-4 sm:px-2">
+                  {/* First Row - 3 icons on mobile */}
+                  <div className="flex items-center justify-center gap-3 sm:contents">
+                    {[
+                      { name: 'Code2', delay: 'delay-200', size: 'size-[55px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[80px]' },
+                      { name: 'FileText', delay: 'delay-100', size: 'size-[52px] sm:size-[48px] md:size-[58px] lg:size-[68px] xl:size-[75px]' },
+                      { name: 'Code2', delay: 'delay-0', size: 'size-[58px] sm:size-[54px] md:size-[64px] lg:size-[74px] xl:size-[85px]' },
                     ].map((tool, index) => (
                       <div key={index} className="group/tool inline-block text-center">
                         <div className={`rounded-lg sm:rounded-lg md:rounded-xl border-2 border-transparent p-1 sm:p-1 md:p-1.5 lg:p-2 transition-all duration-500 group-hover:border-indigo-400 ${tool.size} ${tool.delay} group-hover:-translate-y-2 sm:group-hover:-translate-y-3 transform-gpu`}>
                           <div className="grid h-full place-items-center rounded-md sm:rounded-md md:rounded-lg border-2 border-gray-100 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 shadow-inner hover:shadow-lg transition-all duration-300">
                             {tool.name === 'Code2' && <Code2 className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-blue-600 dark:text-blue-400" />}
                             {tool.name === 'FileText' && <FileText className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-green-600 dark:text-green-400" />}
+                            {tool.name === 'Code2' && <Code2 className="h-5 w-5 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-blue-600 dark:text-blue-400" />}
+                            {tool.name === 'FileText' && <FileText className="h-5 w-5 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-green-600 dark:text-green-400" />}
                           </div>
                         </div>
                       </div>
@@ -146,12 +157,18 @@ function Tool() {
                     {[
                       { name: 'FileText', delay: 'delay-100', size: 'size-[62px] sm:size-[48px] md:size-[58px] lg:size-[68px] xl:size-[75px]' },
                       { name: 'Music', delay: 'delay-200', size: 'size-[65px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[80px]' }
+                  <div className="flex items-center justify-center gap-4 sm:contents">
+                    {[
+                      { name: 'FileText', delay: 'delay-100', size: 'size-[52px] sm:size-[48px] md:size-[58px] lg:size-[68px] xl:size-[75px]' },
+                      { name: 'Music', delay: 'delay-200', size: 'size-[55px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[80px]' }
                     ].map((tool, index) => (
                       <div key={index + 3} className="group/tool inline-block text-center">
                         <div className={`rounded-lg sm:rounded-lg md:rounded-xl border-2 border-transparent p-1 sm:p-1 md:p-1.5 lg:p-2 transition-all duration-500 group-hover:border-indigo-400 ${tool.size} ${tool.delay} group-hover:-translate-y-2 sm:group-hover:-translate-y-3 transform-gpu`}>
                           <div className="grid h-full place-items-center rounded-md sm:rounded-md md:rounded-lg border-2 border-gray-100 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 shadow-inner hover:shadow-lg transition-all duration-300">
                             {tool.name === 'FileText' && <FileText className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-green-600 dark:text-green-400" />}
                             {tool.name === 'Music' && <Music className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-purple-600 dark:text-purple-400" />}
+                            {tool.name === 'FileText' && <FileText className="h-5 w-5 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-green-600 dark:text-green-400" />}
+                            {tool.name === 'Music' && <Music className="h-5 w-5 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-purple-600 dark:text-purple-400" />}
                           </div>
                         </div>
                       </div>
@@ -162,6 +179,7 @@ function Tool() {
 
               {/* Text Content */}
               <div className="pointer-events-none z-10 flex flex-col gap-0.5 sm:gap-1 md:gap-1.5 lg:gap-2 p-3 sm:p-3 md:p-4 lg:p-5">
+              <div className="pointer-events-none z-10 flex flex-col gap-0.5 sm:gap-1 md:gap-1.5 lg:gap-2 p-2.5 sm:p-3 md:p-4 lg:p-5">
                 <h3 className="font-mono text-[9px] sm:text-[10px] md:text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Uses</h3>
                 <p className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold tracking-wide text-gray-700 dark:text-gray-300 leading-tight">
                   Dive into the exact hardware, software, and rituals I rely on every week.
@@ -187,6 +205,8 @@ function Tool() {
           <Link
             href="/guestbook"
             className="group relative col-span-12 flex min-h-[240px] sm:min-h-[280px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
+
+            className="group relative col-span-12 flex min-h-[280px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               
@@ -238,6 +258,7 @@ function Tool() {
             target="_blank"
             rel="noopener noreferrer"
             className="group relative col-span-12 flex min-h-[240px] sm:min-h-[280px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
+            className="group relative col-span-12 flex min-h-[280px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
               

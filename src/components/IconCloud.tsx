@@ -54,6 +54,9 @@ export function IconCloudDemo() {
         </div>
         <div className="hidden sm:flex">
           <IconCloud images={images} />
+      <div className="flex flex-col items-center justify-center gap-3 sm:hidden">
+        <div className="inline-flex items-center rounded-full border border-gray-200 bg-gray-100 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-gray-600 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
+          Toolset
         </div>
       </div>
     </div>
