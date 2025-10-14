@@ -278,6 +278,16 @@ export const FeaturedWork: React.FC = () => {
                 </div>
                 <AnimatePresence mode="wait">
                   {isActive ? (
+                    <motion.div
+                      key={`${project.id}-mobile`}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -16 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="mt-4 sm:mt-6 lg:hidden"
+                    >
+                      <ProjectSidebar project={project} />
+                    </motion.div>
                     <>
                       <motion.div
                         key={`${project.id}-mobile`}

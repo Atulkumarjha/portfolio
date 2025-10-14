@@ -76,10 +76,9 @@ export function CollaborationCard() {
         <div className="absolute flex h-full w-full flex-col">
           <div className="relative h-full [mask-image:linear-gradient(to_right,transparent,black_40%,black_60%,transparent)]">
             <svg
-              className="absolute top-0 left-1/2 -translate-x-1/2 [mask-image:linear-gradient(to_right,transparent,black_20%,black_90%,transparent)]"
-              width="704"
-              height="250"
+              className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[350px] sm:max-w-[500px] md:max-w-[704px] h-auto [mask-image:linear-gradient(to_right,transparent,black_20%,black_90%,transparent)]"
               viewBox="0 0 637 250"
+              preserveAspectRatio="xMidYMid meet"
             >
               <g clipPath="url(#clip0_170_308)">
                 <g filter="url(#filter0_i_170_308)">
