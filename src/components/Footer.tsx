@@ -131,7 +131,6 @@ const Footer = () => {
       </div>
 
       <PageContainer className="relative space-y-8 sm:space-y-12 md:space-y-16 py-8 sm:py-12 md:py-16 lg:py-20">
-      <PageContainer className="relative space-y-12 sm:space-y-16 py-12 sm:py-16 md:py-20">
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -145,22 +144,11 @@ const Footer = () => {
               Available for collaborations
             </p>
             <h2 className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-semibold tracking-tight text-white leading-tight">
-              Let's build something meaningful together.
+              Let&apos;s build something meaningful together.
             </h2>
             <p className="max-w-xl text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-300 leading-relaxed">
-          className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 rounded-xl sm:rounded-2xl md:rounded-3xl border border-white/10 bg-white/5 p-4 sm:p-5 md:p-6 lg:p-8 backdrop-blur md:flex-row md:items-center md:justify-between"
-        >
-          <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5 lg:space-y-3">
-            <p className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/10 bg-white/[0.08] px-2.5 sm:px-3 md:px-4 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium uppercase tracking-[0.25em] sm:tracking-[0.3em] text-white/80">
-              <span className="inline-flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-400" />
-              Available for collaborations
-            </p>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white">
-              Let's build something meaningful together.
-            </h2>
-            <p className="max-w-xl text-xs sm:text-sm md:text-base text-gray-300">
               From idea to launch, I help craft performant web experiences with delightful details.
-              Share your vision and I'll bring it to life.
+              Share your vision and I&apos;ll bring it to life.
             </p>
           </div>
 
@@ -172,17 +160,12 @@ const Footer = () => {
           >
             <span className="absolute inset-0 origin-left scale-x-0 rounded-full bg-white/10 transition-transform duration-300 ease-out group-hover:scale-x-100" />
             <span className="relative flex items-center gap-1 sm:gap-1.5">
-            className="group relative mt-2 sm:mt-3 md:mt-4 inline-flex items-center justify-center overflow-hidden rounded-full border border-white/20 px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm font-medium text-white transition-all hover:border-white/40 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] whitespace-nowrap"
-          >
-            <span className="absolute inset-0 origin-left scale-x-0 rounded-full bg-white/10 transition-transform duration-300 ease-out group-hover:scale-x-100" />
-            <span className="relative flex items-center gap-1.5 sm:gap-2">
               Book a discovery call
               <motion.span
                 initial={{ x: 0 }}
                 animate={{ x: [0, 6, 0] }}
                 transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
                 className="text-xs sm:text-sm md:text-base"
-                className="text-sm sm:text-base md:text-lg"
               >
                 →
               </motion.span>
@@ -190,12 +173,12 @@ const Footer = () => {
           </motion.button>
         </motion.section>
 
-  <motion.section
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16 grid gap-4 sm:gap-5 md:gap-6 lg:gap-8 border border-white/10 bg-white/[0.04] p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 backdrop-blur rounded-lg sm:rounded-xl md:rounded-2xl lg:grid-cols-[1.2fr_2fr]"
+          className="grid gap-4 sm:gap-5 md:gap-6 lg:gap-8 border border-white/10 bg-white/[0.04] p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 backdrop-blur rounded-lg sm:rounded-xl md:rounded-2xl lg:grid-cols-[1.2fr_2fr]"
         >
           <div className="space-y-2 sm:space-y-2.5 md:space-y-3 lg:space-y-4">
             <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
@@ -210,22 +193,6 @@ const Footer = () => {
               </div>
             </div>
             <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-gray-300">
-          className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 grid gap-6 sm:gap-8 md:gap-10 border border-white/10 bg-white/[0.04] p-4 sm:p-5 md:p-6 lg:p-8 backdrop-blur rounded-xl sm:rounded-2xl lg:grid-cols-[1.2fr_2fr]"
-        >
-          <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
-            <div className="flex items-center gap-2.5 sm:gap-3 md:gap-4">
-              <img
-                src="/assets/atulkumarjha2.jpg"
-                alt="Atul Kumar Jha"
-                className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 rounded-full border border-white/20 object-cover"
-                className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full border border-white/20 object-cover"
-              />
-              <div>
-                <p className="text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] text-white/60">Let's collaborate</p>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">Work with Atul</h3>
-              </div>
-            </div>
-            <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-300">
               {contactDetails.map(({ label, href, external }, index) => (
                 <motion.li
                   key={label}
@@ -243,11 +210,6 @@ const Footer = () => {
                     whileTap={{ scale: 0.98 }}
                   >
                     <span className="inline-flex h-0.5 w-0.5 sm:h-1 sm:w-1 rounded-full bg-white/60" />
-                    className="inline-flex items-center gap-1.5 sm:gap-2 transition hover:text-white"
-                    whileHover={{ x: 4 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span className="inline-flex h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-white/60" />
                     {label}
                   </motion.a>
                 </motion.li>
@@ -256,7 +218,6 @@ const Footer = () => {
           </div>
 
           <div className="grid gap-4 sm:gap-5 md:gap-6 lg:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="grid gap-5 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {navigation.map(({ heading, links }, columnIndex) => (
               <motion.div
                 key={heading}
@@ -270,12 +231,6 @@ const Footer = () => {
                   {heading}
                 </h4>
                 <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-gray-300">
-                className="space-y-2.5 sm:space-y-3 md:space-y-4"
-              >
-                <h4 className="text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.25em] sm:tracking-[0.3em] text-white/60">
-                  {heading}
-                </h4>
-                <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-300">
                   {links.map(({ label, href, external }, linkIndex) => (
                     <motion.li
                       key={label}
@@ -293,11 +248,6 @@ const Footer = () => {
                         whileTap={{ scale: 0.97 }}
                       >
                         <span className="inline-flex h-0.5 w-0.5 sm:h-1 sm:w-1 rounded-full bg-white/40" />
-                        className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-2.5 sm:px-3 py-1.5 sm:py-2 transition hover:bg-white/5 hover:text-white"
-                        whileHover={{ x: 4 }}
-                        whileTap={{ scale: 0.97 }}
-                      >
-                        <span className="inline-flex h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-white/40" />
                         {label}
                         {external && <span className="text-white/40">↗</span>}
                       </motion.a>
@@ -309,21 +259,16 @@ const Footer = () => {
           </div>
         </motion.section>
 
-  <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16 flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-white/10 bg-black/40 p-2.5 sm:p-3 md:p-4 lg:p-5 xl:p-6 backdrop-blur md:flex-row md:items-center md:justify-between"
+          className="flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-white/10 bg-black/40 p-2.5 sm:p-3 md:p-4 lg:p-5 xl:p-6 backdrop-blur md:flex-row md:items-center md:justify-between"
         >
           <div className="space-y-0.5 text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-gray-400">
             <p>© {currentYear} Atul Kumar Jha. Crafted with curiosity and caffeine.</p>
             <p className="flex flex-wrap gap-x-1.5 sm:gap-x-2 gap-y-0.5">
-          className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 rounded-xl sm:rounded-2xl md:rounded-3xl border border-white/10 bg-black/40 p-3 sm:p-4 md:p-5 lg:p-6 backdrop-blur md:flex-row md:items-center md:justify-between"
-        >
-          <div className="space-y-0.5 sm:space-y-1 text-[10px] sm:text-xs md:text-sm text-gray-400">
-            <p>© {currentYear} Atul Kumar Jha. Crafted with curiosity and caffeine.</p>
-            <p className="flex flex-wrap gap-x-2 sm:gap-x-3 gap-y-1">
               <a href="/privacy" className="hover:text-gray-200">Privacy Policy</a>
               <span className="hidden sm:inline">·</span>
               <a href="/terms" className="hover:text-gray-200">Terms &amp; Conditions</a>
@@ -332,7 +277,6 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
-          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
             {socialLinks.map(({ Icon, url, label }) => (
               <motion.a
                 key={label}
@@ -340,14 +284,12 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] transition hover:border-white/30 hover:bg-white/[0.08]"
-                className="flex h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] transition hover:border-white/30 hover:bg-white/[0.08]"
                 aria-label={label}
                 title={label}
                 whileHover={{ scale: 1.1, rotate: 4 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Icon className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 lg:h-4 lg:w-4" />
-                <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4" />
               </motion.a>
             ))}
           </div>
