@@ -33,7 +33,9 @@ export function BackgroundBeamsWithCollisionDemo() {
             <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           </span>
           <div className="relative z-10 flex items-center gap-2 rounded-full bg-zinc-950 py-1.5 px-4 ring-1 ring-white/10">
-            <span className="text-xs sm:text-sm">Click to checkout my latest CV</span>
+            <span className="text-xs sm:text-sm">
+              Click to checkout my latest CV
+            </span>
             <FaSquareArrowUpRight className="h-4 w-4" />
           </div>
           <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
@@ -86,7 +88,9 @@ export function BackgroundBeamsWithCollisionDemo() {
               className="group flex w-full flex-wrap items-center justify-center gap-2 rounded-[6px] bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-800 sm:w-auto sm:flex-nowrap sm:px-6"
             >
               <Mail className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-              <span className="truncate max-w-[200px] sm:max-w-none">{email}</span>
+              <span className="truncate max-w-[200px] sm:max-w-none">
+                {email}
+              </span>
               <Copy className="h-4 w-4 sm:h-5 sm:w-5 opacity-70 transition group-hover:opacity-100 flex-shrink-0" />
             </button>
           </div>
@@ -101,7 +105,9 @@ export function BackgroundBeamsWithCollisionDemo() {
             <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0" />
             <div className="flex flex-col flex-1 min-w-0">
               <span className="text-sm sm:text-base">Copied to clipboard!</span>
-              <span className="text-xs text-gray-400 sm:text-sm">Email address copied successfully</span>
+              <span className="text-xs text-gray-400 sm:text-sm">
+                Email address copied successfully
+              </span>
             </div>
             <button
               onClick={() => (window.location.href = `mailto:${email}`)}
