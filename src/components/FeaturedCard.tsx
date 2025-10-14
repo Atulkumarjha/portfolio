@@ -276,6 +276,7 @@ export const FeaturedWork: React.FC = () => {
                     ) : null}
                   </AnimatePresence>
                 </div>
+
                 <AnimatePresence mode="wait">
                   {isActive ? (
                     <motion.div
