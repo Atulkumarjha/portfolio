@@ -187,9 +187,9 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="grid gap-4 sm:gap-5 md:gap-6 lg:gap-8 border border-white/10 bg-white/[0.04] p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 backdrop-blur rounded-lg sm:rounded-xl md:rounded-2xl lg:grid-cols-[1.2fr_2fr]"
+          className="grid gap-4 sm:gap-5 md:gap-6 lg:gap-8 border border-white/10 bg-white/[0.04] p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 backdrop-blur rounded-lg sm:rounded-xl md:rounded-2xl grid-cols-1 lg:grid-cols-[1.2fr_2fr]"
         >
-          <div className="space-y-2 sm:space-y-2.5 md:space-y-3 lg:space-y-4">
+          <div className="space-y-2 sm:space-y-2.5 md:space-y-3 lg:space-y-4 order-2 lg:order-1">
             <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
               <img
                 src="/assets/atulkumarjha2.jpg"
@@ -234,7 +234,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="grid gap-4 sm:gap-5 md:gap-6 lg:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-5 md:gap-6 lg:gap-8 grid-cols-1 md:grid-cols-3 order-1 lg:order-2">
             {navigation.map(({ heading, links }, columnIndex) => (
               <motion.div
                 key={heading}

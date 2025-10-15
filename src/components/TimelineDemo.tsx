@@ -201,7 +201,7 @@ export default function ExperienceTimeline() {
               className="absolute -left-0.5 z-10 flex"
               style={{ top: 0, height: '100%', transform: `translateY(${scrollProgress.offset}%)` }}
             >
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white dark:border-neutral-950 shadow-md">
+              <div className="relative h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 overflow-hidden rounded-full border-2 border-white dark:border-neutral-950 shadow-md">
                 <img
                   src="/assets/atulkumarjha2.jpg" // <-- replace with your image path
                   alt="Profile"

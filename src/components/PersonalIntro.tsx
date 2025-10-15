@@ -158,7 +158,7 @@ const PersonalIntro: React.FC = () => {
       </div>
 
       {/* 3D Image Carousel */}
-      <div className="relative flex h-[180px] w-full max-w-[110px] flex-col items-center justify-center px-2 cursor-grab active:cursor-grabbing sm:h-[240px] sm:max-w-[150px] md:h-[320px] md:max-w-[220px] lg:h-[450px] lg:max-w-[270px] lg:px-0 lg:me-20">
+      <div className="relative flex h-[220px] w-full max-w-[140px] flex-col items-center justify-center px-2 cursor-grab active:cursor-grabbing sm:h-[280px] sm:max-w-[180px] md:h-[320px] md:max-w-[220px] lg:h-[450px] lg:max-w-[270px] lg:px-0 lg:me-20">
         <div className="relative h-full w-full">
           {images.map((image, index) => (
             <div
@@ -167,7 +167,7 @@ const PersonalIntro: React.FC = () => {
               style={getImageStyle(index)}
               onClick={() => handleImageClick(index)}
             >
-              <div className="relative aspect-[4/5] w-[100px] sm:w-[140px] md:w-[200px] lg:w-[300px]">
+              <div className="relative aspect-[4/5] w-[130px] sm:w-[170px] md:w-[200px] lg:w-[300px]">
                 <img
                   alt={image.alt}
                   draggable="false"
