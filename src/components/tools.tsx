@@ -1,7 +1,15 @@
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { ExternalLink, Code2, FileText, Music, Satellite, Palette, NotebookPen } from 'lucide-react';
-import { FaSpotify } from 'react-icons/fa';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import {
+  ExternalLink,
+  Code2,
+  FileText,
+  Music,
+  Satellite,
+  Palette,
+  NotebookPen,
+} from "lucide-react";
+import { FaSpotify } from "react-icons/fa";
 
 function Tool() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -14,33 +22,39 @@ function Tool() {
     {
       icon: Code2,
       label: "Primary Stack",
-      description: "Next.js, TypeScript, Tailwind, and Framer Motion drive most of my shipping work.",
+      description:
+        "Next.js, TypeScript, Tailwind, and Framer Motion drive most of my shipping work.",
     },
     {
       icon: Palette,
       label: "Design Toolkit",
-      description: "Figma for systems, Raycast for speed, and Notion for long-form briefs.",
+      description:
+        "Figma for systems, Raycast for speed, and Notion for long-form briefs.",
     },
     {
       icon: NotebookPen,
       label: "Quality & Ops",
-      description: "Linear for roadmaps, Vercel for previews, and Playwright for confidence checks.",
+      description:
+        "Linear for roadmaps, Vercel for previews, and Playwright for confidence checks.",
     },
     {
       icon: Satellite,
       label: "Inspiration",
-      description: "I collect reference systems from world-class teams and publish annotated breakdowns.",
+      description:
+        "I collect reference systems from world-class teams and publish annotated breakdowns.",
     },
   ];
 
   const guestbookHighlights = [
     {
-      quote: "Atul shipped a production-ready experience in under two weeks—detailed documentation included.",
+      quote:
+        "Atul shipped a production-ready experience in under two weeks—detailed documentation included.",
       name: "Jeya Prasad",
       role: "Founder, Storylens",
     },
     {
-      quote: "His build quality is elite. Our marketing site finally feels fast, modular, and easy to iterate on.",
+      quote:
+        "His build quality is elite. Our marketing site finally feels fast, modular, and easy to iterate on.",
       name: "Harshita Chauhan",
       role: "Product Marketing, Clarify",
     },
@@ -51,13 +65,15 @@ function Tool() {
       title: "Soul",
       artist: "Mixed Artists",
       origin: "Atul's playlist",
-      cover: "https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&w=400",
+      cover:
+        "https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&w=400",
     },
     {
       title: "Lover",
       artist: "Taylor Swift",
       origin: "R&B / Electronica",
-      cover: "https://images.pexels.com/photos/1648790/pexels-photo-1648790.jpeg?auto=compress&cs=tinysrgb&w=400",
+      cover:
+        "https://images.pexels.com/photos/1648790/pexels-photo-1648790.jpeg?auto=compress&cs=tinysrgb&w=400",
     },
   ];
 
@@ -66,7 +82,8 @@ function Tool() {
     title: "Another Story",
     artist: "Nicholas Hooper",
     origin: "Harry Potter Soundtrack",
-    cover: "https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&w=400",
+    cover:
+      "https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&w=400",
   };
   const resolvedTrack = primaryTrack ?? trackFallback;
 
@@ -76,31 +93,34 @@ function Tool() {
         {/* Hero Section */}
         <div
           className={`transition-all duration-1000 ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 
+          <h2
             className="relative z-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-center mb-4 sm:mb-6 md:mb-8 max-w-4xl mx-auto px-4"
             style={{
-              textShadow: 'rgba(255, 255, 255, 0.05) 0px 4px 8px, rgba(255, 255, 255, 0.25) 0px 8px 30px'
+              textShadow:
+                "rgba(255, 255, 255, 0.05) 0px 4px 8px, rgba(255, 255, 255, 0.25) 0px 8px 30px",
             }}
           >
-              <p className="mb-2 sm:mb-3 font-mono text-[10px] sm:text-xs md:text-sm font-normal tracking-widest text-black/80 uppercase dark:text-white/70">
-                Inside the buildroom
-              </p>
-              <span className="font-serif">
-                <span className="text-gray-900 dark:text-white">Peek inside the toolkit that keeps</span>{' '}
-                <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent font-serif italic tracking-tight">
-                  every project moving
-                </span>
+            <p className="mb-2 sm:mb-3 font-mono text-[10px] sm:text-xs md:text-sm font-normal tracking-widest text-black/80 uppercase dark:text-white/70">
+              Inside the buildroom
+            </p>
+            <span className="font-serif">
+              <span className="text-gray-900 dark:text-white">
+                Peek inside the toolkit that keeps
+              </span>{" "}
+              <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent font-serif italic tracking-tight">
+                every project moving
               </span>
+            </span>
           </h2>
         </div>
 
         {/* Cards Grid */}
-        <div 
+        <div
           className={`mt-8 sm:mt-12 md:mt-16 grid grid-cols-1 gap-4 sm:gap-6 transition-all duration-1000 delay-300 md:grid-cols-12 ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
           {/* Uses Card */}
@@ -109,7 +129,6 @@ function Tool() {
             className="group relative flex min-h-[320px] sm:min-h-[320px] md:min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
-              
               {/* Hover Arrow */}
               <div className="absolute right-3 bottom-3 sm:right-4 sm:bottom-4 z-50 flex h-7 w-7 sm:h-9 sm:w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
                 <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700 dark:text-gray-200" />
@@ -120,38 +139,76 @@ function Tool() {
                 {/* Gradient Overlays - hidden on mobile */}
                 <div className="hidden sm:block absolute inset-y-0 left-0 z-20 w-1/5 bg-gradient-to-r from-white dark:from-gray-800 to-transparent group-hover:from-blue-50 dark:group-hover:from-blue-900/20 transition-all duration-500"></div>
                 <div className="hidden sm:block absolute inset-y-0 right-0 z-20 w-1/5 bg-gradient-to-l from-white dark:from-gray-800 to-transparent group-hover:from-blue-50 dark:group-hover:from-blue-900/20 transition-all duration-500"></div>
-                
+
                 {/* Tools Icons */}
                 <div className="w-full py-4 sm:py-0 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-2 md:gap-3 lg:gap-4 transition-all duration-500 ease-in-out px-6 sm:px-2">
                   {/* First Row - 3 icons on mobile */}
                   <div className="flex items-center justify-center gap-4 sm:contents">
                     {[
-                      { name: 'Code2', delay: 'delay-200', size: 'size-[65px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[80px]' },
-                      { name: 'FileText', delay: 'delay-100', size: 'size-[62px] sm:size-[48px] md:size-[58px] lg:size-[68px] xl:size-[75px]' },
-                      { name: 'Code2', delay: 'delay-0', size: 'size-[68px] sm:size-[54px] md:size-[64px] lg:size-[74px] xl:size-[85px]' },
+                      {
+                        name: "Code2",
+                        delay: "delay-200",
+                        size: "size-[65px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[80px]",
+                      },
+                      {
+                        name: "FileText",
+                        delay: "delay-100",
+                        size: "size-[62px] sm:size-[48px] md:size-[58px] lg:size-[68px] xl:size-[75px]",
+                      },
+                      {
+                        name: "Code2",
+                        delay: "delay-0",
+                        size: "size-[68px] sm:size-[54px] md:size-[64px] lg:size-[74px] xl:size-[85px]",
+                      },
                     ].map((tool, index) => (
-                      <div key={index} className="group/tool inline-block text-center">
-                        <div className={`rounded-lg sm:rounded-lg md:rounded-xl border-2 border-transparent p-1 sm:p-1 md:p-1.5 lg:p-2 transition-all duration-500 group-hover:border-indigo-400 ${tool.size} ${tool.delay} group-hover:-translate-y-2 sm:group-hover:-translate-y-3 transform-gpu`}>
+                      <div
+                        key={index}
+                        className="group/tool inline-block text-center"
+                      >
+                        <div
+                          className={`rounded-lg sm:rounded-lg md:rounded-xl border-2 border-transparent p-1 sm:p-1 md:p-1.5 lg:p-2 transition-all duration-500 group-hover:border-indigo-400 ${tool.size} ${tool.delay} group-hover:-translate-y-2 sm:group-hover:-translate-y-3 transform-gpu`}
+                        >
                           <div className="grid h-full place-items-center rounded-md sm:rounded-md md:rounded-lg border-2 border-gray-100 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 shadow-inner hover:shadow-lg transition-all duration-300">
-                            {tool.name === 'Code2' && <Code2 className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-blue-600 dark:text-blue-400" />}
-                            {tool.name === 'FileText' && <FileText className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-green-600 dark:text-green-400" />}
+                            {tool.name === "Code2" && (
+                              <Code2 className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-blue-600 dark:text-blue-400" />
+                            )}
+                            {tool.name === "FileText" && (
+                              <FileText className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-green-600 dark:text-green-400" />
+                            )}
                           </div>
                         </div>
                       </div>
                     ))}
                   </div>
-                  
+
                   {/* Second Row - 2 icons centered on mobile */}
                   <div className="flex items-center justify-center gap-6 sm:contents">
                     {[
-                      { name: 'FileText', delay: 'delay-100', size: 'size-[62px] sm:size-[48px] md:size-[58px] lg:size-[68px] xl:size-[75px]' },
-                      { name: 'Music', delay: 'delay-200', size: 'size-[65px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[80px]' }
+                      {
+                        name: "FileText",
+                        delay: "delay-100",
+                        size: "size-[62px] sm:size-[48px] md:size-[58px] lg:size-[68px] xl:size-[75px]",
+                      },
+                      {
+                        name: "Music",
+                        delay: "delay-200",
+                        size: "size-[65px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[80px]",
+                      },
                     ].map((tool, index) => (
-                      <div key={index + 3} className="group/tool inline-block text-center">
-                        <div className={`rounded-lg sm:rounded-lg md:rounded-xl border-2 border-transparent p-1 sm:p-1 md:p-1.5 lg:p-2 transition-all duration-500 group-hover:border-indigo-400 ${tool.size} ${tool.delay} group-hover:-translate-y-2 sm:group-hover:-translate-y-3 transform-gpu`}>
+                      <div
+                        key={index + 3}
+                        className="group/tool inline-block text-center"
+                      >
+                        <div
+                          className={`rounded-lg sm:rounded-lg md:rounded-xl border-2 border-transparent p-1 sm:p-1 md:p-1.5 lg:p-2 transition-all duration-500 group-hover:border-indigo-400 ${tool.size} ${tool.delay} group-hover:-translate-y-2 sm:group-hover:-translate-y-3 transform-gpu`}
+                        >
                           <div className="grid h-full place-items-center rounded-md sm:rounded-md md:rounded-lg border-2 border-gray-100 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 shadow-inner hover:shadow-lg transition-all duration-300">
-                            {tool.name === 'FileText' && <FileText className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-green-600 dark:text-green-400" />}
-                            {tool.name === 'Music' && <Music className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-purple-600 dark:text-purple-400" />}
+                            {tool.name === "FileText" && (
+                              <FileText className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-green-600 dark:text-green-400" />
+                            )}
+                            {tool.name === "Music" && (
+                              <Music className="h-6 w-6 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-purple-600 dark:text-purple-400" />
+                            )}
                           </div>
                         </div>
                       </div>
@@ -162,16 +219,25 @@ function Tool() {
 
               {/* Text Content */}
               <div className="pointer-events-none z-10 flex flex-col gap-0.5 sm:gap-1 md:gap-1.5 lg:gap-2 p-3 sm:p-3 md:p-4 lg:p-5">
-                <h3 className="font-mono text-[9px] sm:text-[10px] md:text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Uses</h3>
+                <h3 className="font-mono text-[9px] sm:text-[10px] md:text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                  Uses
+                </h3>
                 <p className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold tracking-wide text-gray-700 dark:text-gray-300 leading-tight">
-                  Dive into the exact hardware, software, and rituals I rely on every week.
+                  Dive into the exact hardware, software, and rituals I rely on
+                  every week.
                 </p>
                 <ul className="hidden sm:flex flex-col space-y-0.5 sm:space-y-1 text-[10px] sm:text-xs md:text-sm text-gray-500 dark:text-gray-400">
                   {toolsShowcase.slice(0, 3).map(({ label, description }) => (
-                    <li key={label} className="flex items-start gap-1 sm:gap-1.5 md:gap-2">
+                    <li
+                      key={label}
+                      className="flex items-start gap-1 sm:gap-1.5 md:gap-2"
+                    >
                       <span className="mt-0.5 sm:mt-1 h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-indigo-400/80 flex-shrink-0" />
                       <span className="leading-snug text-[10px] sm:text-xs md:text-sm">
-                        <span className="font-medium text-gray-700 dark:text-gray-200">{label}:</span> {description}
+                        <span className="font-medium text-gray-700 dark:text-gray-200">
+                          {label}:
+                        </span>{" "}
+                        {description}
                       </span>
                     </li>
                   ))}
@@ -189,7 +255,6 @@ function Tool() {
             className="group relative col-span-12 flex min-h-[240px] sm:min-h-[280px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
-              
               {/* Hover Arrow */}
               <div className="absolute right-4 bottom-4 z-50 flex h-9 w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-0 transition-all duration-500 group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
                 <ExternalLink className="h-5 w-5 text-gray-700 dark:text-gray-200" />
@@ -198,12 +263,12 @@ function Tool() {
               {/* Background Pattern */}
               <div className="size-full relative">
                 <div className="absolute bottom-0 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] [background-size:16px_16px] opacity-30"></div>
-                
+
                 {/* Decorative SVG Elements */}
                 <div className="absolute top-0 left-2 sm:left-4 transform -rotate-12 transition-transform duration-700 group-hover:rotate-6">
                   <div className="w-24 h-32 sm:w-28 sm:h-36 md:w-32 md:h-40 bg-gradient-to-br from-pink-400 to-purple-600 rounded-lg shadow-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
                 </div>
-                
+
                 <div className="absolute top-6 sm:top-8 right-2 sm:right-4 transform rotate-12 transition-transform duration-700 group-hover:-rotate-6">
                   <div className="w-28 h-36 sm:w-32 sm:h-40 md:w-36 md:h-44 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-lg shadow-lg opacity-15 group-hover:opacity-25 transition-opacity duration-500"></div>
                 </div>
@@ -211,14 +276,21 @@ function Tool() {
 
               {/* Content */}
               <div className="pointer-events-none z-10 flex flex-col gap-1.5 sm:gap-2 md:gap-3 p-3 sm:p-4 md:p-5">
-                <h3 className="font-mono text-xs sm:text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide">Guestbook</h3>
+                <h3 className="font-mono text-xs sm:text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                  Guestbook
+                </h3>
                 <p className="text-base sm:text-lg md:text-xl font-semibold tracking-wide text-gray-700 dark:text-gray-300 leading-tight">
                   Leave a note or read what collaborators are saying.
                 </p>
                 <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                   {guestbookHighlights.map(({ quote, name, role }, index) => (
-                    <blockquote key={index} className="rounded-md sm:rounded-lg border border-gray-200/60 dark:border-gray-700/60 bg-white/50 dark:bg-gray-800/40 p-2 sm:p-2.5 md:p-3 shadow-sm">
-                      <p className="italic leading-relaxed text-gray-700 dark:text-gray-200 text-xs sm:text-sm line-clamp-2">"{quote}"</p>
+                    <blockquote
+                      key={index}
+                      className="rounded-md sm:rounded-lg border border-gray-200/60 dark:border-gray-700/60 bg-white/50 dark:bg-gray-800/40 p-2 sm:p-2.5 md:p-3 shadow-sm"
+                    >
+                      <p className="italic leading-relaxed text-gray-700 dark:text-gray-200 text-xs sm:text-sm line-clamp-2">
+                        "{quote}"
+                      </p>
                       <p className="mt-1 sm:mt-1.5 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-gray-400 dark:text-gray-500 truncate">
                         {name} · {role}
                       </p>
@@ -240,11 +312,8 @@ function Tool() {
             className="group relative col-span-12 flex min-h-[240px] sm:min-h-[280px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
-              
               {/* Background Accent */}
-              <div 
-                className="absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-25"
-              >
+              <div className="absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-25">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/25 via-emerald-400/10 to-emerald-600/20 blur-3xl" />
                 <div className="absolute inset-0 flex items-center justify-center text-emerald-400/40">
                   <FaSpotify className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40" />
@@ -257,7 +326,7 @@ function Tool() {
                   <div className="w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <Music className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
                   </div>
-                   <h2 className="font-serif text-base sm:text-lg md:text-xl font-medium tracking-wide text-gray-900 dark:text-white">
+                  <h2 className="font-serif text-base sm:text-lg md:text-xl font-medium tracking-wide text-gray-900 dark:text-white">
                     Currently looping
                   </h2>
                 </div>
@@ -265,16 +334,22 @@ function Tool() {
                 {/* Track Info */}
                 <div className="space-y-1 sm:space-y-1.5">
                   <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-tight">
-                    I'm listening to{' '}
-                    <span className="font-medium text-gray-900 dark:text-white">{resolvedTrack.title}</span>
+                    I'm listening to{" "}
+                    <span className="font-medium text-gray-900 dark:text-white">
+                      {resolvedTrack.title}
+                    </span>
                   </p>
                   <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-tight">
-                    by{' '}
-                    <span className="font-medium text-gray-900 dark:text-white">{resolvedTrack.artist}</span>
+                    by{" "}
+                    <span className="font-medium text-gray-900 dark:text-white">
+                      {resolvedTrack.artist}
+                    </span>
                   </p>
                   <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-tight">
-                    from{' '}
-                    <span className="font-medium text-gray-900 dark:text-white">{resolvedTrack.origin}</span>
+                    from{" "}
+                    <span className="font-medium text-gray-900 dark:text-white">
+                      {resolvedTrack.origin}
+                    </span>
                   </p>
                   {additionalTracks.length > 0 && (
                     <div className="pt-1.5 sm:pt-2">

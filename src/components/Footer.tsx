@@ -29,7 +29,11 @@ const Footer = () => {
       url: "https://www.linkedin.com/in/atul-kumar-jha-09535b233/",
       label: "LinkedIn",
     },
-    { Icon: Twitter, url: "https://x.com/atul_kumar_jha", label: "X (Twitter)" },
+    {
+      Icon: Twitter,
+      url: "https://x.com/atul_kumar_jha",
+      label: "X (Twitter)",
+    },
   ];
 
   const navigation = useMemo(
@@ -147,8 +151,9 @@ const Footer = () => {
               Let&apos;s build something meaningful together.
             </h2>
             <p className="max-w-xl text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-300 leading-relaxed">
-              From idea to launch, I help craft performant web experiences with delightful details.
-              Share your vision and I&apos;ll bring it to life.
+              From idea to launch, I help craft performant web experiences with
+              delightful details. Share your vision and I&apos;ll bring it to
+              life.
             </p>
           </div>
 
@@ -164,7 +169,11 @@ const Footer = () => {
               <motion.span
                 initial={{ x: 0 }}
                 animate={{ x: [0, 6, 0] }}
-                transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1.6,
+                  ease: "easeInOut",
+                }}
                 className="text-xs sm:text-sm md:text-base"
               >
                 →
@@ -188,8 +197,12 @@ const Footer = () => {
                 className="h-10 w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16 rounded-full border border-white/20 object-cover"
               />
               <div>
-                <p className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-white/60">Let&apos;s collaborate</p>
-                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-white">Work with Atul</h3>
+                <p className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-white/60">
+                  Let&apos;s collaborate
+                </p>
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-white">
+                  Work with Atul
+                </h3>
               </div>
             </div>
             <ul className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs md:text-sm text-gray-300">
@@ -199,7 +212,11 @@ const Footer = () => {
                   initial={{ opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.1 + index * 0.05, duration: 0.45, ease: "easeOut" }}
+                  transition={{
+                    delay: 0.1 + index * 0.05,
+                    duration: 0.45,
+                    ease: "easeOut",
+                  }}
                 >
                   <motion.a
                     href={href}
@@ -224,7 +241,11 @@ const Footer = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.15 + columnIndex * 0.08, duration: 0.5, ease: "easeOut" }}
+                transition={{
+                  delay: 0.15 + columnIndex * 0.08,
+                  duration: 0.5,
+                  ease: "easeOut",
+                }}
                 className="space-y-2 sm:space-y-2.5 md:space-y-3"
               >
                 <h4 className="text-[9px] sm:text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-white/60">
@@ -237,7 +258,11 @@ const Footer = () => {
                       initial={{ opacity: 0, y: 6 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.25 + columnIndex * 0.08 + linkIndex * 0.04, duration: 0.4, ease: "easeOut" }}
+                      transition={{
+                        delay: 0.25 + columnIndex * 0.08 + linkIndex * 0.04,
+                        duration: 0.4,
+                        ease: "easeOut",
+                      }}
                     >
                       <motion.a
                         href={href}
@@ -267,13 +292,22 @@ const Footer = () => {
           className="flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-white/10 bg-black/40 p-2.5 sm:p-3 md:p-4 lg:p-5 xl:p-6 backdrop-blur md:flex-row md:items-center md:justify-between"
         >
           <div className="space-y-0.5 text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-gray-400">
-            <p>© {currentYear} Atul Kumar Jha. Crafted with curiosity and caffeine.</p>
+            <p>
+              © {currentYear} Atul Kumar Jha. Crafted with curiosity and
+              caffeine.
+            </p>
             <p className="flex flex-wrap gap-x-1.5 sm:gap-x-2 gap-y-0.5">
-              <a href="/privacy" className="hover:text-gray-200">Privacy Policy</a>
+              <a href="/privacy" className="hover:text-gray-200">
+                Privacy Policy
+              </a>
               <span className="hidden sm:inline">·</span>
-              <a href="/terms" className="hover:text-gray-200">Terms &amp; Conditions</a>
+              <a href="/terms" className="hover:text-gray-200">
+                Terms &amp; Conditions
+              </a>
               <span className="hidden sm:inline">·</span>
-              <a href="/attribution" className="hover:text-gray-200">Colophon</a>
+              <a href="/attribution" className="hover:text-gray-200">
+                Colophon
+              </a>
             </p>
           </div>
           <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
