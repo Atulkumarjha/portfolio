@@ -161,21 +161,43 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     color: #4d4d4d;
     background-color: #fff;
     transition: all 0.3s ease-in-out;
   }
+  
+  @media (min-width: 640px) {
+    .example-2 .icon-content a {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .example-2 .icon-content a {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  
   .example-2 .icon-content a:hover {
     box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
   }
   .example-2 .icon-content a svg {
     position: relative;
     z-index: 1;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  @media (min-width: 1024px) {
+    .example-2 .icon-content a svg {
+      width: 24px;
+      height: 24px;
+    }
   }
   .example-2 .icon-content a .filled {
     position: absolute;
@@ -193,11 +215,19 @@ const StyledWrapper = styled.div`
 
   /* X.com specific */
   .example-2 .icon-content a[data-social="x"] .icon-img {
-    width: 22px;
-    height: 22px;
+    width: 16px;
+    height: 16px;
     position: absolute;
     transition: opacity 0.3s ease-in-out;
   }
+  
+  @media (min-width: 1024px) {
+    .example-2 .icon-content a[data-social="x"] .icon-img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
   .example-2 .icon-content a[data-social="x"] .white {
     opacity: 0;
   }

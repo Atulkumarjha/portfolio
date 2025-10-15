@@ -129,8 +129,8 @@ function Tool() {
             className="group relative flex min-h-[320px] sm:min-h-[320px] md:min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
-              {/* Hover Arrow */}
-              <div className="absolute right-3 bottom-3 sm:right-4 sm:bottom-4 z-50 flex h-7 w-7 sm:h-9 sm:w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
+              {/* Redirect Arrow - visible on mobile, hover on desktop */}
+              <div className="absolute right-3 bottom-3 sm:right-4 sm:bottom-4 z-50 flex h-7 w-7 sm:h-9 sm:w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-100 sm:opacity-0 transition-all duration-500 ease-out group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
                 <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700 dark:text-gray-200" />
               </div>
 
@@ -255,9 +255,9 @@ function Tool() {
             className="group relative col-span-12 flex min-h-[240px] sm:min-h-[280px] w-full cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group relative flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
-              {/* Hover Arrow */}
-              <div className="absolute right-4 bottom-4 z-50 flex h-9 w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-0 transition-all duration-500 group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
-                <ExternalLink className="h-5 w-5 text-gray-700 dark:text-gray-200" />
+              {/* Redirect Arrow - visible on mobile, hover on desktop */}
+              <div className="absolute right-3 bottom-3 sm:right-4 sm:bottom-4 z-50 flex h-7 w-7 sm:h-9 sm:w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-100 sm:opacity-0 transition-all duration-500 group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
+                <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700 dark:text-gray-200" />
               </div>
 
               {/* Background Pattern */}
@@ -312,6 +312,11 @@ function Tool() {
             className="group relative col-span-12 flex min-h-[240px] sm:min-h-[280px] cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 md:col-span-6 lg:col-span-4"
           >
             <div className="group flex size-full flex-col justify-between overflow-hidden rounded-xl bg-transparent transition-all duration-500 transform-gpu hover:-translate-y-1">
+              {/* Redirect Arrow - visible on mobile, hover on desktop */}
+              <div className="absolute right-3 bottom-3 sm:right-4 sm:bottom-4 z-50 flex h-7 w-7 sm:h-9 sm:w-9 rotate-6 items-center justify-center rounded-full bg-black/15 dark:bg-white/15 opacity-100 sm:opacity-0 transition-all duration-500 group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
+                <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700 dark:text-gray-200" />
+              </div>
+
               {/* Background Accent */}
               <div className="absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-25">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/25 via-emerald-400/10 to-emerald-600/20 blur-3xl" />

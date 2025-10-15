@@ -291,7 +291,7 @@ const Footer = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-white/10 bg-black/40 p-2.5 sm:p-3 md:p-4 lg:p-5 xl:p-6 backdrop-blur md:flex-row md:items-center md:justify-between"
         >
-          <div className="space-y-0.5 text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-gray-400">
+          <div className="space-y-0.5 text-[8px] sm:text-[9px] md:text-xs lg:text-sm text-gray-400">
             <p>
               © {currentYear} Atul Kumar Jha. Crafted with curiosity and
               caffeine.
