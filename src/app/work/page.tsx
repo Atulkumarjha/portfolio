@@ -19,22 +19,22 @@ export default function Work() {
       <main className="relative z-10 flex flex-1 flex-col gap-16 pt-24 md:pt-32">
         <SectionWrapper>
           <FeaturedWork />
+          
+          <div className="flex justify-center items-center w-full mt-4 sm:mt-5 md:mt-6 lg:mt-6">
+            <a
+              href="https://github.com/Atulkumarjha"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-base sm:text-lg font-semibold text-purple-300 transition hover:text-purple-200"
+            >
+              Want to see more works
+              <FaArrowCircleRight />
+            </a>
+          </div>
         </SectionWrapper>
 
         <SectionWrapper>
           <TechStack />
-        </SectionWrapper>
-
-        <SectionWrapper>
-          <a
-            href="https://github.com/Atulkumarjha"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 text-lg font-semibold text-purple-300 transition hover:text-purple-200"
-          >
-            Want to see more works
-            <FaArrowCircleRight />
-          </a>
         </SectionWrapper>
       </main>
 

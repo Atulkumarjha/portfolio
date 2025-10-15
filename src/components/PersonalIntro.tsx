@@ -158,7 +158,7 @@ const PersonalIntro: React.FC = () => {
       </div>
 
       {/* 3D Image Carousel */}
-      <div className="relative flex h-[220px] w-full max-w-[140px] flex-col items-center justify-center px-2 cursor-grab active:cursor-grabbing sm:h-[280px] sm:max-w-[180px] md:h-[320px] md:max-w-[220px] lg:h-[450px] lg:max-w-[270px] lg:px-0 lg:me-20">
+      <div className="relative flex h-[220px] w-full max-w-[140px] flex-col items-center justify-center px-2 cursor-grab active:cursor-grabbing sm:h-[280px] sm:max-w-[180px] sm:mt-6 md:h-[320px] md:max-w-[220px] lg:h-[450px] lg:max-w-[270px] lg:px-0 lg:me-20 lg:mt-0">
         <div className="relative h-full w-full">
           {images.map((image, index) => (
             <div
