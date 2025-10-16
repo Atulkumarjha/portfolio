@@ -31,8 +31,8 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
           margin: "0 auto",
           borderTopLeftRadius: { xs: "12px", sm: "16px" },
           borderTopRightRadius: { xs: "12px", sm: "16px" },
-          height: { xs: "auto", sm: "38vh" },
-          maxHeight: { xs: "85vh", sm: "38vh" },
+          height: "auto",
+          maxHeight: { xs: "85vh", sm: "80vh", md: "70vh" },
           backgroundColor: "#0a0a0a",
           color: "white",
           display: "flex",
@@ -41,7 +41,7 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
         },
       }}
     >
-      <Box sx={{ overflow: "hidden", flexGrow: 1, p: { xs: 3, sm: 4, md: 6 } }}>
+      <Box sx={{ overflow: "auto", flexGrow: 1, p: { xs: 3, sm: 4, md: 6 } }}>
         {/* Social Icons */}
         <Box sx={{ display: "flex", justifyContent: "center", gap: { xs: 2, sm: 3, md: 4 }, mb: { xs: 2, sm: 3, md: 4 } }}>
           <a
