@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ShootingStars } from "@/components/ui/shooting-stars";
+import dynamic from "next/dynamic";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWithCollisionDemo";
 import { BentoGridSecondDemo } from "../components/BentoGridSecondDemo";
@@ -13,6 +13,10 @@ import Tool from "@/components/tools";
 import { SectionWrapper } from "@/components/layout/PageContainer";
 import { NavBarItem } from "@/components/navbar";
 
+const ShootingStars = dynamic(
+  () => import("@/components/ui/shooting-stars").then((mod) => ({ default: mod.ShootingStars })),
+  { ssr: false }
+);
 
 export function HeroSection() {
   return (
