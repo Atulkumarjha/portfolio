@@ -14,7 +14,10 @@ import { SectionWrapper } from "@/components/layout/PageContainer";
 import { NavBarItem } from "@/components/navbar";
 
 const ShootingStars = dynamic(
-  () => import("@/components/ui/shooting-stars").then((mod) => ({ default: mod.ShootingStars })),
+  () =>
+    import("@/components/ui/shooting-stars").then((mod) => ({
+      default: mod.ShootingStars,
+    })),
   { ssr: false }
 );
 
@@ -31,14 +34,18 @@ export function HeroSection() {
           containerClassName="flex flex-col gap-12"
         >
           <BackgroundBeamsWithCollisionDemo />
+          <ShootingStars className="pointer-events-none" />
+          <StarsBackground className="pointer-events-none" />
+        </SectionWrapper>
+
+        
+
+        <SectionWrapper className="relative z-10">
+          <FeaturedWork />
         </SectionWrapper>
 
         <SectionWrapper className="relative z-10">
           <BentoGridSecondDemo />
-        </SectionWrapper>
-
-        <SectionWrapper className="relative z-10">
-          <FeaturedWork />
         </SectionWrapper>
 
         <SectionWrapper className="relative z-10">
@@ -70,17 +77,17 @@ export function HeroSection() {
 
             <p className="max-w-2xl text-base text-gray-300 sm:text-lg">
               Hey, I&apos;m Atul Kumar Jha — a full-stack developer who loves
-              turning ideas into sleek, powerful web experiences. Whether it&apos;s
-              React, Next.js, or Node.js, I enjoy crafting clean, scalable
-              solutions that just work. Curiosity fuels my builds: I&apos;m always
-              learning, experimenting, and pushing boundaries to see what&apos;s
-              possible.
+              turning ideas into sleek, powerful web experiences. Whether
+              it&apos;s React, Next.js, or Node.js, I enjoy crafting clean,
+              scalable solutions that just work. Curiosity fuels my builds:
+              I&apos;m always learning, experimenting, and pushing boundaries to
+              see what&apos;s possible.
             </p>
             <p className="max-w-2xl text-base text-gray-300 sm:text-lg">
-              When I&apos;m not building, you&apos;ll find me exploring fresh ideas,
-              chasing inspiration, and keeping life balanced. Every day is a
-              chance to create something meaningful—and I wake up ready to make
-              it happen.
+              When I&apos;m not building, you&apos;ll find me exploring fresh
+              ideas, chasing inspiration, and keeping life balanced. Every day
+              is a chance to create something meaningful—and I wake up ready to
+              make it happen.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -124,4 +131,3 @@ export function HeroSection() {
     </>
   );
 }
- 
