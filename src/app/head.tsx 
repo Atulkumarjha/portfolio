@@ -1,0 +1,28 @@
+export default function Head() {
+  return (
+    <>
+      {/* Page Title & Description */}
+      <title>Atul's Portfolio</title>
+      <meta name="description" content="Check out my work as a web developer and designer." />
+
+      <meta property="og:title" content="Atul's Portfolio" />
+      <meta property="og:description" content="Check out my work as a web developer and designer." />
+      <meta property="og:image" content="https://atulkumarjha.me/thumbnail.png" />
+      <meta property="og:url" content="https://atulkumarjha.me/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Atul's Portfolio" />
+
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Atul's Portfolio" />
+      <meta name="twitter:description" content="Check out my work as a web developer and designer." />
+      <meta name="twitter:image" content="https://atulkumarjha.me/thumbnail.png" />
+      <meta name="twitter:site" content="@YourTwitterHandle" /> {/* Optional */}
+      <meta name="twitter:creator" content="@YourTwitterHandle" /> {/* Optional */}
+
+      {/* Optional */}
+      <meta name="theme-color" content="#000000" />
+      <meta name="robots" content="index, follow" />
+    </>
+  );
+}
