@@ -10,6 +10,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
 import EventIcon from "@mui/icons-material/Event";
 import { FaDiscord } from "react-icons/fa";
+import { toast } from "sonner";
 
 interface ConnectDrawerProps {
   open: boolean;
@@ -231,14 +232,31 @@ export default function ConnectDrawer({ open, onClose }: ConnectDrawerProps) {
                   };
 
                   try {
-                    await fetch("/api/sendEmail", {
+                    const response = await fetch("/api/sendEmail", {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify(data),
                     });
-                    form.reset();
+                    
+                    const result = await response.json();
+                    
+                    if (response.ok) {
+                      toast.success("Message sent successfully!", {
+                        description: "I'll get back to you as soon as possible.",
+                      });
+                      form.reset();
+                    } else {
+                      // Log the actual error for debugging
+                      console.error("API Error:", result);
+                      toast.error("Failed to send message", {
+                        description: result.error || "Please try again or contact me directly.",
+                      });
+                    }
                   } catch (err) {
                     console.error("Error sending message:", err);
+                    toast.error("Failed to send message", {
+                      description: "Please check your connection and try again.",
+                    });
                   }
                 }}
               >
